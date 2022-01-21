@@ -50,7 +50,10 @@ public:
     virtual uint16_t Write(EventAnalogVariation variation,
                            const Analog& first,
                            IEventCollection<Analog>& items) override;
-    virtual uint16_t Write(EventBinaryOutputStatusVariation variation,
+	virtual uint16_t Write(EventFrozenAnalogVariation variation,
+						   const FrozenAnalog& first,
+						   IEventCollection<FrozenAnalog>& items) override;
+	virtual uint16_t Write(EventBinaryOutputStatusVariation variation,
                            const BinaryOutputStatus& first,
                            IEventCollection<BinaryOutputStatus>& items) override;
     virtual uint16_t Write(EventAnalogOutputStatusVariation variation,

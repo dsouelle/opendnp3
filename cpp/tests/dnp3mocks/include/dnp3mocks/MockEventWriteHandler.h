@@ -121,6 +121,13 @@ public:
         return this->WriteAny<opendnp3::AnalogInfo>(variation, items);
     }
 
+	virtual uint16_t Write(opendnp3::EventFrozenAnalogVariation variation,
+						   const opendnp3::FrozenAnalog& first,
+						   opendnp3::IEventCollection<opendnp3::FrozenAnalog>& items) override
+	{
+		return this->WriteAny<opendnp3::FrozenAnalogInfo>(variation, items);
+	}
+
     virtual uint16_t Write(opendnp3::EventBinaryOutputStatusVariation variation,
                            const opendnp3::BinaryOutputStatus& first,
                            opendnp3::IEventCollection<opendnp3::BinaryOutputStatus>& items) override

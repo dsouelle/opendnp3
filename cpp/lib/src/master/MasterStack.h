@@ -153,6 +153,16 @@ public:
                          const std::vector<Header>& headers,
                          const TaskConfig& config) override;
 
+	void ImmediateFreeze(const std::string& name,
+						FunctionCode func,
+						const std::vector<Header>& headers,
+						const TaskConfig& config) override;
+
+	void FreezeClear(const std::string& name,
+					FunctionCode func,
+					const std::vector<Header>& headers,
+					const TaskConfig& config) override;
+
     // ------- implement ICommandProcessor ---------
 
     void SelectAndOperate(CommandSet&& commands,

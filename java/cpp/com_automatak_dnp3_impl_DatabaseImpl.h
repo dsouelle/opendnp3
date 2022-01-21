@@ -49,6 +49,14 @@ JNIEXPORT void JNICALL Java_com_automatak_dnp3_impl_DatabaseImpl_update_1analog_
 
 /*
  * Class:     com_automatak_dnp3_impl_DatabaseImpl
+ * Method:    freeze_analog_native
+ * Signature: (JIZI)V
+ */
+JNIEXPORT void JNICALL Java_com_automatak_dnp3_impl_DatabaseImpl_freeze_1analog_1native
+  (JNIEnv *, jobject, jlong, jint, jboolean, jint);
+
+/*
+ * Class:     com_automatak_dnp3_impl_DatabaseImpl
  * Method:    update_counter_native
  * Signature: (JJBLcom/automatak/dnp3/DNPTime;II)V
  */

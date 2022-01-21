@@ -890,7 +890,7 @@ IINField OContext::HandleCommandWithConstant(const ser4cpp::rseq_t& objects, Hea
 
 IINField OContext::HandleFreeze(const ser4cpp::rseq_t& objects)
 {
-    FreezeRequestHandler handler(false, database);
+	FreezeRequestHandler handler(false, database);
     auto result = APDUParser::Parse(objects, handler, &this->logger, ParserSettings::NoContents());
     return IINFromParseResult(result);
 }

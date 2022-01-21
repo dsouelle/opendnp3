@@ -26,6 +26,7 @@
 #include "gen/objects/Group21.h"
 #include "gen/objects/Group3.h"
 #include "gen/objects/Group30.h"
+#include "gen/objects/Group31.h"
 #include "gen/objects/Group40.h"
 #include "gen/objects/Group50.h"
 #include "logging/LogMacros.h"
@@ -127,6 +128,15 @@ ParseResult RangeParser::ParseRangeOfObjects(
         MACRO_PARSE_OBJECTS_WITH_RANGE(Group30Var4);
         MACRO_PARSE_OBJECTS_WITH_RANGE(Group30Var5);
         MACRO_PARSE_OBJECTS_WITH_RANGE(Group30Var6);
+
+		MACRO_PARSE_OBJECTS_WITH_RANGE(Group31Var1);
+		MACRO_PARSE_OBJECTS_WITH_RANGE(Group31Var2);
+		MACRO_PARSE_OBJECTS_WITH_RANGE(Group31Var3);
+		MACRO_PARSE_OBJECTS_WITH_RANGE(Group31Var4);
+		MACRO_PARSE_OBJECTS_WITH_RANGE(Group31Var5);
+		MACRO_PARSE_OBJECTS_WITH_RANGE(Group31Var6);
+		MACRO_PARSE_OBJECTS_WITH_RANGE(Group31Var7);
+		MACRO_PARSE_OBJECTS_WITH_RANGE(Group31Var8);
 
         MACRO_PARSE_OBJECTS_WITH_RANGE(Group40Var1);
         MACRO_PARSE_OBJECTS_WITH_RANGE(Group40Var2);

@@ -152,6 +152,24 @@ public:
                                  const std::vector<Header>& headers,
                                  const TaskConfig& config = TaskConfig::Default())
         = 0;
+
+	/**
+	* Perform an Immediate Freeze function
+	*/
+	virtual void ImmediateFreeze(const std::string& name,
+		FunctionCode func,
+		const std::vector<Header>& headers,
+		const TaskConfig& config = TaskConfig::Default())
+		= 0;
+
+	/**
+	* Perform a Freeze Clear function
+	*/
+	virtual void FreezeClear(const std::string& name,
+		FunctionCode func,
+		const std::vector<Header>& headers,
+		const TaskConfig& config = TaskConfig::Default())
+		= 0;
 };
 
 } // namespace opendnp3

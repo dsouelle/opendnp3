@@ -51,7 +51,8 @@ struct EventBufferConfig
     EventBufferConfig(uint16_t maxBinaryEvents = 0,
                       uint16_t maxDoubleBinaryEvents = 0,
                       uint16_t maxAnalogEvents = 0,
-                      uint16_t maxCounterEvents = 0,
+					  uint16_t maxFrozenAnalogEvents = 0,
+					  uint16_t maxCounterEvents = 0,
                       uint16_t maxFrozenCounterEvents = 0,
                       uint16_t maxBinaryOutputStatusEvents = 0,
                       uint16_t maxAnalogOutputStatusEvents = 0,
@@ -68,6 +69,9 @@ struct EventBufferConfig
 
     // The number of analog events the outstation will buffer before overflowing
     uint16_t maxAnalogEvents;
+
+	// The number of frozen analog events the outstation will buffer before overflowing
+	uint16_t maxFrozenAnalogEvents;
 
     // The number of counter events the outstation will buffer before overflowing
     uint16_t maxCounterEvents;

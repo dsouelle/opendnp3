@@ -62,6 +62,13 @@ public interface SOEHandler {
     /**
      * Process a collection of values
      * @param info information about the header from which the value came
+     * @param values the measurement values
+     */
+    void processFAI(HeaderInfo info, Iterable<IndexedValue<FrozenAnalog>> values);
+
+    /**
+     * Process a collection of values
+     * @param info information about the header from which the value came
      * @param values the measurement value
      */
     void processC(HeaderInfo info, Iterable<IndexedValue<Counter>> values);

@@ -32,7 +32,8 @@ enum class ValueType
     Binary,
     DoubleBitBinary,
     Analog,
-    Counter,
+    FrozenAnalog,
+	Counter,
     FrozenCounter,
     AnalogOutputStatus,
     BinaryOutputStatus
@@ -53,7 +54,9 @@ public:
             return "DoubleBitBinary";
         case (ValueType::Analog):
             return "Analog";
-        case (ValueType::Counter):
+		case (ValueType::FrozenAnalog):
+			return "FrozenAnalog";
+		case (ValueType::Counter):
             return "Counter";
         case (ValueType::FrozenCounter):
             return "FrozenCounter";
@@ -83,7 +86,11 @@ public:
         : ExpectedValue(static_cast<int64_t>(value.value), index, ValueType::Analog)
     {
     }
-    ExpectedValue(const opendnp3::Counter& value, uint16_t index)
+	ExpectedValue(const opendnp3::FrozenAnalog& value, uint16_t index)
+		: ExpectedValue(static_cast<int64_t>(value.value), index, ValueType::FrozenAnalog)
+	{
+	}
+	ExpectedValue(const opendnp3::Counter& value, uint16_t index)
         : ExpectedValue(value.value, index, ValueType::Counter)
     {
     }

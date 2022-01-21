@@ -82,6 +82,22 @@ struct AnalogFactory : private StaticOnly
     }
 };
 
+struct FrozenAnalogFactory : private StaticOnly
+{
+	static FrozenAnalog From(int32_t count)
+	{
+		return FrozenAnalog(count);
+	}
+	static FrozenAnalog From(uint8_t flags, double value)
+	{
+		return FrozenAnalog(value, Flags(flags));
+	}
+	static FrozenAnalog From(uint8_t flags, double value, DNPTime time)
+	{
+		return FrozenAnalog(value, Flags(flags), time);
+	}
+};
+
 struct CounterFactory : private StaticOnly
 {
     inline static Counter From(uint32_t count)

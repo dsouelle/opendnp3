@@ -42,13 +42,14 @@ namespace opendnp3 {
 */
 enum class FlagsType : uint8_t
 {
+  BinaryInput = 0x0,
   DoubleBinaryInput = 0x1,
   Counter = 0x2,
   FrozenCounter = 0x3,
   AnalogInput = 0x4,
   BinaryOutputStatus = 0x5,
   AnalogOutputStatus = 0x6,
-  BinaryInput = 0x0
+  FrozenAnalog = 0x7
 };
 
 struct FlagsTypeSpec

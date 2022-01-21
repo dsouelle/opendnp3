@@ -116,6 +116,11 @@ void IAPDUHandler::OnHeader(const RangeHeader& header, const ICollection<Indexed
     Record(header, this->ProcessHeader(header, values));
 }
 
+void IAPDUHandler::OnHeader(const RangeHeader& header, const ICollection<Indexed<FrozenAnalog>>& values)
+{
+	Record(header, this->ProcessHeader(header, values));
+}
+
 void IAPDUHandler::OnHeader(const RangeHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values)
 {
     Record(header, this->ProcessHeader(header, values));
@@ -161,6 +166,11 @@ void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexe
 void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<Analog>>& values)
 {
     Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<FrozenAnalog>>& values)
+{
+	Record(header, this->ProcessHeader(header, values));
 }
 
 void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values)
@@ -307,6 +317,12 @@ IINField IAPDUHandler::ProcessHeader(const RangeHeader& /*header*/, const IColle
     return ProcessUnsupportedHeader();
 }
 
+IINField IAPDUHandler::ProcessHeader(const RangeHeader& /*header*/, 
+									 const ICollection<Indexed<FrozenAnalog>>& /*values*/)
+{
+	return ProcessUnsupportedHeader();
+}
+
 IINField IAPDUHandler::ProcessHeader(const RangeHeader& /*header*/,
                                      const ICollection<Indexed<AnalogOutputStatus>>& /*values*/)
 {
@@ -357,6 +373,12 @@ IINField IAPDUHandler::ProcessHeader(const PrefixHeader& /*header*/,
 IINField IAPDUHandler::ProcessHeader(const PrefixHeader& /*header*/, const ICollection<Indexed<Analog>>& /*values*/)
 {
     return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& /*header*/, 
+									 const ICollection<Indexed<FrozenAnalog>>& /*values*/)
+{
+	return ProcessUnsupportedHeader();
 }
 
 IINField IAPDUHandler::ProcessHeader(const PrefixHeader& /*header*/,

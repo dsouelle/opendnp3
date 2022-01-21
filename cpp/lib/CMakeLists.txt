@@ -60,12 +60,14 @@ set(opendnp3_public_headers
     ./include/opendnp3/gen/EventBinaryVariation.h
     ./include/opendnp3/gen/EventCounterVariation.h
     ./include/opendnp3/gen/EventDoubleBinaryVariation.h
+    ./include/opendnp3/gen/EventFrozenAnalogVariation.h
     ./include/opendnp3/gen/EventFrozenCounterVariation.h
     ./include/opendnp3/gen/EventMode.h
     ./include/opendnp3/gen/EventOctetStringVariation.h
     ./include/opendnp3/gen/EventSecurityStatVariation.h
     ./include/opendnp3/gen/FlagsType.h
     ./include/opendnp3/gen/FlowControl.h
+    ./include/opendnp3/gen/FrozenAnalogQuality.h
     ./include/opendnp3/gen/FrozenCounterQuality.h
     ./include/opendnp3/gen/FunctionCode.h
     ./include/opendnp3/gen/GroupVariation.h
@@ -88,6 +90,7 @@ set(opendnp3_public_headers
     ./include/opendnp3/gen/StaticBinaryVariation.h
     ./include/opendnp3/gen/StaticCounterVariation.h
     ./include/opendnp3/gen/StaticDoubleBinaryVariation.h
+    ./include/opendnp3/gen/StaticFrozenAnalogVariation.h
     ./include/opendnp3/gen/StaticFrozenCounterVariation.h
     ./include/opendnp3/gen/StaticOctetStringVariation.h
     ./include/opendnp3/gen/StaticSecurityStatVariation.h
@@ -269,7 +272,9 @@ set(opendnp3_private_headers
     ./src/gen/objects/Group22.h
     ./src/gen/objects/Group23.h
     ./src/gen/objects/Group30.h
+    ./src/gen/objects/Group31.h
     ./src/gen/objects/Group32.h
+    ./src/gen/objects/Group33.h
     ./src/gen/objects/Group40.h
     ./src/gen/objects/Group41.h
     ./src/gen/objects/Group42.h
@@ -485,6 +490,7 @@ set(opendnp3_src
     ./src/gen/EventBinaryVariation.cpp
     ./src/gen/EventCounterVariation.cpp
     ./src/gen/EventDoubleBinaryVariation.cpp
+    ./src/gen/EventFrozenAnalogVariation.cpp
     ./src/gen/EventFrozenCounterVariation.cpp
     ./src/gen/EventMode.cpp
     ./src/gen/EventOctetStringVariation.cpp    
@@ -512,6 +518,7 @@ set(opendnp3_src
     ./src/gen/StaticBinaryVariation.cpp
     ./src/gen/StaticCounterVariation.cpp
     ./src/gen/StaticDoubleBinaryVariation.cpp
+    ./src/gen/StaticFrozenAnalogVariation.cpp
     ./src/gen/StaticFrozenCounterVariation.cpp
     ./src/gen/StaticOctetStringVariation.cpp    
     ./src/gen/StaticTimeAndIntervalVariation.cpp
@@ -535,7 +542,9 @@ set(opendnp3_src
     ./src/gen/objects/Group22.cpp
     ./src/gen/objects/Group23.cpp
     ./src/gen/objects/Group30.cpp
+    ./src/gen/objects/Group31.cpp
     ./src/gen/objects/Group32.cpp
+    ./src/gen/objects/Group33.cpp
     ./src/gen/objects/Group40.cpp
     ./src/gen/objects/Group41.cpp
     ./src/gen/objects/Group42.cpp

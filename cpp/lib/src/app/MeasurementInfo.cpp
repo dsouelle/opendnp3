@@ -47,6 +47,13 @@ const StaticTypeBitmask AnalogInfo::StaticTypeEnum = StaticTypeBitmask::AnalogIn
 const AnalogInfo::event_variation_t AnalogInfo::DefaultEventVariation = EventAnalogVariation::Group32Var1;
 const AnalogInfo::static_variation_t AnalogInfo::DefaultStaticVariation = StaticAnalogVariation::Group30Var1;
 
+const EventType FrozenAnalogInfo::EventTypeEnum = EventType::FrozenAnalog;
+const StaticTypeBitmask FrozenAnalogInfo::StaticTypeEnum = StaticTypeBitmask::FrozenAnalog;
+const FrozenAnalogInfo::event_variation_t FrozenAnalogInfo::DefaultEventVariation 
+	= EventFrozenAnalogVariation::Group33Var1;
+const FrozenAnalogInfo::static_variation_t FrozenAnalogInfo::DefaultStaticVariation 
+	= StaticFrozenAnalogVariation::Group31Var1;
+
 const EventType CounterInfo::EventTypeEnum = EventType::Counter;
 const StaticTypeBitmask CounterInfo::StaticTypeEnum = StaticTypeBitmask::Counter;
 const CounterInfo::event_variation_t CounterInfo::DefaultEventVariation = EventCounterVariation::Group22Var1;

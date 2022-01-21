@@ -51,6 +51,9 @@ namespace jni
             this->maxAnalogEventsField = env->GetFieldID(this->clazz, "maxAnalogEvents", "I");
             if(!this->maxAnalogEventsField) return false;
 
+            this->maxFrozenAnalogEventsField = env->GetFieldID(this->clazz, "maxFrozenAnalogEvents", "I");
+            if(!this->maxFrozenAnalogEventsField) return false;
+
             this->maxCounterEventsField = env->GetFieldID(this->clazz, "maxCounterEvents", "I");
             if(!this->maxCounterEventsField) return false;
 
@@ -99,6 +102,11 @@ namespace jni
         jint EventBufferConfig::getmaxDoubleBinaryEvents(JNIEnv* env, JEventBufferConfig instance)
         {
             return env->GetIntField(instance, this->maxDoubleBinaryEventsField);
+        }
+
+        jint EventBufferConfig::getmaxFrozenAnalogEvents(JNIEnv* env, JEventBufferConfig instance)
+        {
+            return env->GetIntField(instance, this->maxFrozenAnalogEventsField);
         }
 
         jint EventBufferConfig::getmaxFrozenCounterEvents(JNIEnv* env, JEventBufferConfig instance)

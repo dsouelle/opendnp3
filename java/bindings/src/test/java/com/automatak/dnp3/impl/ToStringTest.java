@@ -41,6 +41,9 @@ public class ToStringTest {
     }
 
     @Test
+    public void frozenAnalog() { new FrozenAnalog(41.0, new Flags((byte)0x80), new DNPTime(200)).toString(); }
+
+    @Test
     public void counter() {
         new Counter(41, new Flags((byte)0x80), new DNPTime(200)).toString();
     }

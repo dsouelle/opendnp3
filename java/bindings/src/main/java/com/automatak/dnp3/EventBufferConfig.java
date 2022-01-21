@@ -39,7 +39,7 @@ public class EventBufferConfig {
      * @return a new EventBufferConfig instance
      */
     public static EventBufferConfig allTypes(int num) {
-        return new EventBufferConfig(num, num, num, num, num, num, num);
+        return new EventBufferConfig(num, num, num, num, num, num, num, num);
     }
 
     /**
@@ -47,6 +47,7 @@ public class EventBufferConfig {
      * @param maxBinaryEvents maximum number of event for this type
      * @param maxDoubleBinaryEvents maximum number of event for this type
      * @param maxAnalogEvents maximum number of event for this type
+     * @param maxFrozenAnalogEvents maximum number of event for this type
      * @param maxCounterEvents maximum number of event for this type
      * @param maxFrozenCounterEvents maximum number of event for this type
      * @param maxBinaryOutputStatusEvents maximum number of event for this type
@@ -56,6 +57,7 @@ public class EventBufferConfig {
             int maxBinaryEvents,
             int maxDoubleBinaryEvents,
             int maxAnalogEvents,
+            int maxFrozenAnalogEvents,
             int maxCounterEvents,
             int maxFrozenCounterEvents,
             int maxBinaryOutputStatusEvents,
@@ -64,6 +66,7 @@ public class EventBufferConfig {
         this.maxBinaryEvents = maxBinaryEvents;
         this.maxDoubleBinaryEvents = maxDoubleBinaryEvents;
         this.maxAnalogEvents = maxAnalogEvents;
+        this.maxFrozenAnalogEvents = maxFrozenAnalogEvents;
         this.maxCounterEvents = maxCounterEvents;
         this.maxFrozenCounterEvents = maxFrozenCounterEvents;
         this.maxBinaryOutputStatusEvents = maxBinaryOutputStatusEvents;
@@ -78,6 +81,9 @@ public class EventBufferConfig {
 
     /// The number of analog events the outstation will buffer before overflowing
     public int maxAnalogEvents;
+
+    /// The number of frozen analog events the outstation will buffer before overflowing
+    public int maxFrozenAnalogEvents;
 
     /// The number of counter events the outstation will buffer before overflowing
     public int maxCounterEvents;

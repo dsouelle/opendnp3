@@ -82,9 +82,12 @@ namespace jni
     cache::EventConfig JCache::EventConfig;
     cache::EventCounterVariation JCache::EventCounterVariation;
     cache::EventDoubleBinaryVariation JCache::EventDoubleBinaryVariation;
+    cache::EventFrozenAnalogVariation JCache::EventFrozenAnalogVariation;
     cache::EventFrozenCounterVariation JCache::EventFrozenCounterVariation;
     cache::EventMode JCache::EventMode;
     cache::Flags JCache::Flags;
+    cache::FrozenAnalog JCache::FrozenAnalog;
+    cache::FrozenAnalogConfig JCache::FrozenAnalogConfig;
     cache::FrozenCounter JCache::FrozenCounter;
     cache::FrozenCounterConfig JCache::FrozenCounterConfig;
     cache::GroupVariation JCache::GroupVariation;
@@ -131,6 +134,7 @@ namespace jni
     cache::StaticBinaryVariation JCache::StaticBinaryVariation;
     cache::StaticCounterVariation JCache::StaticCounterVariation;
     cache::StaticDoubleBinaryVariation JCache::StaticDoubleBinaryVariation;
+    cache::StaticFrozenAnalogVariation JCache::StaticFrozenAnalogVariation;
     cache::StaticFrozenCounterVariation JCache::StaticFrozenCounterVariation;
     cache::StaticTypeBitField JCache::StaticTypeBitField;
     cache::TLSConfig JCache::TLSConfig;
@@ -193,9 +197,12 @@ namespace jni
         && EventConfig.init(env)
         && EventCounterVariation.init(env)
         && EventDoubleBinaryVariation.init(env)
+        && EventFrozenAnalogVariation.init(env)
         && EventFrozenCounterVariation.init(env)
         && EventMode.init(env)
         && Flags.init(env)
+        && FrozenAnalog.init(env)
+        && FrozenAnalogConfig.init(env)
         && FrozenCounter.init(env)
         && FrozenCounterConfig.init(env)
         && GroupVariation.init(env)
@@ -242,6 +249,7 @@ namespace jni
         && StaticBinaryVariation.init(env)
         && StaticCounterVariation.init(env)
         && StaticDoubleBinaryVariation.init(env)
+        && StaticFrozenAnalogVariation.init(env)
         && StaticFrozenCounterVariation.init(env)
         && StaticTypeBitField.init(env)
         && TLSConfig.init(env)
@@ -306,9 +314,12 @@ namespace jni
         EventConfig.cleanup(env);
         EventCounterVariation.cleanup(env);
         EventDoubleBinaryVariation.cleanup(env);
+        EventFrozenAnalogVariation.cleanup(env);
         EventFrozenCounterVariation.cleanup(env);
         EventMode.cleanup(env);
         Flags.cleanup(env);
+        FrozenAnalog.cleanup(env);
+        FrozenAnalogConfig.cleanup(env);
         FrozenCounter.cleanup(env);
         FrozenCounterConfig.cleanup(env);
         GroupVariation.cleanup(env);
@@ -355,6 +366,7 @@ namespace jni
         StaticBinaryVariation.cleanup(env);
         StaticCounterVariation.cleanup(env);
         StaticDoubleBinaryVariation.cleanup(env);
+        StaticFrozenAnalogVariation.cleanup(env);
         StaticFrozenCounterVariation.cleanup(env);
         StaticTypeBitField.cleanup(env);
         TLSConfig.cleanup(env);

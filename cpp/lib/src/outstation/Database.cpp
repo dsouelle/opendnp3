@@ -86,7 +86,8 @@ Database::Database(const DatabaseConfig& config,
       binary_input(config.binary_input),
       double_binary(config.double_binary),
       analog_input(config.analog_input),
-      counter(config.counter),
+	  frozen_analog(config.frozen_analog),
+	  counter(config.counter),
       frozen_counter(config.frozen_counter),
       binary_output_status(config.binary_output_status),
       analog_output_status(config.analog_output_status),
@@ -105,7 +106,8 @@ IINField Database::SelectAll(GroupVariation gv)
         this->select_all_class_zero<CounterSpec>(this->counter);
         this->select_all_class_zero<FrozenCounterSpec>(this->frozen_counter);
         this->select_all_class_zero<AnalogSpec>(this->analog_input);
-        this->select_all_class_zero<AnalogOutputStatusSpec>(this->analog_output_status);
+		this->select_all_class_zero<FrozenAnalogSpec>(this->frozen_analog);
+		this->select_all_class_zero<AnalogOutputStatusSpec>(this->analog_output_status);
         this->select_all_class_zero<TimeAndIntervalSpec>(this->time_and_interval);
         this->select_all_class_zero<OctetStringSpec>(this->octet_string);
 
@@ -172,6 +174,25 @@ IINField Database::SelectAll(GroupVariation gv)
         return select_all<AnalogSpec>(this->analog_input, StaticAnalogVariation::Group30Var5);
     case (GroupVariation::Group30Var6):
         return select_all<AnalogSpec>(this->analog_input, StaticAnalogVariation::Group30Var6);
+
+	case (GroupVariation::Group31Var0):
+		return select_all<FrozenAnalogSpec>(this->frozen_analog);
+	case (GroupVariation::Group31Var1):
+		return select_all<FrozenAnalogSpec>(this->frozen_analog, StaticFrozenAnalogVariation::Group31Var1);
+	case (GroupVariation::Group31Var2):
+		return select_all<FrozenAnalogSpec>(this->frozen_analog, StaticFrozenAnalogVariation::Group31Var2);
+	case (GroupVariation::Group31Var3):
+		return select_all<FrozenAnalogSpec>(this->frozen_analog, StaticFrozenAnalogVariation::Group31Var3);
+	case (GroupVariation::Group31Var4):
+		return select_all<FrozenAnalogSpec>(this->frozen_analog, StaticFrozenAnalogVariation::Group31Var4);
+	case (GroupVariation::Group31Var5):
+		return select_all<FrozenAnalogSpec>(this->frozen_analog, StaticFrozenAnalogVariation::Group31Var5);
+	case (GroupVariation::Group31Var6):
+		return select_all<FrozenAnalogSpec>(this->frozen_analog, StaticFrozenAnalogVariation::Group31Var6);
+	case (GroupVariation::Group31Var7):
+		return select_all<FrozenAnalogSpec>(this->frozen_analog, StaticFrozenAnalogVariation::Group31Var7);
+	case (GroupVariation::Group31Var8):
+		return select_all<FrozenAnalogSpec>(this->frozen_analog, StaticFrozenAnalogVariation::Group31Var8);
 
     case (GroupVariation::Group40Var0):
         return select_all<AnalogOutputStatusSpec>(this->analog_output_status);
@@ -262,6 +283,25 @@ IINField Database::SelectRange(GroupVariation gv, const Range& range)
     case (GroupVariation::Group30Var6):
         return select_range<AnalogSpec>(this->analog_input, range, StaticAnalogVariation::Group30Var6);
 
+	case (GroupVariation::Group31Var0):
+		return select_range<FrozenAnalogSpec>(this->frozen_analog, range);
+	case (GroupVariation::Group31Var1):
+		return select_range<FrozenAnalogSpec>(this->frozen_analog, range, StaticFrozenAnalogVariation::Group31Var1);
+	case (GroupVariation::Group31Var2):
+		return select_range<FrozenAnalogSpec>(this->frozen_analog, range, StaticFrozenAnalogVariation::Group31Var2);
+	case (GroupVariation::Group31Var3):
+		return select_range<FrozenAnalogSpec>(this->frozen_analog, range, StaticFrozenAnalogVariation::Group31Var3);
+	case (GroupVariation::Group31Var4):
+		return select_range<FrozenAnalogSpec>(this->frozen_analog, range, StaticFrozenAnalogVariation::Group31Var4);
+	case (GroupVariation::Group31Var5):
+		return select_range<FrozenAnalogSpec>(this->frozen_analog, range, StaticFrozenAnalogVariation::Group31Var5);
+	case (GroupVariation::Group31Var6):
+		return select_range<FrozenAnalogSpec>(this->frozen_analog, range, StaticFrozenAnalogVariation::Group31Var6);
+	case (GroupVariation::Group31Var7):
+		return select_range<FrozenAnalogSpec>(this->frozen_analog, range, StaticFrozenAnalogVariation::Group31Var7);
+	case (GroupVariation::Group31Var8):
+		return select_range<FrozenAnalogSpec>(this->frozen_analog, range, StaticFrozenAnalogVariation::Group31Var8);
+
     case (GroupVariation::Group40Var0):
         return select_range<AnalogOutputStatusSpec>(this->analog_output_status, range);
     case (GroupVariation::Group40Var1):
@@ -351,6 +391,25 @@ IINField Database::SelectIndices(GroupVariation gv, const ICollection<uint16_t>&
     case (GroupVariation::Group30Var6):
         return select_indices(this->analog_input, indices, StaticAnalogVariation::Group30Var6);
 
+	case (GroupVariation::Group31Var0):
+		return select_indices<FrozenAnalogSpec>(this->frozen_analog, indices);
+	case (GroupVariation::Group31Var1):
+		return select_indices(this->frozen_analog, indices, StaticFrozenAnalogVariation::Group31Var1);
+	case (GroupVariation::Group31Var2):
+		return select_indices(this->frozen_analog, indices, StaticFrozenAnalogVariation::Group31Var2);
+	case (GroupVariation::Group31Var3):
+		return select_indices(this->frozen_analog, indices, StaticFrozenAnalogVariation::Group31Var3);
+	case (GroupVariation::Group31Var4):
+		return select_indices(this->frozen_analog, indices, StaticFrozenAnalogVariation::Group31Var4);
+	case (GroupVariation::Group31Var5):
+		return select_indices(this->frozen_analog, indices, StaticFrozenAnalogVariation::Group31Var5);
+	case (GroupVariation::Group31Var6):
+		return select_indices(this->frozen_analog, indices, StaticFrozenAnalogVariation::Group31Var6);
+	case (GroupVariation::Group31Var7):
+		return select_indices(this->frozen_analog, indices, StaticFrozenAnalogVariation::Group31Var7);
+	case (GroupVariation::Group31Var8):
+		return select_indices(this->frozen_analog, indices, StaticFrozenAnalogVariation::Group31Var8);
+
     case (GroupVariation::Group40Var0):
         return select_indices(this->analog_output_status, indices);
     case (GroupVariation::Group40Var1):
@@ -381,7 +440,8 @@ void Database::Unselect()
     this->counter.clear_selection();
     this->frozen_counter.clear_selection();
     this->analog_input.clear_selection();
-    this->analog_output_status.clear_selection();
+	this->frozen_analog.clear_selection();
+	this->analog_output_status.clear_selection();
     this->time_and_interval.clear_selection();
     this->octet_string.clear_selection();
 }
@@ -400,7 +460,9 @@ Range Database::AssignClassToAll(AssignClassType type, PointClass clazz)
         return this->frozen_counter.assign_class(clazz);
     case (AssignClassType::AnalogInput):
         return this->analog_input.assign_class(clazz);
-    case (AssignClassType::BinaryOutputStatus):
+	case (AssignClassType::FrozenAnalog):
+		return this->frozen_analog.assign_class(clazz);
+	case (AssignClassType::BinaryOutputStatus):
         return this->binary_output_status.assign_class(clazz);
     case (AssignClassType::AnalogOutputStatus):
         return this->analog_output_status.assign_class(clazz);
@@ -423,7 +485,9 @@ Range Database::AssignClassToRange(AssignClassType type, PointClass clazz, const
         return this->frozen_counter.assign_class(clazz, range);
     case (AssignClassType::AnalogInput):
         return this->analog_input.assign_class(clazz, range);
-    case (AssignClassType::BinaryOutputStatus):
+	case (AssignClassType::FrozenAnalog):
+		return this->frozen_analog.assign_class(clazz, range);
+	case (AssignClassType::BinaryOutputStatus):
         return this->binary_output_status.assign_class(clazz, range);
     case (AssignClassType::AnalogOutputStatus):
         return this->analog_output_status.assign_class(clazz, range);
@@ -435,18 +499,18 @@ Range Database::AssignClassToRange(AssignClassType type, PointClass clazz, const
 bool Database::HasAnySelection() const
 {
     return binary_input.has_any_selection() || double_binary.has_any_selection() || analog_input.has_any_selection()
-        || counter.has_any_selection() || frozen_counter.has_any_selection() || binary_output_status.has_any_selection()
-        || analog_output_status.has_any_selection() || time_and_interval.has_any_selection()
-        || octet_string.has_any_selection();
+		|| frozen_analog.has_any_selection() || counter.has_any_selection() || frozen_counter.has_any_selection() 
+		|| binary_output_status.has_any_selection() || analog_output_status.has_any_selection() 
+		|| time_and_interval.has_any_selection() || octet_string.has_any_selection();
 }
 
 bool Database::Load(HeaderWriter& writer)
 {
     return load_type(this->binary_input, writer) && load_type(this->double_binary, writer)
-        && load_type(this->analog_input, writer) && load_type(this->counter, writer)
-        && load_type(this->frozen_counter, writer) && load_type(this->binary_output_status, writer)
-        && load_type(this->analog_output_status, writer) && load_type(this->time_and_interval, writer)
-        && load_type(this->octet_string, writer);
+        && load_type(this->analog_input, writer) && load_type(this->frozen_analog, writer) 
+		&& load_type(this->counter, writer) && load_type(this->frozen_counter, writer) 
+		&& load_type(this->binary_output_status, writer) && load_type(this->analog_output_status, writer) 
+		&& load_type(this->time_and_interval, writer) && load_type(this->octet_string, writer);
 }
 
 bool Database::Update(const Binary& meas, uint16_t index, EventMode mode)
@@ -462,6 +526,14 @@ bool Database::Update(const DoubleBitBinary& meas, uint16_t index, EventMode mod
 bool Database::Update(const Analog& meas, uint16_t index, EventMode mode)
 {
     return this->analog_input.update(meas, index, mode, event_receiver);
+}
+
+bool Database::FreezeAnalog(uint16_t index, bool clear, EventMode mode)
+{
+	auto num_selected = this->analog_input.select(Range::From(index, index));
+	this->FreezeSelectedAnalogs(clear, mode);
+
+	return num_selected > 0;
 }
 
 bool Database::Update(const Counter& meas, uint16_t index, EventMode mode)
@@ -507,7 +579,9 @@ bool Database::Modify(FlagsType type, uint16_t start, uint16_t stop, uint8_t fla
         return this->double_binary.modify(start, stop, flags, this->event_receiver);
     case (FlagsType::AnalogInput):
         return this->analog_input.modify(start, stop, flags, this->event_receiver);
-    case (FlagsType::Counter):
+	case (FlagsType::FrozenAnalog):
+		return this->frozen_analog.modify(start, stop, flags, this->event_receiver);
+	case (FlagsType::Counter):
         return this->counter.modify(start, stop, flags, this->event_receiver);
     case (FlagsType::FrozenCounter):
         return this->frozen_counter.modify(start, stop, flags, this->event_receiver);
@@ -518,6 +592,26 @@ bool Database::Modify(FlagsType type, uint16_t start, uint16_t stop, uint8_t fla
     }
 
     return false;
+}
+
+bool Database::FreezeSelectedAnalogs(bool clear, EventMode mode)
+{
+	for (auto c : this->analog_input)
+	{
+		FrozenAnalog new_value(c.second.value.value, c.second.value.flags, time_source.Now());
+		this->frozen_analog.update(new_value, c.first, mode, this->event_receiver);
+
+		if (clear)
+		{
+			c.second.value.value = 0;
+			c.second.value.time = time_source.Now();
+			this->analog_input.update(c.second.value, c.first, mode, this->event_receiver);
+		}
+	}
+
+	this->analog_input.clear_selection();
+
+	return true;
 }
 
 bool Database::FreezeSelectedCounters(bool clear, EventMode mode)

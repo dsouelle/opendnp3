@@ -149,6 +149,24 @@ GroupVariation GroupVariationSpec::from_type(uint16_t arg)
       return GroupVariation::Group30Var5;
     case(0x1E06):
       return GroupVariation::Group30Var6;
+    case(0x1F00):
+      return GroupVariation::Group31Var0;
+    case(0x1F01):
+      return GroupVariation::Group31Var1;
+    case(0x1F02):
+      return GroupVariation::Group31Var2;
+    case(0x1F03):
+      return GroupVariation::Group31Var3;
+    case(0x1F04):
+      return GroupVariation::Group31Var4;
+    case(0x1F05):
+      return GroupVariation::Group31Var5;
+    case(0x1F06):
+      return GroupVariation::Group31Var6;
+    case(0x1F07):
+      return GroupVariation::Group31Var7;
+    case(0x1F08):
+      return GroupVariation::Group31Var8;
     case(0x2000):
       return GroupVariation::Group32Var0;
     case(0x2001):
@@ -167,6 +185,24 @@ GroupVariation GroupVariationSpec::from_type(uint16_t arg)
       return GroupVariation::Group32Var7;
     case(0x2008):
       return GroupVariation::Group32Var8;
+    case(0x2100):
+      return GroupVariation::Group33Var0;
+    case(0x2101):
+      return GroupVariation::Group33Var1;
+    case(0x2102):
+      return GroupVariation::Group33Var2;
+    case(0x2103):
+      return GroupVariation::Group33Var3;
+    case(0x2104):
+      return GroupVariation::Group33Var4;
+    case(0x2105):
+      return GroupVariation::Group33Var5;
+    case(0x2106):
+      return GroupVariation::Group33Var6;
+    case(0x2107):
+      return GroupVariation::Group33Var7;
+    case(0x2108):
+      return GroupVariation::Group33Var8;
     case(0x2800):
       return GroupVariation::Group40Var0;
     case(0x2801):
@@ -384,6 +420,24 @@ char const* GroupVariationSpec::to_string(GroupVariation arg)
       return "Group30Var5";
     case(GroupVariation::Group30Var6):
       return "Group30Var6";
+    case(GroupVariation::Group31Var0):
+      return "Group31Var0";
+    case(GroupVariation::Group31Var1):
+      return "Group31Var1";
+    case(GroupVariation::Group31Var2):
+      return "Group31Var2";
+    case(GroupVariation::Group31Var3):
+      return "Group31Var3";
+    case(GroupVariation::Group31Var4):
+      return "Group31Var4";
+    case(GroupVariation::Group31Var5):
+      return "Group31Var5";
+    case(GroupVariation::Group31Var6):
+      return "Group31Var6";
+    case(GroupVariation::Group31Var7):
+      return "Group31Var7";
+    case(GroupVariation::Group31Var8):
+      return "Group31Var8";
     case(GroupVariation::Group32Var0):
       return "Group32Var0";
     case(GroupVariation::Group32Var1):
@@ -402,6 +456,24 @@ char const* GroupVariationSpec::to_string(GroupVariation arg)
       return "Group32Var7";
     case(GroupVariation::Group32Var8):
       return "Group32Var8";
+    case(GroupVariation::Group33Var0):
+      return "Group33Var0";
+    case(GroupVariation::Group33Var1):
+      return "Group33Var1";
+    case(GroupVariation::Group33Var2):
+      return "Group33Var2";
+    case(GroupVariation::Group33Var3):
+      return "Group33Var3";
+    case(GroupVariation::Group33Var4):
+      return "Group33Var4";
+    case(GroupVariation::Group33Var5):
+      return "Group33Var5";
+    case(GroupVariation::Group33Var6):
+      return "Group33Var6";
+    case(GroupVariation::Group33Var7):
+      return "Group33Var7";
+    case(GroupVariation::Group33Var8):
+      return "Group33Var8";
     case(GroupVariation::Group40Var0):
       return "Group40Var0";
     case(GroupVariation::Group40Var1):
@@ -619,6 +691,24 @@ char const* GroupVariationSpec::to_human_string(GroupVariation arg)
       return "Analog Input - Single-precision With Flag";
     case(GroupVariation::Group30Var6):
       return "Analog Input - Double-precision With Flag";
+    case(GroupVariation::Group31Var0):
+      return "Frozen Analog Input - Any Variation";
+    case(GroupVariation::Group31Var1):
+      return "Frozen Analog Input - 32-bit With Flag";
+    case(GroupVariation::Group31Var2):
+      return "Frozen Analog Input - 16-bit With Flag";
+	case(GroupVariation::Group31Var3):
+		return "Frozen Analog Input - 32-bit With Flag and Time";
+	case(GroupVariation::Group31Var4):
+		return "Frozen Analog Input - 16-bit With Flag and Time";
+	case(GroupVariation::Group31Var5):
+      return "Frozen Analog Input - 32-bit Without Flag";
+    case(GroupVariation::Group31Var6):
+      return "Frozen Analog Input - 16-bit Without Flag";
+    case(GroupVariation::Group31Var7):
+      return "Frozen Analog Input - Single-precision With Flag";
+    case(GroupVariation::Group31Var8):
+      return "Frozen Analog Input - Double-precision With Flag";
     case(GroupVariation::Group32Var0):
       return "Analog Input Event - Any Variation";
     case(GroupVariation::Group32Var1):
@@ -637,7 +727,25 @@ char const* GroupVariationSpec::to_human_string(GroupVariation arg)
       return "Analog Input Event - Single-precision With Flag and Time";
     case(GroupVariation::Group32Var8):
       return "Analog Input Event - Double-precision With Flag and Time";
-    case(GroupVariation::Group40Var0):
+	case(GroupVariation::Group33Var0):
+		return "Frozen Analog Input Event - Any Variation";
+	case(GroupVariation::Group33Var1):
+		return "Frozen Analog Input Event - 32-bit With Flag";
+	case(GroupVariation::Group33Var2):
+		return "Frozen Analog Input Event - 16-bit With Flag";
+	case(GroupVariation::Group33Var3):
+		return "Frozen Analog Input Event - 32-bit With Flag and Time";
+	case(GroupVariation::Group33Var4):
+		return "Frozen Analog Input Event - 16-bit With Flag and Time";
+	case(GroupVariation::Group33Var5):
+		return "Frozen Analog Input Event - Single-precision With Flag";
+	case(GroupVariation::Group33Var6):
+		return "Frozen Analog Input Event - Double-precision With Flag";
+	case(GroupVariation::Group33Var7):
+		return "Frozen Analog Input Event - Single-precision With Flag and Time";
+	case(GroupVariation::Group33Var8):
+		return "Frozen Analog Input Event - Double-precision With Flag and Time";
+	case(GroupVariation::Group40Var0):
       return "Analog Output Status - Any Variation";
     case(GroupVariation::Group40Var1):
       return "Analog Output Status - 32-bit With Flag";
@@ -799,6 +907,15 @@ GroupVariation GroupVariationSpec::from_string(const std::string& arg)
   if(arg == "Group30Var4") return GroupVariation::Group30Var4;
   if(arg == "Group30Var5") return GroupVariation::Group30Var5;
   if(arg == "Group30Var6") return GroupVariation::Group30Var6;
+  if(arg == "Group31Var0") return GroupVariation::Group31Var0;
+  if(arg == "Group31Var1") return GroupVariation::Group31Var1;
+  if(arg == "Group31Var2") return GroupVariation::Group31Var2;
+  if(arg == "Group31Var3") return GroupVariation::Group31Var3;
+  if(arg == "Group31Var4") return GroupVariation::Group31Var4;
+  if(arg == "Group31Var5") return GroupVariation::Group31Var5;
+  if(arg == "Group31Var6") return GroupVariation::Group31Var6;
+  if(arg == "Group31Var7") return GroupVariation::Group31Var7;
+  if(arg == "Group31Var8") return GroupVariation::Group31Var8;
   if(arg == "Group32Var0") return GroupVariation::Group32Var0;
   if(arg == "Group32Var1") return GroupVariation::Group32Var1;
   if(arg == "Group32Var2") return GroupVariation::Group32Var2;
@@ -808,6 +925,15 @@ GroupVariation GroupVariationSpec::from_string(const std::string& arg)
   if(arg == "Group32Var6") return GroupVariation::Group32Var6;
   if(arg == "Group32Var7") return GroupVariation::Group32Var7;
   if(arg == "Group32Var8") return GroupVariation::Group32Var8;
+  if(arg == "Group33Var0") return GroupVariation::Group33Var0;
+  if(arg == "Group33Var1") return GroupVariation::Group33Var1;
+  if(arg == "Group33Var2") return GroupVariation::Group33Var2;
+  if(arg == "Group33Var3") return GroupVariation::Group33Var3;
+  if(arg == "Group33Var4") return GroupVariation::Group33Var4;
+  if(arg == "Group33Var5") return GroupVariation::Group33Var5;
+  if(arg == "Group33Var6") return GroupVariation::Group33Var6;
+  if(arg == "Group33Var7") return GroupVariation::Group33Var7;
+  if(arg == "Group33Var8") return GroupVariation::Group33Var8;
   if(arg == "Group40Var0") return GroupVariation::Group40Var0;
   if(arg == "Group40Var1") return GroupVariation::Group40Var1;
   if(arg == "Group40Var2") return GroupVariation::Group40Var2;

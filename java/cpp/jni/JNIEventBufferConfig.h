@@ -58,6 +58,7 @@ namespace jni
             jint getmaxBinaryOutputStatusEvents(JNIEnv* env, JEventBufferConfig instance);
             jint getmaxCounterEvents(JNIEnv* env, JEventBufferConfig instance);
             jint getmaxDoubleBinaryEvents(JNIEnv* env, JEventBufferConfig instance);
+            jint getmaxFrozenAnalogEvents(JNIEnv* env, JEventBufferConfig instance);
             jint getmaxFrozenCounterEvents(JNIEnv* env, JEventBufferConfig instance);
 
             private:
@@ -68,6 +69,7 @@ namespace jni
             jfieldID maxBinaryEventsField = nullptr;
             jfieldID maxDoubleBinaryEventsField = nullptr;
             jfieldID maxAnalogEventsField = nullptr;
+            jfieldID maxFrozenAnalogEventsField = nullptr;
             jfieldID maxCounterEventsField = nullptr;
             jfieldID maxFrozenCounterEventsField = nullptr;
             jfieldID maxBinaryOutputStatusEventsField = nullptr;

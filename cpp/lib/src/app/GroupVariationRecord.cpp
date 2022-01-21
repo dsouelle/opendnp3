@@ -120,8 +120,14 @@ GroupVariationType GroupVariationRecord::GetType(uint8_t group, uint8_t variatio
     case (30):
         return GroupVariationType::STATIC;
 
+	case (31):
+		return GroupVariationType::STATIC;
+
     case (32):
         return GroupVariationType::EVENT;
+
+	case (33):
+		return GroupVariationType::EVENT;
 
     case (40):
         return GroupVariationType::STATIC;

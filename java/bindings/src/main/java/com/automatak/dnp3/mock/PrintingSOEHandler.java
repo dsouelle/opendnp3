@@ -63,6 +63,13 @@ public class PrintingSOEHandler implements SOEHandler {
     }
 
     @Override
+    public void processFAI(HeaderInfo info, Iterable<IndexedValue<FrozenAnalog>> values)
+    {
+        System.out.println(info);
+        values.forEach((meas) -> System.out.println(meas));
+    }
+
+    @Override
     public void processC(HeaderInfo info, Iterable<IndexedValue<Counter>> values)
     {
         System.out.println(info);

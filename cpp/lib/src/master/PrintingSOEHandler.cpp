@@ -53,6 +53,11 @@ void PrintingSOEHandler::Process(const HeaderInfo& info, const ICollection<Index
     return PrintAll(info, values);
 }
 
+void PrintingSOEHandler::Process(const HeaderInfo& info, const ICollection<Indexed<FrozenAnalog>>& values)
+{
+	return PrintAll(info, values);
+}
+
 void PrintingSOEHandler::Process(const HeaderInfo& info, const ICollection<Indexed<Counter>>& values)
 {
     return PrintAll(info, values);

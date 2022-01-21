@@ -62,13 +62,16 @@ public:
     bool Update(const Binary& meas, uint16_t index, EventMode mode) override;
     bool Update(const DoubleBitBinary& meas, uint16_t index, EventMode mode) override;
     bool Update(const Analog& meas, uint16_t index, EventMode mode) override;
-    bool Update(const Counter& meas, uint16_t index, EventMode mode) override;
+	bool FreezeAnalog(uint16_t index, bool clear, EventMode mode) override;
+	bool Update(const Counter& meas, uint16_t index, EventMode mode) override;
     bool FreezeCounter(uint16_t index, bool clear, EventMode mode) override;
     bool Update(const BinaryOutputStatus& meas, uint16_t index, EventMode mode) override;
     bool Update(const AnalogOutputStatus& meas, uint16_t index, EventMode mode) override;
     bool Update(const OctetString& meas, uint16_t index, EventMode mode) override;
     bool Update(const TimeAndInterval& meas, uint16_t index) override;
     bool Modify(FlagsType type, uint16_t start, uint16_t stop, uint8_t flags) override;
+
+	bool FreezeSelectedAnalogs(bool clear, EventMode mode = EventMode::Detect);
 
     bool FreezeSelectedCounters(bool clear, EventMode mode = EventMode::Detect);
 
@@ -80,7 +83,8 @@ private:
     StaticDataMap<BinarySpec> binary_input;
     StaticDataMap<DoubleBitBinarySpec> double_binary;
     StaticDataMap<AnalogSpec> analog_input;
-    StaticDataMap<CounterSpec> counter;
+	StaticDataMap<FrozenAnalogSpec> frozen_analog;
+	StaticDataMap<CounterSpec> counter;
     StaticDataMap<FrozenCounterSpec> frozen_counter;
     StaticDataMap<BinaryOutputStatusSpec> binary_output_status;
     StaticDataMap<AnalogOutputStatusSpec> analog_output_status;

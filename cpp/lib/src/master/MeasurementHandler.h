@@ -82,7 +82,8 @@ private:
     IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<Counter>>& values) override;
     IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<FrozenCounter>>& values) override;
     IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<Analog>>& values) override;
-    IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values) override;
+	IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<FrozenAnalog>>& values) override;
+	IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values) override;
     IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<OctetString>>& values) override;
     IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<TimeAndInterval>>& values) override;
 
@@ -92,6 +93,7 @@ private:
     IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<Counter>>& values) override;
     IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<FrozenCounter>>& values) override;
     IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<Analog>>& values) override;
+    IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<FrozenAnalog>>& values) override;
     IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values) override;
     IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<OctetString>>& values) override;
     IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<BinaryCommandEvent>>& values) override;

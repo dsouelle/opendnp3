@@ -42,47 +42,53 @@ namespace jni
             this->clazz = (jclass) env->NewGlobalRef(clazzTemp);
             env->DeleteLocalRef(clazzTemp);
 
-            this->method0 = env->GetMethodID(this->clazz, "freezeCounter", "(IZLcom/automatak/dnp3/enums/EventMode;)V");
+            this->method0 = env->GetMethodID(this->clazz, "freezeAnalog", "(IZLcom/automatak/dnp3/enums/EventMode;)V");
             if(!this->method0) return false;
 
-            this->method1 = env->GetMethodID(this->clazz, "freezeCounter", "(IZ)V");
+            this->method1 = env->GetMethodID(this->clazz, "freezeAnalog", "(IZ)V");
             if(!this->method1) return false;
 
-            this->method2 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/AnalogInput;ILcom/automatak/dnp3/enums/EventMode;)V");
+            this->method2 = env->GetMethodID(this->clazz, "freezeCounter", "(IZLcom/automatak/dnp3/enums/EventMode;)V");
             if(!this->method2) return false;
 
-            this->method3 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/DoubleBitBinaryInput;ILcom/automatak/dnp3/enums/EventMode;)V");
+            this->method3 = env->GetMethodID(this->clazz, "freezeCounter", "(IZ)V");
             if(!this->method3) return false;
 
-            this->method4 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/BinaryInput;ILcom/automatak/dnp3/enums/EventMode;)V");
+            this->method4 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/AnalogInput;ILcom/automatak/dnp3/enums/EventMode;)V");
             if(!this->method4) return false;
 
-            this->method5 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/AnalogOutputStatus;I)V");
+            this->method5 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/DoubleBitBinaryInput;ILcom/automatak/dnp3/enums/EventMode;)V");
             if(!this->method5) return false;
 
-            this->method6 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/Counter;ILcom/automatak/dnp3/enums/EventMode;)V");
+            this->method6 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/BinaryInput;ILcom/automatak/dnp3/enums/EventMode;)V");
             if(!this->method6) return false;
 
-            this->method7 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/BinaryOutputStatus;ILcom/automatak/dnp3/enums/EventMode;)V");
+            this->method7 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/AnalogOutputStatus;I)V");
             if(!this->method7) return false;
 
-            this->method8 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/AnalogOutputStatus;ILcom/automatak/dnp3/enums/EventMode;)V");
+            this->method8 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/Counter;ILcom/automatak/dnp3/enums/EventMode;)V");
             if(!this->method8) return false;
 
-            this->method9 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/BinaryInput;I)V");
+            this->method9 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/BinaryOutputStatus;ILcom/automatak/dnp3/enums/EventMode;)V");
             if(!this->method9) return false;
 
-            this->method10 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/DoubleBitBinaryInput;I)V");
+            this->method10 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/AnalogOutputStatus;ILcom/automatak/dnp3/enums/EventMode;)V");
             if(!this->method10) return false;
 
-            this->method11 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/AnalogInput;I)V");
+            this->method11 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/DoubleBitBinaryInput;I)V");
             if(!this->method11) return false;
 
-            this->method12 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/BinaryOutputStatus;I)V");
+            this->method12 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/AnalogInput;I)V");
             if(!this->method12) return false;
 
-            this->method13 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/Counter;I)V");
+            this->method13 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/BinaryInput;I)V");
             if(!this->method13) return false;
+
+            this->method14 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/BinaryOutputStatus;I)V");
+            if(!this->method14) return false;
+
+            this->method15 = env->GetMethodID(this->clazz, "update", "(Lcom/automatak/dnp3/Counter;I)V");
+            if(!this->method15) return false;
 
             return true;
         }
@@ -92,74 +98,84 @@ namespace jni
             env->DeleteGlobalRef(this->clazz);
         }
 
-        void Database::freezeCounter(JNIEnv* env, JDatabase instance, jint arg0, jboolean arg1, JEventMode arg2)
+        void Database::freezeAnalog(JNIEnv* env, JDatabase instance, jint arg0, jboolean arg1, JEventMode arg2)
         {
             env->CallVoidMethod(instance, this->method0, arg0, arg1, arg2);
         }
 
-        void Database::freezeCounter(JNIEnv* env, JDatabase instance, jint arg0, jboolean arg1)
+        void Database::freezeAnalog(JNIEnv* env, JDatabase instance, jint arg0, jboolean arg1)
         {
             env->CallVoidMethod(instance, this->method1, arg0, arg1);
         }
 
-        void Database::update(JNIEnv* env, JDatabase instance, JAnalogInput arg0, jint arg1, JEventMode arg2)
+        void Database::freezeCounter(JNIEnv* env, JDatabase instance, jint arg0, jboolean arg1, JEventMode arg2)
         {
             env->CallVoidMethod(instance, this->method2, arg0, arg1, arg2);
         }
 
-        void Database::update(JNIEnv* env, JDatabase instance, JDoubleBitBinaryInput arg0, jint arg1, JEventMode arg2)
+        void Database::freezeCounter(JNIEnv* env, JDatabase instance, jint arg0, jboolean arg1)
         {
-            env->CallVoidMethod(instance, this->method3, arg0, arg1, arg2);
+            env->CallVoidMethod(instance, this->method3, arg0, arg1);
         }
 
-        void Database::update(JNIEnv* env, JDatabase instance, JBinaryInput arg0, jint arg1, JEventMode arg2)
+        void Database::update(JNIEnv* env, JDatabase instance, JAnalogInput arg0, jint arg1, JEventMode arg2)
         {
             env->CallVoidMethod(instance, this->method4, arg0, arg1, arg2);
         }
 
-        void Database::update(JNIEnv* env, JDatabase instance, JAnalogOutputStatus arg0, jint arg1)
+        void Database::update(JNIEnv* env, JDatabase instance, JDoubleBitBinaryInput arg0, jint arg1, JEventMode arg2)
         {
-            env->CallVoidMethod(instance, this->method5, arg0, arg1);
+            env->CallVoidMethod(instance, this->method5, arg0, arg1, arg2);
         }
 
-        void Database::update(JNIEnv* env, JDatabase instance, JCounter arg0, jint arg1, JEventMode arg2)
+        void Database::update(JNIEnv* env, JDatabase instance, JBinaryInput arg0, jint arg1, JEventMode arg2)
         {
             env->CallVoidMethod(instance, this->method6, arg0, arg1, arg2);
         }
 
-        void Database::update(JNIEnv* env, JDatabase instance, JBinaryOutputStatus arg0, jint arg1, JEventMode arg2)
+        void Database::update(JNIEnv* env, JDatabase instance, JAnalogOutputStatus arg0, jint arg1)
         {
-            env->CallVoidMethod(instance, this->method7, arg0, arg1, arg2);
+            env->CallVoidMethod(instance, this->method7, arg0, arg1);
         }
 
-        void Database::update(JNIEnv* env, JDatabase instance, JAnalogOutputStatus arg0, jint arg1, JEventMode arg2)
+        void Database::update(JNIEnv* env, JDatabase instance, JCounter arg0, jint arg1, JEventMode arg2)
         {
             env->CallVoidMethod(instance, this->method8, arg0, arg1, arg2);
         }
 
-        void Database::update(JNIEnv* env, JDatabase instance, JBinaryInput arg0, jint arg1)
+        void Database::update(JNIEnv* env, JDatabase instance, JBinaryOutputStatus arg0, jint arg1, JEventMode arg2)
         {
-            env->CallVoidMethod(instance, this->method9, arg0, arg1);
+            env->CallVoidMethod(instance, this->method9, arg0, arg1, arg2);
+        }
+
+        void Database::update(JNIEnv* env, JDatabase instance, JAnalogOutputStatus arg0, jint arg1, JEventMode arg2)
+        {
+            env->CallVoidMethod(instance, this->method10, arg0, arg1, arg2);
         }
 
         void Database::update(JNIEnv* env, JDatabase instance, JDoubleBitBinaryInput arg0, jint arg1)
         {
-            env->CallVoidMethod(instance, this->method10, arg0, arg1);
+            env->CallVoidMethod(instance, this->method11, arg0, arg1);
         }
 
         void Database::update(JNIEnv* env, JDatabase instance, JAnalogInput arg0, jint arg1)
         {
-            env->CallVoidMethod(instance, this->method11, arg0, arg1);
+            env->CallVoidMethod(instance, this->method12, arg0, arg1);
+        }
+
+        void Database::update(JNIEnv* env, JDatabase instance, JBinaryInput arg0, jint arg1)
+        {
+            env->CallVoidMethod(instance, this->method13, arg0, arg1);
         }
 
         void Database::update(JNIEnv* env, JDatabase instance, JBinaryOutputStatus arg0, jint arg1)
         {
-            env->CallVoidMethod(instance, this->method12, arg0, arg1);
+            env->CallVoidMethod(instance, this->method14, arg0, arg1);
         }
 
         void Database::update(JNIEnv* env, JDatabase instance, JCounter arg0, jint arg1)
         {
-            env->CallVoidMethod(instance, this->method13, arg0, arg1);
+            env->CallVoidMethod(instance, this->method15, arg0, arg1);
         }
     }
 }

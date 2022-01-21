@@ -28,6 +28,7 @@
 #include "opendnp3/gen/EventBinaryVariation.h"
 #include "opendnp3/gen/EventCounterVariation.h"
 #include "opendnp3/gen/EventDoubleBinaryVariation.h"
+#include "opendnp3/gen/EventFrozenAnalogVariation.h"
 #include "opendnp3/gen/EventFrozenCounterVariation.h"
 #include "opendnp3/gen/EventOctetStringVariation.h"
 
@@ -60,7 +61,11 @@ public:
                            IEventCollection<FrozenCounter>& items)
         = 0;
     virtual uint16_t Write(EventAnalogVariation variation, const Analog& first, IEventCollection<Analog>& items) = 0;
-    virtual uint16_t Write(EventBinaryOutputStatusVariation variation,
+	virtual uint16_t Write(EventFrozenAnalogVariation variation, 
+						   const FrozenAnalog& first, 
+						   IEventCollection<FrozenAnalog>& items) 
+		= 0;
+	virtual uint16_t Write(EventBinaryOutputStatusVariation variation,
                            const BinaryOutputStatus& first,
                            IEventCollection<BinaryOutputStatus>& items)
         = 0;

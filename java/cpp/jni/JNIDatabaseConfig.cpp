@@ -51,6 +51,9 @@ namespace jni
             this->analogField = env->GetFieldID(this->clazz, "analog", "Ljava/util/Map;");
             if(!this->analogField) return false;
 
+            this->frozenAnalogField = env->GetFieldID(this->clazz, "frozenAnalog", "Ljava/util/Map;");
+            if(!this->frozenAnalogField) return false;
+
             this->counterField = env->GetFieldID(this->clazz, "counter", "Ljava/util/Map;");
             if(!this->counterField) return false;
 
@@ -99,6 +102,11 @@ namespace jni
         LocalRef<JMap> DatabaseConfig::getdoubleBinary(JNIEnv* env, JDatabaseConfig instance)
         {
             return LocalRef<JMap>(env, env->GetObjectField(instance, this->doubleBinaryField));
+        }
+
+        LocalRef<JMap> DatabaseConfig::getfrozenAnalog(JNIEnv* env, JDatabaseConfig instance)
+        {
+            return LocalRef<JMap>(env, env->GetObjectField(instance, this->frozenAnalogField));
         }
 
         LocalRef<JMap> DatabaseConfig::getfrozenCounter(JNIEnv* env, JDatabaseConfig instance)

@@ -28,7 +28,8 @@ EventLists::EventLists(const EventBufferConfig& config)
       binary(config.maxBinaryEvents),
       doubleBinary(config.maxDoubleBinaryEvents),
       analog(config.maxAnalogEvents),
-      counter(config.maxCounterEvents),
+	  frozenAnalog(config.maxFrozenAnalogEvents),
+	  counter(config.maxCounterEvents),
       frozenCounter(config.maxFrozenCounterEvents),
       binaryOutputStatus(config.maxBinaryOutputStatusEvents),
       analogOutputStatus(config.maxAnalogOutputStatusEvents),
@@ -40,8 +41,9 @@ bool EventLists::IsAnyTypeFull() const
 {
     return this->binary.IsFullAndCapacityNotZero() || this->doubleBinary.IsFullAndCapacityNotZero()
         || this->counter.IsFullAndCapacityNotZero() || this->frozenCounter.IsFullAndCapacityNotZero()
-        || this->analog.IsFullAndCapacityNotZero() || this->binaryOutputStatus.IsFullAndCapacityNotZero()
-        || this->analogOutputStatus.IsFullAndCapacityNotZero() || this->octetString.IsFullAndCapacityNotZero();
+        || this->analog.IsFullAndCapacityNotZero() || this->frozenAnalog.IsFullAndCapacityNotZero() 
+		|| this->binaryOutputStatus.IsFullAndCapacityNotZero() || this->analogOutputStatus.IsFullAndCapacityNotZero() 
+		|| this->octetString.IsFullAndCapacityNotZero();
 }
 
 template<> List<TypedEventRecord<BinarySpec>>& EventLists::GetList()
@@ -67,6 +69,11 @@ template<> List<TypedEventRecord<FrozenCounterSpec>>& EventLists::GetList()
 template<> List<TypedEventRecord<AnalogSpec>>& EventLists::GetList()
 {
     return this->analog;
+}
+
+template<> List<TypedEventRecord<FrozenAnalogSpec>>& EventLists::GetList()
+{
+	return this->frozenAnalog;
 }
 
 template<> List<TypedEventRecord<BinaryOutputStatusSpec>>& EventLists::GetList()

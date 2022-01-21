@@ -47,10 +47,11 @@ enum class StaticTypeBitmask : uint16_t
   Counter = 0x4,
   FrozenCounter = 0x8,
   AnalogInput = 0x10,
-  BinaryOutputStatus = 0x20,
-  AnalogOutputStatus = 0x40,
-  TimeAndInterval = 0x80,
-  OctetString = 0x100
+  FrozenAnalog = 0x20,
+  BinaryOutputStatus = 0x40,
+  AnalogOutputStatus = 0x80,
+  TimeAndInterval = 0x100,
+  OctetString = 0x200,
 };
 
 struct StaticTypeBitmaskSpec

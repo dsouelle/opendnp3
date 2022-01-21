@@ -49,7 +49,8 @@ private:
     static opendnp3::BinaryConfig Convert(JNIEnv* env, jni::JBinaryConfig jconfig);
     static opendnp3::DoubleBitBinaryConfig Convert(JNIEnv* env, jni::JDoubleBinaryConfig jconfig);
     static opendnp3::AnalogConfig Convert(JNIEnv* env, jni::JAnalogConfig jconfig);
-    static opendnp3::CounterConfig Convert(JNIEnv* env, jni::JCounterConfig jconfig);
+	static opendnp3::FrozenAnalogConfig Convert(JNIEnv* env, jni::JFrozenAnalogConfig jconfig);
+	static opendnp3::CounterConfig Convert(JNIEnv* env, jni::JCounterConfig jconfig);
     static opendnp3::FrozenCounterConfig Convert(JNIEnv* env, jni::JFrozenCounterConfig jconfig);
     static opendnp3::BOStatusConfig Convert(JNIEnv* env, jni::JBinaryOutputStatusConfig jconfig);
     static opendnp3::AOStatusConfig Convert(JNIEnv* env, jni::JAnalogOutputStatusConfig jconfig);

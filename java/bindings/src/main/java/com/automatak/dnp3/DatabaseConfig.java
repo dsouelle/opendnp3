@@ -31,13 +31,14 @@ public class DatabaseConfig {
     public final Map<Integer, BinaryConfig> binary;
     public final Map<Integer, DoubleBinaryConfig> doubleBinary;
     public final Map<Integer, AnalogConfig> analog;
+    public final Map<Integer, FrozenAnalogConfig> frozenAnalog;
     public final Map<Integer, CounterConfig> counter;
     public final Map<Integer, FrozenCounterConfig> frozenCounter;
     public final Map<Integer, BinaryOutputStatusConfig> boStatus;
     public final Map<Integer, AnalogOutputStatusConfig> aoStatus;
 
     public static DatabaseConfig allValues(int num) {
-        return new DatabaseConfig(num, num, num, num, num, num, num);
+        return new DatabaseConfig(num, num, num, num, num, num, num, num);
     }
 
     public DatabaseConfig()
@@ -45,16 +46,18 @@ public class DatabaseConfig {
         this.binary = new HashMap<>();
         this.doubleBinary = new HashMap<>();
         this.analog = new HashMap<>();
+        this.frozenAnalog = new HashMap<>();
         this.counter = new HashMap<>();
         this.frozenCounter = new HashMap<>();
         this.boStatus = new HashMap<>();
         this.aoStatus = new HashMap<>();
     }
 
-    public DatabaseConfig(int numBinary, int numDoubleBinary, int numAnalog, int numCounter, int numFrozenCounter, int numBOStatus, int numAOStatus) {
+    public DatabaseConfig(int numBinary, int numDoubleBinary, int numAnalog, int numFrozenAnalog, int numCounter, int numFrozenCounter, int numBOStatus, int numAOStatus) {
         this.binary = initialize(numBinary, BinaryConfig::new);
         this.doubleBinary = initialize(numDoubleBinary, DoubleBinaryConfig::new);
         this.analog = initialize(numAnalog, AnalogConfig::new);
+        this.frozenAnalog = initialize(numFrozenAnalog, FrozenAnalogConfig::new);
         this.counter = initialize(numCounter, CounterConfig::new);
         this.frozenCounter = initialize(numFrozenCounter, FrozenCounterConfig::new);
         this.boStatus = initialize(numBOStatus, BinaryOutputStatusConfig::new);

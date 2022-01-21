@@ -59,6 +59,11 @@ bool EventStorage::Update(const Event<AnalogSpec>& evt)
     return EventUpdate::Update(state, evt);
 }
 
+bool EventStorage::Update(const Event<FrozenAnalogSpec>& evt)
+{
+	return EventUpdate::Update(state, evt);
+}
+
 bool EventStorage::Update(const Event<CounterSpec>& evt)
 {
     return EventUpdate::Update(state, evt);
@@ -97,6 +102,11 @@ uint32_t EventStorage::SelectByType(EventDoubleBinaryVariation variation, uint32
 uint32_t EventStorage::SelectByType(EventAnalogVariation variation, uint32_t max)
 {
     return EventSelection::SelectByType<AnalogSpec>(this->state, variation, max);
+}
+
+uint32_t EventStorage::SelectByType(EventFrozenAnalogVariation variation, uint32_t max)
+{
+	return EventSelection::SelectByType<FrozenAnalogSpec>(this->state, variation, max);
 }
 
 uint32_t EventStorage::SelectByType(EventCounterVariation variation, uint32_t max)
@@ -139,7 +149,9 @@ uint32_t EventStorage::SelectByType(EventType type, uint32_t max)
         return EventSelection::SelectByType<FrozenCounterSpec>(this->state, max);
     case (EventType::Analog):
         return EventSelection::SelectByType<AnalogSpec>(this->state, max);
-    case (EventType::BinaryOutputStatus):
+	case (EventType::FrozenAnalog):
+		return EventSelection::SelectByType<FrozenAnalogSpec>(this->state, max);
+	case (EventType::BinaryOutputStatus):
         return EventSelection::SelectByType<BinaryOutputStatusSpec>(this->state, max);
     case (EventType::AnalogOutputStatus):
         return EventSelection::SelectByType<AnalogOutputStatusSpec>(this->state, max);

@@ -29,12 +29,13 @@ enum class EventType : uint16_t
 {
     Binary = 0,
     Analog = 1,
-    Counter = 2,
-    FrozenCounter = 3,
-    DoubleBitBinary = 4,
-    BinaryOutputStatus = 5,
-    AnalogOutputStatus = 6,
-    OctetString = 7
+	FrozenAnalog = 2,
+	Counter = 3,
+    FrozenCounter = 4,
+    DoubleBitBinary = 5,
+    BinaryOutputStatus = 6,
+    AnalogOutputStatus = 7,
+    OctetString = 8
 };
 
 enum class EventClass : uint8_t

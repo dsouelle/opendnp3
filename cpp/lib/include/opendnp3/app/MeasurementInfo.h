@@ -31,6 +31,7 @@
 #include "opendnp3/gen/EventCounterVariation.h"
 #include "opendnp3/gen/EventDoubleBinaryVariation.h"
 #include "opendnp3/gen/EventFrozenCounterVariation.h"
+#include "opendnp3/gen/EventFrozenAnalogVariation.h"
 #include "opendnp3/gen/EventOctetStringVariation.h"
 #include "opendnp3/gen/EventSecurityStatVariation.h"
 #include "opendnp3/gen/StaticAnalogOutputStatusVariation.h"
@@ -40,6 +41,7 @@
 #include "opendnp3/gen/StaticCounterVariation.h"
 #include "opendnp3/gen/StaticDoubleBinaryVariation.h"
 #include "opendnp3/gen/StaticFrozenCounterVariation.h"
+#include "opendnp3/gen/StaticFrozenAnalogVariation.h"
 #include "opendnp3/gen/StaticOctetStringVariation.h"
 #include "opendnp3/gen/StaticSecurityStatVariation.h"
 #include "opendnp3/gen/StaticTimeAndIntervalVariation.h"
@@ -99,6 +101,19 @@ struct AnalogInfo : private StaticOnly
     static const StaticTypeBitmask StaticTypeEnum;
     static const event_variation_t DefaultEventVariation;
     static const static_variation_t DefaultStaticVariation;
+};
+
+struct FrozenAnalogInfo : private StaticOnly
+{
+	typedef FrozenAnalog meas_t;
+	typedef double value_t;
+	typedef EventFrozenAnalogVariation event_variation_t;
+	typedef StaticFrozenAnalogVariation static_variation_t;
+
+	static const EventType EventTypeEnum;
+	static const StaticTypeBitmask StaticTypeEnum;
+	static const event_variation_t DefaultEventVariation;
+	static const static_variation_t DefaultStaticVariation;
 };
 
 struct CounterInfo : private StaticOnly

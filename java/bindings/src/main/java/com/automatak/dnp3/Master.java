@@ -19,6 +19,8 @@
  */
 package com.automatak.dnp3;
 
+import com.automatak.dnp3.enums.FunctionCode;
+
 import java.time.Duration;
 
 /**
@@ -42,7 +44,6 @@ public interface Master extends Stack, CommandProcessor {
      */
     void addPeriodicScan(Duration period, Iterable<Header> headers, SOEHandler soeHandler);
 
-
     /**
      * Perform a one time scan with the supplied headers
      * @param header The request header for the READ
@@ -57,5 +58,29 @@ public interface Master extends Stack, CommandProcessor {
      * @param soeHandler The handler of the response
      */
     void addPeriodicScan(Duration period, Header header, SOEHandler soeHandler);
+
+    /**
+     * Performs a Function with the supplied headers
+     * @param name The name of function code
+     * @param code The function code to perform in the outstation
+     * @param headers The request headers for the READ
+     */
+    void performFunction(String name, FunctionCode code, Iterable<Header> headers);
+
+    /**
+     * Performs an Immediate Freeze Function with the supplied headers
+     * @param name The name of function code
+     * @param code The function code to perform in the outstation
+     * @param headers The request headers for the READ
+     */
+    void immediateFreeze(String name, FunctionCode code, Iterable<Header> headers);
+
+    /**
+     * Performs a Freeze Clear Function with the supplied headers
+     * @param name The name of function code
+     * @param code The function code to perform in the outstation
+     * @param headers The request headers for the READ
+     */
+    void freezeClear(String name, FunctionCode code, Iterable<Header> headers);
 
 }

@@ -29,6 +29,7 @@ public class ExpectedValue {
         BinaryType,
         DoubleBinaryType,
         AnalogType,
+        FrozenAnalogType,
         CounterType,
         FrozenCounterType,
         BOStatusType,

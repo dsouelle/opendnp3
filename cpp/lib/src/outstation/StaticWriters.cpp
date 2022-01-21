@@ -25,6 +25,7 @@
 #include "gen/objects/Group21.h"
 #include "gen/objects/Group3.h"
 #include "gen/objects/Group30.h"
+#include "gen/objects/Group31.h"
 #include "gen/objects/Group40.h"
 #include "gen/objects/Group50.h"
 #include "outstation/OctetStringSerializer.h"
@@ -169,6 +170,31 @@ static_write_func_t<AnalogSpec> StaticWriters::get(StaticAnalogVariation variati
     default:
         return &WriteWithSerializer<AnalogSpec, Group30Var1>;
     }
+}
+
+static_write_func_t<FrozenAnalogSpec> StaticWriters::get(StaticFrozenAnalogVariation variation)
+{
+	switch (variation)
+	{
+	case (StaticFrozenAnalogVariation::Group31Var1):
+		return &WriteWithSerializer<FrozenAnalogSpec, Group31Var1>;
+	case (StaticFrozenAnalogVariation::Group31Var2):
+		return &WriteWithSerializer<FrozenAnalogSpec, Group31Var2>;
+	case (StaticFrozenAnalogVariation::Group31Var3):
+		return &WriteWithSerializer<FrozenAnalogSpec, Group31Var3>;
+	case (StaticFrozenAnalogVariation::Group31Var4):
+		return &WriteWithSerializer<FrozenAnalogSpec, Group31Var4>;
+	case (StaticFrozenAnalogVariation::Group31Var5):
+		return &WriteWithSerializer<FrozenAnalogSpec, Group31Var5>;
+	case (StaticFrozenAnalogVariation::Group31Var6):
+		return &WriteWithSerializer<FrozenAnalogSpec, Group31Var6>;
+	case (StaticFrozenAnalogVariation::Group31Var7):
+		return &WriteWithSerializer<FrozenAnalogSpec, Group31Var7>;
+	case (StaticFrozenAnalogVariation::Group31Var8):
+		return &WriteWithSerializer<FrozenAnalogSpec, Group31Var8>;
+	default:
+		return &WriteWithSerializer<FrozenAnalogSpec, Group31Var1>;
+	}
 }
 
 static_write_func_t<CounterSpec> StaticWriters::get(StaticCounterVariation variation)

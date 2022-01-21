@@ -477,6 +477,15 @@ namespace jni
         jobject value;
     };
 
+    struct JEventFrozenAnalogVariation
+    {
+        JEventFrozenAnalogVariation(jobject value) : value(value) {}
+
+        operator jobject() const { return value; }
+
+        jobject value;
+    };
+
     struct JEventFrozenCounterVariation
     {
         JEventFrozenCounterVariation(jobject value) : value(value) {}
@@ -498,6 +507,24 @@ namespace jni
     struct JFlags
     {
         JFlags(jobject value) : value(value) {}
+
+        operator jobject() const { return value; }
+
+        jobject value;
+    };
+
+    struct JFrozenAnalog
+    {
+        JFrozenAnalog(jobject value) : value(value) {}
+
+        operator jobject() const { return value; }
+
+        jobject value;
+    };
+
+    struct JFrozenAnalogConfig
+    {
+        JFrozenAnalogConfig(jobject value) : value(value) {}
 
         operator jobject() const { return value; }
 
@@ -912,6 +939,15 @@ namespace jni
     struct JStaticDoubleBinaryVariation
     {
         JStaticDoubleBinaryVariation(jobject value) : value(value) {}
+
+        operator jobject() const { return value; }
+
+        jobject value;
+    };
+
+    struct JStaticFrozenAnalogVariation
+    {
+        JStaticFrozenAnalogVariation(jobject value) : value(value) {}
 
         operator jobject() const { return value; }
 

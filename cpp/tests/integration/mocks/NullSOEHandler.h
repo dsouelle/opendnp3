@@ -51,7 +51,11 @@ public:
                  const opendnp3::ICollection<opendnp3::Indexed<opendnp3::Analog>>& values) override
     {
     }
-    void Process(const opendnp3::HeaderInfo& info,
+	void Process(const opendnp3::HeaderInfo& info,
+				 const opendnp3::ICollection<opendnp3::Indexed<opendnp3::FrozenAnalog>>& values) override
+	{
+	}
+	void Process(const opendnp3::HeaderInfo& info,
                  const opendnp3::ICollection<opendnp3::Indexed<opendnp3::Counter>>& values) override
     {
     }

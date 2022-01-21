@@ -56,6 +56,12 @@ public class DatabaseImpl implements Database {
     }
 
     @Override
+    public void freezeAnalog(int index, boolean clear)
+    {
+        this.freezeAnalog(index, clear, EventMode.Detect);
+    }
+
+    @Override
     public void update(Counter value, int index)
     {
         this.update(value, index, EventMode.Detect);
@@ -99,6 +105,12 @@ public class DatabaseImpl implements Database {
     }
 
     @Override
+    public void freezeAnalog(int index, boolean clear, EventMode mode)
+    {
+        this.freeze_analog_native(this.nativeDatabase, index, clear, mode.toType());
+    }
+
+    @Override
     public void update(Counter value, int index, EventMode mode)
     {
         this.update_counter_native(this.nativeDatabase, value.value, value.quality.getValue(), value.timestamp, index, mode.toType());
@@ -125,6 +137,7 @@ public class DatabaseImpl implements Database {
     private native void update_binary_native(long nativePointer, boolean value, byte flags, DNPTime time, int index, int mode);
     private native void update_double_binary_native(long nativePointer, int value, byte flags, DNPTime time, int index, int mode);
     private native void update_analog_native(long nativePointer, double value, byte flags, DNPTime time, int index, int mode);
+    private native void freeze_analog_native(long nativePointer, int index, boolean clear, int mode);
     private native void update_counter_native(long nativePointer, long value, byte flags, DNPTime time, int index, int mode);
     private native void freeze_counter_native(long nativePointer, int index, boolean clear, int mode);
     private native void update_bo_status_native(long nativePointer, boolean value, byte flags, DNPTime time, int index, int mode);

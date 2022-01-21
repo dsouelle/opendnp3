@@ -115,6 +115,23 @@ public:
 };
 
 /**
+Frozen Analogs are used  to report the value of a variable data point  captured at the instant when the measurement is frozen.
+Good examples are current, voltage, sensor readouts, etc. Think of a speedometer guage.
+*/
+
+class FrozenAnalog : public TypedMeasurement<double>
+{
+public:
+	FrozenAnalog();
+
+	explicit FrozenAnalog(double value);
+
+	FrozenAnalog(double value, Flags flags);
+
+	FrozenAnalog(double value, Flags flags, DNPTime time);
+};
+
+/**
     Counters are used for describing generally increasing values (non-negative!). Good examples are
     total power consumed, max voltage. Think odometer on a car.
 */

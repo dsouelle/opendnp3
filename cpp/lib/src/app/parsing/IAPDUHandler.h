@@ -71,7 +71,8 @@ public:
     void OnHeader(const RangeHeader& header, const ICollection<Indexed<Counter>>& values);
     void OnHeader(const RangeHeader& header, const ICollection<Indexed<FrozenCounter>>& values);
     void OnHeader(const RangeHeader& header, const ICollection<Indexed<Analog>>& values);
-    void OnHeader(const RangeHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values);
+	void OnHeader(const RangeHeader& header, const ICollection<Indexed<FrozenAnalog>>& values);
+	void OnHeader(const RangeHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values);
     void OnHeader(const RangeHeader& header, const ICollection<Indexed<OctetString>>& values);
     void OnHeader(const RangeHeader& header, const ICollection<Indexed<TimeAndInterval>>& values);
 
@@ -83,7 +84,8 @@ public:
     void OnHeader(const PrefixHeader& header, const ICollection<Indexed<Counter>>& values);
     void OnHeader(const PrefixHeader& header, const ICollection<Indexed<FrozenCounter>>& values);
     void OnHeader(const PrefixHeader& header, const ICollection<Indexed<Analog>>& values);
-    void OnHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values);
+	void OnHeader(const PrefixHeader& header, const ICollection<Indexed<FrozenAnalog>>& values);
+	void OnHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values);
     void OnHeader(const PrefixHeader& header, const ICollection<Indexed<OctetString>>& values);
     void OnHeader(const PrefixHeader& header, const ICollection<Indexed<TimeAndInterval>>& values);
     void OnHeader(const PrefixHeader& header, const ICollection<Indexed<BinaryCommandEvent>>& values);
@@ -136,6 +138,7 @@ protected:
     virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<Counter>>& values);
     virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<FrozenCounter>>& values);
     virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<Analog>>& values);
+    virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<FrozenAnalog>>& values);
     virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values);
     virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<OctetString>>& values);
     virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<TimeAndInterval>>& values);
@@ -146,6 +149,7 @@ protected:
     virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<Counter>>& values);
     virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<FrozenCounter>>& values);
     virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<Analog>>& values);
+    virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<FrozenAnalog>>& values);
     virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values);
     virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<OctetString>>& values);
     virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<TimeAndInterval>>& values);

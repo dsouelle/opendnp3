@@ -59,10 +59,12 @@ StaticTypeBitmask StaticTypeBitmaskSpec::from_type(uint16_t arg)
       return StaticTypeBitmask::AnalogOutputStatus;
     case(0x80):
       return StaticTypeBitmask::TimeAndInterval;
-    case(0x100):
-      return StaticTypeBitmask::OctetString;
-    default:
-      throw new std::invalid_argument("Unknown value");
+	case(0x100):
+		return StaticTypeBitmask::OctetString;
+	case(0x200):
+		return StaticTypeBitmask::FrozenAnalog;
+	default:
+      throw new std::invalid_argument("Unknown StaticTypeBitmask value");
   }
 }
 
@@ -88,7 +90,9 @@ char const* StaticTypeBitmaskSpec::to_string(StaticTypeBitmask arg)
       return "TimeAndInterval";
     case(StaticTypeBitmask::OctetString):
       return "OctetString";
-    default:
+	case(StaticTypeBitmask::FrozenAnalog):
+		return "FrozenAnalog";
+	default:
       return "UNDEFINED";
   }
 }
@@ -115,7 +119,9 @@ char const* StaticTypeBitmaskSpec::to_human_string(StaticTypeBitmask arg)
       return "TimeAndInterval";
     case(StaticTypeBitmask::OctetString):
       return "OctetString";
-    default:
+	case(StaticTypeBitmask::FrozenAnalog):
+		return "FrozenAnalog";
+	default:
       return "UNDEFINED";
   }
 }
@@ -131,6 +137,7 @@ StaticTypeBitmask StaticTypeBitmaskSpec::from_string(const std::string& arg)
   if(arg == "AnalogOutputStatus") return StaticTypeBitmask::AnalogOutputStatus;
   if(arg == "TimeAndInterval") return StaticTypeBitmask::TimeAndInterval;
   if(arg == "OctetString") return StaticTypeBitmask::OctetString;
+  if(arg == "FrozenAnalog") return StaticTypeBitmask::FrozenAnalog;
   else throw std::invalid_argument(std::string("Unknown value: ") + arg);
 }
 

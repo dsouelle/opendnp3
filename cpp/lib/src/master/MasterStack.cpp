@@ -202,6 +202,28 @@ void MasterStack::PerformFunction(const std::string& name,
     return this->executor->post(add);
 }
 
+void MasterStack::ImmediateFreeze(const std::string& name,
+								FunctionCode func,
+								const std::vector<Header>& headers,
+								const TaskConfig& config)
+{
+	auto add = [self = this->shared_from_this(), name, func, builder = ConvertToLambda(headers), config]() {
+		return self->mcontext.ImmediateFreeze(name, func, builder, config);
+	};
+	return this->executor->post(add);
+}
+
+void MasterStack::FreezeClear(const std::string& name,
+							FunctionCode func,
+							const std::vector<Header>& headers,
+							const TaskConfig& config)
+{
+	auto add = [self = this->shared_from_this(), name, func, builder = ConvertToLambda(headers), config]() {
+		return self->mcontext.FreezeClear(name, func, builder, config);
+	};
+	return this->executor->post(add);
+}
+
 void MasterStack::SelectAndOperate(CommandSet&& commands,
                                    const CommandResultCallbackT& callback,
                                    const TaskConfig& config)

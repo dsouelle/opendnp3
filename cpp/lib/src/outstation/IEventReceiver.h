@@ -40,6 +40,8 @@ public:
 
     virtual void Update(const Event<AnalogSpec>& evt) = 0;
 
+	virtual void Update(const Event<FrozenAnalogSpec>& evt) = 0;
+
     virtual void Update(const Event<CounterSpec>& evt) = 0;
 
     virtual void Update(const Event<FrozenCounterSpec>& evt) = 0;

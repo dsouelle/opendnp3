@@ -36,7 +36,8 @@ DatabaseConfig::DatabaseConfig(uint16_t all_types)
     initialize(this->binary_input, all_types);
     initialize(this->double_binary, all_types);
     initialize(this->analog_input, all_types);
-    initialize(this->counter, all_types);
+	initialize(this->frozen_analog, all_types);
+	initialize(this->counter, all_types);
     initialize(this->frozen_counter, all_types);
     initialize(this->binary_output_status, all_types);
     initialize(this->analog_output_status, all_types);

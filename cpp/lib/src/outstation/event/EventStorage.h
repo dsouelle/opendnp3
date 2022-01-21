@@ -66,7 +66,8 @@ public:
     bool Update(const Event<BinarySpec>& evt);
     bool Update(const Event<DoubleBitBinarySpec>& evt);
     bool Update(const Event<AnalogSpec>& evt);
-    bool Update(const Event<CounterSpec>& evt);
+	bool Update(const Event<FrozenAnalogSpec>& evt);
+	bool Update(const Event<CounterSpec>& evt);
     bool Update(const Event<FrozenCounterSpec>& evt);
     bool Update(const Event<BinaryOutputStatusSpec>& evt);
     bool Update(const Event<AnalogOutputStatusSpec>& evt);
@@ -77,7 +78,8 @@ public:
     uint32_t SelectByType(EventBinaryVariation variation, uint32_t max);
     uint32_t SelectByType(EventDoubleBinaryVariation variation, uint32_t max);
     uint32_t SelectByType(EventAnalogVariation variation, uint32_t max);
-    uint32_t SelectByType(EventCounterVariation variation, uint32_t max);
+	uint32_t SelectByType(EventFrozenAnalogVariation variation, uint32_t max);
+	uint32_t SelectByType(EventCounterVariation variation, uint32_t max);
     uint32_t SelectByType(EventFrozenCounterVariation variation, uint32_t max);
     uint32_t SelectByType(EventBinaryOutputStatusVariation variation, uint32_t max);
     uint32_t SelectByType(EventAnalogOutputStatusVariation variation, uint32_t max);

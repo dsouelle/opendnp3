@@ -57,7 +57,9 @@ AssignClassType AssignClassTypeSpec::from_type(uint8_t arg)
       return AssignClassType::BinaryOutputStatus;
     case(0x6):
       return AssignClassType::AnalogOutputStatus;
-    default:
+	case(0x7):
+		return AssignClassType::FrozenAnalog;
+	default:
       throw new std::invalid_argument("Unknown value");
   }
 }
@@ -76,7 +78,9 @@ char const* AssignClassTypeSpec::to_string(AssignClassType arg)
       return "FrozenCounter";
     case(AssignClassType::AnalogInput):
       return "AnalogInput";
-    case(AssignClassType::BinaryOutputStatus):
+	case(AssignClassType::FrozenAnalog):
+		return "FrozenAnalog";
+	case(AssignClassType::BinaryOutputStatus):
       return "BinaryOutputStatus";
     case(AssignClassType::AnalogOutputStatus):
       return "AnalogOutputStatus";
@@ -99,7 +103,9 @@ char const* AssignClassTypeSpec::to_human_string(AssignClassType arg)
       return "FrozenCounter";
     case(AssignClassType::AnalogInput):
       return "AnalogInput";
-    case(AssignClassType::BinaryOutputStatus):
+	case(AssignClassType::FrozenAnalog):
+		return "FrozenAnalog";
+	case(AssignClassType::BinaryOutputStatus):
       return "BinaryOutputStatus";
     case(AssignClassType::AnalogOutputStatus):
       return "AnalogOutputStatus";
@@ -115,6 +121,7 @@ AssignClassType AssignClassTypeSpec::from_string(const std::string& arg)
   if(arg == "Counter") return AssignClassType::Counter;
   if(arg == "FrozenCounter") return AssignClassType::FrozenCounter;
   if(arg == "AnalogInput") return AssignClassType::AnalogInput;
+  if(arg == "FrozenAnalog") return AssignClassType::FrozenAnalog;
   if(arg == "BinaryOutputStatus") return AssignClassType::BinaryOutputStatus;
   if(arg == "AnalogOutputStatus") return AssignClassType::AnalogOutputStatus;
   else throw std::invalid_argument(std::string("Unknown value: ") + arg);

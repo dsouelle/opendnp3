@@ -42,6 +42,10 @@ object StaticVariation {
     override def staticEnumName : String = "StaticAnalogVariation"
   }
 
+  trait FrozenAnalog extends StaticVariation {
+    override def staticEnumName : String = "StaticFrozenAnalogVariation"
+  }
+
   trait Counter extends StaticVariation {
     override def staticEnumName : String = "StaticCounterVariation"
   }

@@ -125,6 +125,12 @@ trait ConversionToAnalog extends Conversion {
   def convHeaderIncludes = List(measurementTypeSpecs)
 }
 
+trait ConversionToFrozenAnalog extends Conversion {
+  def target = "FrozenAnalog"
+  override def includeSpecTypedef = true
+  def convHeaderIncludes = List(measurementTypeSpecs)
+}
+
 trait ConversionToCounter extends Conversion {
   def target = "Counter"
   override def includeSpecTypedef = true

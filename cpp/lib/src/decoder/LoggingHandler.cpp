@@ -185,6 +185,11 @@ IINField LoggingHandler::ProcessHeader(const RangeHeader& header, const ICollect
     return this->PrintVQT(header.enumeration, values);
 }
 
+IINField LoggingHandler::ProcessHeader(const RangeHeader& header, const ICollection<Indexed<FrozenAnalog>>& values)
+{
+	return this->PrintVQT(header.enumeration, values);
+}
+
 IINField LoggingHandler::ProcessHeader(const RangeHeader& header,
                                        const ICollection<Indexed<AnalogOutputStatus>>& values)
 {
@@ -232,6 +237,11 @@ IINField LoggingHandler::ProcessHeader(const PrefixHeader& header, const ICollec
 IINField LoggingHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<Analog>>& values)
 {
     return this->PrintVQT(header.enumeration, values);
+}
+
+IINField LoggingHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<FrozenAnalog>>& values)
+{
+	return this->PrintVQT(header.enumeration, values);
 }
 
 IINField LoggingHandler::ProcessHeader(const PrefixHeader& header,

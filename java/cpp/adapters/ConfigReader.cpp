@@ -120,7 +120,11 @@ opendnp3::DatabaseConfig ConfigReader::Convert(JNIEnv* env, jni::JDatabaseConfig
     JNI::Iterate<jni::JEntry>(env, map.entrySet(env, db.getanalog(env, jdb)).as<jni::JIterable>(), [&](jni::JEntry entry) {
         config.analog_input[get_index(entry)] = Convert(env, get_value(entry).as<jni::JAnalogConfig>());
     });
-    
+
+	JNI::Iterate<jni::JEntry>(env, map.entrySet(env, db.getfrozenAnalog(env, jdb)).as<jni::JIterable>(), [&](jni::JEntry entry) {
+		config.frozen_analog[get_index(entry)] = Convert(env, get_value(entry).as<jni::JFrozenAnalogConfig>());
+	});
+
 	JNI::Iterate<jni::JEntry>(env, map.entrySet(env, db.getcounter(env, jdb)).as<jni::JIterable>(), [&](jni::JEntry entry) {
         config.counter[get_index(entry)] = Convert(env, get_value(entry).as<jni::JCounterConfig>());
     });
@@ -158,7 +162,8 @@ opendnp3::EventBufferConfig ConfigReader::Convert(JNIEnv* env, jni::JEventBuffer
         static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxBinaryEvents(env, jeventconfig)),
         static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxDoubleBinaryEvents(env, jeventconfig)),
         static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxAnalogEvents(env, jeventconfig)),
-        static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxCounterEvents(env, jeventconfig)),
+		static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxFrozenAnalogEvents(env, jeventconfig)),
+		static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxCounterEvents(env, jeventconfig)),
         static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxFrozenCounterEvents(env, jeventconfig)),
         static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxBinaryOutputStatusEvents(env, jeventconfig)),
         static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxAnalogOutputStatusEvents(env, jeventconfig)));
@@ -244,6 +249,13 @@ opendnp3::AnalogConfig ConfigReader::Convert(JNIEnv* env, jni::JAnalogConfig jco
 {
     return ConvertDeadbandType<AnalogInfo, AnalogConfig>(env, jconfig, jni::JCache::AnalogConfig, jni::JCache::StaticAnalogVariation,
                                            jni::JCache::EventAnalogVariation);
+}
+
+opendnp3::FrozenAnalogConfig ConfigReader::Convert(JNIEnv* env, jni::JFrozenAnalogConfig jconfig)
+{
+	return ConvertDeadbandType<FrozenAnalogInfo, FrozenAnalogConfig>(env, jconfig, jni::JCache::FrozenAnalogConfig, 
+												jni::JCache::StaticFrozenAnalogVariation,
+												jni::JCache::EventFrozenAnalogVariation);
 }
 
 opendnp3::CounterConfig ConfigReader::Convert(JNIEnv* env, jni::JCounterConfig jconfig)

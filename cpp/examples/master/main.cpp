@@ -37,7 +37,8 @@ class TestSOEHandler : public ISOEHandler
     virtual void Process(const HeaderInfo& info, const ICollection<Indexed<Binary>>& values) {};
     virtual void Process(const HeaderInfo& info, const ICollection<Indexed<DoubleBitBinary>>& values) {};
     virtual void Process(const HeaderInfo& info, const ICollection<Indexed<Analog>>& values) {};
-    virtual void Process(const HeaderInfo& info, const ICollection<Indexed<Counter>>& values) {};
+	virtual void Process(const HeaderInfo& info, const ICollection<Indexed<FrozenAnalog>>& values) {};
+	virtual void Process(const HeaderInfo& info, const ICollection<Indexed<Counter>>& values) {};
     virtual void Process(const HeaderInfo& info, const ICollection<Indexed<FrozenCounter>>& values) {};
     virtual void Process(const HeaderInfo& info, const ICollection<Indexed<BinaryOutputStatus>>& values) {};
     virtual void Process(const HeaderInfo& info, const ICollection<Indexed<AnalogOutputStatus>>& values) {};
@@ -103,11 +104,19 @@ int main(int argc, char* argv[])
         std::cout << "Enter a command" << std::endl;
         std::cout << "x - exits program" << std::endl;
         std::cout << "a - performs an ad-hoc range scan" << std::endl;
-        std::cout << "i - integrity demand scan" << std::endl;
-        std::cout << "e - exception demand scan" << std::endl;
-        std::cout << "d - disable unsolicited" << std::endl;
-        std::cout << "r - cold restart" << std::endl;
-        std::cout << "c - send crob" << std::endl;
+        std::cout << "b - integrity demand scan" << std::endl;
+		std::cout << "c - send crob" << std::endl;
+		std::cout << "d - disable unsolicited" << std::endl;
+		std::cout << "e - exception demand scan" << std::endl;
+		std::cout << "f - immediate freeze counter" << std::endl;
+		std::cout << "g - freeze and clear counter" << std::endl;
+		std::cout << "h - immediate freeze analog" << std::endl;
+		std::cout << "i - freeze and clear analog" << std::endl;
+		std::cout << "j - read counters" << std::endl;
+		std::cout << "k - read frozen counters" << std::endl;
+		std::cout << "l - read analogs" << std::endl;
+		std::cout << "m - read frozen analogs" << std::endl;
+		std::cout << "r - cold restart" << std::endl;
         std::cout << "t - toggle channel logging" << std::endl;
         std::cout << "u - toggle master logging" << std::endl;
 
@@ -118,11 +127,51 @@ int main(int argc, char* argv[])
         case ('a'):
             master->ScanRange(GroupVariationID(1, 2), 0, 3, test_soe_handler);
             break;
-        case ('d'):
+		case ('b'):
+			integrityScan->Demand();
+			break;
+		case ('c'):
+		{
+			ControlRelayOutputBlock crob(OperationType::LATCH_ON);
+			master->SelectAndOperate(crob, 0, PrintingCommandResultCallback::Get());
+			break;
+		}
+		case ('d'):
             master->PerformFunction("disable unsol", FunctionCode::DISABLE_UNSOLICITED,
                                     {Header::AllObjects(60, 2), Header::AllObjects(60, 3), Header::AllObjects(60, 4)});
             break;
-        case ('r'):
+		case ('e'):
+			exceptionScan->Demand();
+			break;
+		case ('f'):
+			master->PerformFunction("freeze counter", FunctionCode::IMMED_FREEZE, { Header::Range16(20, 0x0, 1, 1) });
+			master->Scan({ Header::AllObjects(21, 0) }, test_soe_handler);
+			break;
+		case ('g'):
+			master->PerformFunction("freeze clear counter", FunctionCode::FREEZE_CLEAR, { Header::Range16(20, 0x0, 1, 1) });
+			master->Scan({ Header::AllObjects(21, 0) }, test_soe_handler);
+			break;
+		case ('h'):
+			master->PerformFunction("immediate freeze analog", FunctionCode::IMMED_FREEZE, { Header::Range16(30, 0x0, 1, 1) });
+			master->Scan({ Header::AllObjects(31, 0) }, test_soe_handler);
+			break;
+		case ('i'):
+			master->PerformFunction("freeze clear analog", FunctionCode::FREEZE_CLEAR, { Header::Range16(30, 0x0, 1, 1) });
+			master->Scan({ Header::AllObjects(31, 0) }, test_soe_handler);
+			break;
+		case ('j'):
+			master->Scan({ Header::AllObjects(20, 0) }, test_soe_handler);
+			break;
+		case ('k'):
+			master->Scan({ Header::AllObjects(21, 0) }, test_soe_handler);
+			break;
+		case ('l'):
+			master->Scan({ Header::AllObjects(30, 0) }, test_soe_handler);
+			break;
+		case ('m'):
+			master->Scan({ Header::AllObjects(31, 0) }, test_soe_handler);
+			break;
+		case ('r'):
         {
             auto print = [](const RestartOperationResult& result) {
                 if (result.summary == TaskCompletion::SUCCESS)
@@ -140,18 +189,6 @@ int main(int argc, char* argv[])
         case ('x'):
             // C++ destructor on DNP3Manager cleans everything up for you
             return 0;
-        case ('i'):
-            integrityScan->Demand();
-            break;
-        case ('e'):
-            exceptionScan->Demand();
-            break;
-        case ('c'):
-        {
-            ControlRelayOutputBlock crob(OperationType::LATCH_ON);
-            master->SelectAndOperate(crob, 0, PrintingCommandResultCallback::Get());
-            break;
-        }
         case ('t'):
         {
             channelCommsLoggingEnabled = !channelCommsLoggingEnabled;

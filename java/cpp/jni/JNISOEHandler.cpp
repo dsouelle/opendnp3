@@ -69,8 +69,11 @@ namespace jni
             this->method8 = env->GetMethodID(this->clazz, "processDNPTime", "(Lcom/automatak/dnp3/HeaderInfo;Ljava/lang/Iterable;)V");
             if(!this->method8) return false;
 
-            this->method9 = env->GetMethodID(this->clazz, "processFC", "(Lcom/automatak/dnp3/HeaderInfo;Ljava/lang/Iterable;)V");
+            this->method9 = env->GetMethodID(this->clazz, "processFAI", "(Lcom/automatak/dnp3/HeaderInfo;Ljava/lang/Iterable;)V");
             if(!this->method9) return false;
+
+            this->method10 = env->GetMethodID(this->clazz, "processFC", "(Lcom/automatak/dnp3/HeaderInfo;Ljava/lang/Iterable;)V");
+            if(!this->method10) return false;
 
             return true;
         }
@@ -125,9 +128,14 @@ namespace jni
             env->CallVoidMethod(instance, this->method8, arg0, arg1);
         }
 
-        void SOEHandler::processFC(JNIEnv* env, JSOEHandler instance, JHeaderInfo arg0, JIterable arg1)
+        void SOEHandler::processFAI(JNIEnv* env, JSOEHandler instance, JHeaderInfo arg0, JIterable arg1)
         {
             env->CallVoidMethod(instance, this->method9, arg0, arg1);
+        }
+
+        void SOEHandler::processFC(JNIEnv* env, JSOEHandler instance, JHeaderInfo arg0, JIterable arg1)
+        {
+            env->CallVoidMethod(instance, this->method10, arg0, arg1);
         }
     }
 }

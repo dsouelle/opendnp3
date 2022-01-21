@@ -41,6 +41,10 @@ void EventBuffer::Update(const Event<AnalogSpec>& evt)
     this->UpdateAny(evt);
 }
 
+void EventBuffer::Update(const Event<FrozenAnalogSpec>& evt)
+{
+	this->UpdateAny(evt);
+}
 void EventBuffer::Update(const Event<CounterSpec>& evt)
 {
     this->UpdateAny(evt);
@@ -150,6 +154,25 @@ IINField EventBuffer::SelectMaxCount(GroupVariation gv, uint32_t maximum)
         return this->SelectByType(maximum, EventAnalogVariation::Group32Var7);
     case (GroupVariation::Group32Var8):
         return this->SelectByType(maximum, EventAnalogVariation::Group32Var8);
+
+	case (GroupVariation::Group33Var0):
+		return this->SelectByType(maximum, EventType::FrozenAnalog);
+	case (GroupVariation::Group33Var1):
+		return this->SelectByType(maximum, EventFrozenAnalogVariation::Group33Var1);
+	case (GroupVariation::Group33Var2):
+		return this->SelectByType(maximum, EventFrozenAnalogVariation::Group33Var2);
+	case (GroupVariation::Group33Var3):
+		return this->SelectByType(maximum, EventFrozenAnalogVariation::Group33Var3);
+	case (GroupVariation::Group33Var4):
+		return this->SelectByType(maximum, EventFrozenAnalogVariation::Group33Var4);
+	case (GroupVariation::Group33Var5):
+		return this->SelectByType(maximum, EventFrozenAnalogVariation::Group33Var5);
+	case (GroupVariation::Group33Var6):
+		return this->SelectByType(maximum, EventFrozenAnalogVariation::Group33Var6);
+	case (GroupVariation::Group33Var7):
+		return this->SelectByType(maximum, EventFrozenAnalogVariation::Group33Var7);
+	case (GroupVariation::Group33Var8):
+		return this->SelectByType(maximum, EventFrozenAnalogVariation::Group33Var8);
 
     case (GroupVariation::Group42Var0):
         return this->SelectByType(maximum, EventType::AnalogOutputStatus);

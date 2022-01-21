@@ -26,6 +26,7 @@
 #include "gen/objects/Group22.h"
 #include "gen/objects/Group23.h"
 #include "gen/objects/Group32.h"
+#include "gen/objects/Group33.h"
 #include "gen/objects/Group4.h"
 #include "gen/objects/Group42.h"
 
@@ -128,6 +129,33 @@ uint16_t ASDUEventWriteHandler::Write(EventAnalogVariation variation,
     default:
         return EventWriters::Write(this->writer, items, Group32Var1::Inst());
     }
+}
+
+uint16_t ASDUEventWriteHandler::Write(EventFrozenAnalogVariation variation,
+	const FrozenAnalog& /*first*/,
+	IEventCollection<FrozenAnalog>& items)
+{
+	switch (variation)
+	{
+	case (EventFrozenAnalogVariation::Group33Var1):
+		return EventWriters::Write(this->writer, items, Group33Var1::Inst());
+	case (EventFrozenAnalogVariation::Group33Var2):
+		return EventWriters::Write(this->writer, items, Group33Var2::Inst());
+	case (EventFrozenAnalogVariation::Group33Var3):
+		return EventWriters::Write(this->writer, items, Group33Var3::Inst());
+	case (EventFrozenAnalogVariation::Group33Var4):
+		return EventWriters::Write(this->writer, items, Group33Var4::Inst());
+	case (EventFrozenAnalogVariation::Group33Var5):
+		return EventWriters::Write(this->writer, items, Group33Var5::Inst());
+	case (EventFrozenAnalogVariation::Group33Var6):
+		return EventWriters::Write(this->writer, items, Group33Var6::Inst());
+	case (EventFrozenAnalogVariation::Group33Var7):
+		return EventWriters::Write(this->writer, items, Group33Var7::Inst());
+	case (EventFrozenAnalogVariation::Group33Var8):
+		return EventWriters::Write(this->writer, items, Group33Var8::Inst());
+	default:
+		return EventWriters::Write(this->writer, items, Group33Var1::Inst());
+	}
 }
 
 uint16_t ASDUEventWriteHandler::Write(EventBinaryOutputStatusVariation variation,

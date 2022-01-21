@@ -41,7 +41,8 @@ public enum AssignClassType
   FrozenCounter(0x3),
   AnalogInput(0x4),
   BinaryOutputStatus(0x5),
-  AnalogOutputStatus(0x6);
+  AnalogOutputStatus(0x6),
+  FrozenAnalogInput(0x7);
 
   private final int id;
 
@@ -73,6 +74,8 @@ public enum AssignClassType
         return BinaryOutputStatus;
       case(0x6):
         return AnalogOutputStatus;
+      case(0x7):
+        return FrozenAnalogInput;
       default:
         return BinaryInput;
     }

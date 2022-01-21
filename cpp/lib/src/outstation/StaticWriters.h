@@ -26,6 +26,7 @@
 
 #include "opendnp3/gen/StaticAnalogOutputStatusVariation.h"
 #include "opendnp3/gen/StaticAnalogVariation.h"
+#include "opendnp3/gen/StaticFrozenAnalogVariation.h"
 #include "opendnp3/gen/StaticBinaryOutputStatusVariation.h"
 #include "opendnp3/gen/StaticBinaryVariation.h"
 #include "opendnp3/gen/StaticCounterVariation.h"
@@ -45,7 +46,8 @@ struct StaticWriters : private StaticOnly
     static static_write_func_t<CounterSpec> get(StaticCounterVariation variation);
     static static_write_func_t<FrozenCounterSpec> get(StaticFrozenCounterVariation variation);
     static static_write_func_t<AnalogSpec> get(StaticAnalogVariation variation);
-    static static_write_func_t<AnalogOutputStatusSpec> get(StaticAnalogOutputStatusVariation variation);
+	static static_write_func_t<FrozenAnalogSpec> get(StaticFrozenAnalogVariation variation);
+	static static_write_func_t<AnalogOutputStatusSpec> get(StaticAnalogOutputStatusVariation variation);
     static static_write_func_t<BinaryOutputStatusSpec> get(StaticBinaryOutputStatusVariation variation);
     static static_write_func_t<OctetStringSpec> get(StaticOctetStringVariation variation);
     static static_write_func_t<TimeAndIntervalSpec> get(StaticTimeAndIntervalVariation variation);

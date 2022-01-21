@@ -54,7 +54,8 @@ private:
     List<TypedEventRecord<BinarySpec>> binary;
     List<TypedEventRecord<DoubleBitBinarySpec>> doubleBinary;
     List<TypedEventRecord<AnalogSpec>> analog;
-    List<TypedEventRecord<CounterSpec>> counter;
+	List<TypedEventRecord<FrozenAnalogSpec>> frozenAnalog;
+	List<TypedEventRecord<CounterSpec>> counter;
     List<TypedEventRecord<FrozenCounterSpec>> frozenCounter;
     List<TypedEventRecord<BinaryOutputStatusSpec>> binaryOutputStatus;
     List<TypedEventRecord<AnalogOutputStatusSpec>> analogOutputStatus;

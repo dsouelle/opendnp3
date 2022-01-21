@@ -33,7 +33,9 @@
 #include "gen/objects/Group23.h"
 #include "gen/objects/Group3.h"
 #include "gen/objects/Group30.h"
+#include "gen/objects/Group31.h"
 #include "gen/objects/Group32.h"
+#include "gen/objects/Group33.h"
 #include "gen/objects/Group4.h"
 #include "gen/objects/Group40.h"
 #include "gen/objects/Group41.h"
@@ -144,6 +146,16 @@ typedef ConvertVRangeCheck<Group30Var4, Analog> ConvertGroup30Var4;
 typedef ConvertQVRangeCheck<Group30Var5, Analog, 0x20> ConvertGroup30Var5;
 typedef ConvertQV<Group30Var6, Analog> ConvertGroup30Var6;
 
+// Group 31
+typedef ConvertQVRangeCheck<Group31Var1, FrozenAnalog, 0x20> ConvertGroup31Var1;
+typedef ConvertQVRangeCheck<Group31Var2, FrozenAnalog, 0x20> ConvertGroup31Var2;
+typedef ConvertQVTRangeCheck<Group31Var3, FrozenAnalog, 0x20> ConvertGroup31Var3;
+typedef ConvertQVTRangeCheck<Group31Var4, FrozenAnalog, 0x20> ConvertGroup31Var4;
+typedef ConvertVRangeCheck<Group31Var5, FrozenAnalog> ConvertGroup31Var5;
+typedef ConvertVRangeCheck<Group31Var6, FrozenAnalog> ConvertGroup31Var6;
+typedef ConvertQVRangeCheck<Group31Var7, FrozenAnalog, 0x20> ConvertGroup31Var7;
+typedef ConvertQV<Group31Var8, FrozenAnalog> ConvertGroup31Var8;
+
 // Group 32
 typedef ConvertQVRangeCheck<Group32Var1, Analog, 0x20> ConvertGroup32Var1;
 typedef ConvertQVRangeCheck<Group32Var2, Analog, 0x20> ConvertGroup32Var2;
@@ -154,6 +166,17 @@ typedef ConvertQV<Group32Var6, Analog> ConvertGroup32Var6;
 typedef ConvertQVTRangeCheck<Group32Var7, Analog, 0x20> ConvertGroup32Var7;
 typedef ConvertQVT<Group32Var8, Analog> ConvertGroup32Var8;
 
+// Group 33
+typedef ConvertQVRangeCheck<Group33Var1, FrozenAnalog, 0x20> ConvertGroup33Var1;
+typedef ConvertQVRangeCheck<Group33Var2, FrozenAnalog, 0x20> ConvertGroup33Var2;
+typedef ConvertQVTRangeCheck<Group33Var3, FrozenAnalog, 0x20> ConvertGroup33Var3;
+typedef ConvertQVTRangeCheck<Group33Var4, FrozenAnalog, 0x20> ConvertGroup33Var4;
+typedef ConvertQVRangeCheck<Group33Var5, FrozenAnalog, 0x20> ConvertGroup33Var5;
+typedef ConvertQV<Group33Var6, FrozenAnalog> ConvertGroup33Var6;
+typedef ConvertQVTRangeCheck<Group33Var7, FrozenAnalog, 0x20> ConvertGroup33Var7;
+typedef ConvertQVT<Group33Var8, FrozenAnalog> ConvertGroup33Var8;
+
+// Group 40
 typedef ConvertQVRangeCheck<Group40Var1, AnalogOutputStatus, 0x20> ConvertGroup40Var1;
 typedef ConvertQVRangeCheck<Group40Var2, AnalogOutputStatus, 0x20> ConvertGroup40Var2;
 typedef ConvertQVRangeCheck<Group40Var3, AnalogOutputStatus, 0x20> ConvertGroup40Var3;

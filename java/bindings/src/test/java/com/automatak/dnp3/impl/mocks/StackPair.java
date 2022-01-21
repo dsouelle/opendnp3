@@ -31,6 +31,7 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import static com.automatak.dnp3.impl.mocks.ExpectedValue.Type.FrozenCounterType;
+import static com.automatak.dnp3.impl.mocks.ExpectedValue.Type.FrozenAnalogType;
 
 public class StackPair {
 
@@ -197,6 +198,10 @@ public class StackPair {
                 AnalogInput v = new AnalogInput(random.nextInt(65535), new Flags((byte)0x01), new DNPTime(0));
                 set.update(v, index, EventMode.Force);
                 return new ExpectedValue(v, index);
+            }
+            case FrozenAnalogType: {
+                set.freezeAnalog(index, false, EventMode.Force);
+                return new ExpectedValue(index, FrozenAnalogType);
             }
             case BOStatusType: {
                 BinaryOutputStatus v = new BinaryOutputStatus(random.nextBoolean(), new Flags((byte)0x01), new DNPTime(0));

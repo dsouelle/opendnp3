@@ -49,6 +49,13 @@ public interface Database
 
     /**
      * Update a value in the database
+     * @param index index of measurement
+     * @param clear clear the original counter
+     */
+    void freezeAnalog(int index, boolean clear);
+
+    /**
+     * Update a value in the database
      * @param value measurement to update
      * @param index index of measurement
      */
@@ -98,6 +105,14 @@ public interface Database
      * @param mode EventMode to use
      */
     void update(AnalogInput value, int index, EventMode mode);
+
+    /**
+     * Update a value in the database
+     * @param index index of measurement
+     * @param clear clear the original counter
+     * @param mode EventMode to use
+     */
+    void freezeAnalog(int index, boolean clear, EventMode mode);
 
     /**
      * Update a value in the database

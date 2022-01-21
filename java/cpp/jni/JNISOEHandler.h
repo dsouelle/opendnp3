@@ -61,6 +61,7 @@ namespace jni
             void processC(JNIEnv* env, JSOEHandler instance, JHeaderInfo arg0, JIterable arg1);
             void processDBI(JNIEnv* env, JSOEHandler instance, JHeaderInfo arg0, JIterable arg1);
             void processDNPTime(JNIEnv* env, JSOEHandler instance, JHeaderInfo arg0, JIterable arg1);
+            void processFAI(JNIEnv* env, JSOEHandler instance, JHeaderInfo arg0, JIterable arg1);
             void processFC(JNIEnv* env, JSOEHandler instance, JHeaderInfo arg0, JIterable arg1);
 
             private:
@@ -78,6 +79,7 @@ namespace jni
             jmethodID method7 = nullptr;
             jmethodID method8 = nullptr;
             jmethodID method9 = nullptr;
+            jmethodID method10 = nullptr;
         };
     }
 }

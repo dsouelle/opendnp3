@@ -98,6 +98,18 @@ void SOEHandlerAdapter::Process(const HeaderInfo& info, const ICollection<Indexe
     this->Process(info, values, create, call);
 }
 
+void SOEHandlerAdapter::Process(const HeaderInfo& info, const ICollection<Indexed<FrozenAnalog>>& values)
+{
+	auto create = [](JNIEnv* env, const FrozenAnalog& value) -> LocalRef<jni::JFrozenAnalog> {
+		return jni::JCache::FrozenAnalog.construct(env, value.value, jni::JCache::Flags.construct(env, value.flags.value), Convert(env, value.time));
+	};
+	auto call = [](JNIEnv* env, jni::JSOEHandler proxy, jni::JHeaderInfo hinfo, jni::JIterable list) {
+		jni::JCache::SOEHandler.processFAI(env, proxy, hinfo, list);
+	};
+
+	this->Process(info, values, create, call);
+}
+
 void SOEHandlerAdapter::Process(const HeaderInfo& info, const ICollection<Indexed<Counter>>& values)
 {
     auto create = [](JNIEnv* env, const Counter& value) -> LocalRef<jni::JCounter> {

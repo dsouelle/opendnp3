@@ -83,9 +83,12 @@
 #include "JNIEventConfig.h"
 #include "JNIEventCounterVariation.h"
 #include "JNIEventDoubleBinaryVariation.h"
+#include "JNIEventFrozenAnalogVariation.h"
 #include "JNIEventFrozenCounterVariation.h"
 #include "JNIEventMode.h"
 #include "JNIFlags.h"
+#include "JNIFrozenAnalog.h"
+#include "JNIFrozenAnalogConfig.h"
 #include "JNIFrozenCounter.h"
 #include "JNIFrozenCounterConfig.h"
 #include "JNIGroupVariation.h"
@@ -132,6 +135,7 @@
 #include "JNIStaticBinaryVariation.h"
 #include "JNIStaticCounterVariation.h"
 #include "JNIStaticDoubleBinaryVariation.h"
+#include "JNIStaticFrozenAnalogVariation.h"
 #include "JNIStaticFrozenCounterVariation.h"
 #include "JNIStaticTypeBitField.h"
 #include "JNITLSConfig.h"
@@ -199,9 +203,12 @@ namespace jni
         static cache::EventConfig EventConfig;
         static cache::EventCounterVariation EventCounterVariation;
         static cache::EventDoubleBinaryVariation EventDoubleBinaryVariation;
+        static cache::EventFrozenAnalogVariation EventFrozenAnalogVariation;
         static cache::EventFrozenCounterVariation EventFrozenCounterVariation;
         static cache::EventMode EventMode;
         static cache::Flags Flags;
+        static cache::FrozenAnalog FrozenAnalog;
+        static cache::FrozenAnalogConfig FrozenAnalogConfig;
         static cache::FrozenCounter FrozenCounter;
         static cache::FrozenCounterConfig FrozenCounterConfig;
         static cache::GroupVariation GroupVariation;
@@ -248,6 +255,7 @@ namespace jni
         static cache::StaticBinaryVariation StaticBinaryVariation;
         static cache::StaticCounterVariation StaticCounterVariation;
         static cache::StaticDoubleBinaryVariation StaticDoubleBinaryVariation;
+        static cache::StaticFrozenAnalogVariation StaticFrozenAnalogVariation;
         static cache::StaticFrozenCounterVariation StaticFrozenCounterVariation;
         static cache::StaticTypeBitField StaticTypeBitField;
         static cache::TLSConfig TLSConfig;

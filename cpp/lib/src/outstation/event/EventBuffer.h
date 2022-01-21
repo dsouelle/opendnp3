@@ -52,7 +52,8 @@ public:
     virtual void Update(const Event<BinarySpec>& evt) override;
     virtual void Update(const Event<DoubleBitBinarySpec>& evt) override;
     virtual void Update(const Event<AnalogSpec>& evt) override;
-    virtual void Update(const Event<CounterSpec>& evt) override;
+	virtual void Update(const Event<FrozenAnalogSpec>& evt) override;
+	virtual void Update(const Event<CounterSpec>& evt) override;
     virtual void Update(const Event<FrozenCounterSpec>& evt) override;
     virtual void Update(const Event<BinaryOutputStatusSpec>& evt) override;
     virtual void Update(const Event<AnalogOutputStatusSpec>& evt) override;

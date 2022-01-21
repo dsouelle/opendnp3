@@ -27,6 +27,7 @@
 #include "opendnp3/gen/CounterQuality.h"
 #include "opendnp3/gen/DoubleBitBinaryQuality.h"
 #include "opendnp3/gen/FrozenCounterQuality.h"
+#include "opendnp3/gen/FrozenAnalogQuality.h"
 
 namespace opendnp3
 {
@@ -53,7 +54,11 @@ public:
     {
         return IsSetAny(flag);
     }
-    inline bool IsSet(CounterQuality flag) const
+	inline bool IsSet(FrozenAnalogQuality flag) const
+	{
+		return IsSetAny(flag);
+	}
+	inline bool IsSet(CounterQuality flag) const
     {
         return IsSetAny(flag);
     }
@@ -82,7 +87,11 @@ public:
     {
         SetAny(flag);
     }
-    inline void Set(CounterQuality flag)
+	inline void Set(FrozenAnalogQuality flag)
+	{
+		SetAny(flag);
+	}
+	inline void Set(CounterQuality flag)
     {
         SetAny(flag);
     }

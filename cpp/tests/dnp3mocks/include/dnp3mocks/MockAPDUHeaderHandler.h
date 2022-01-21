@@ -82,6 +82,13 @@ public:
         return ProcessAny(header, values, eventAnalogs);
     }
 
+	opendnp3::IINField ProcessHeader(
+		const opendnp3::RangeHeader& header,
+		const opendnp3::ICollection<opendnp3::Indexed<opendnp3::FrozenAnalog>>& values) final
+	{
+		return ProcessAny(header, values, staticFrozenAnalogs);
+	}
+
     opendnp3::IINField ProcessHeader(
         const opendnp3::RangeHeader& header,
         const opendnp3::ICollection<opendnp3::Indexed<opendnp3::AnalogOutputStatus>>& values) final
@@ -127,6 +134,13 @@ public:
     {
         return this->ProcessAny(header, values, eventAnalogs);
     }
+
+	opendnp3::IINField ProcessHeader(
+		const opendnp3::PrefixHeader& header,
+		const opendnp3::ICollection<opendnp3::Indexed<opendnp3::FrozenAnalog>>& values) final
+	{
+		return this->ProcessAny(header, values, eventFrozenAnalogs);
+	}
 
     opendnp3::IINField ProcessHeader(
         const opendnp3::PrefixHeader& header,
@@ -212,6 +226,9 @@ public:
 
     std::vector<opendnp3::Indexed<opendnp3::Analog>> eventAnalogs;
     std::vector<opendnp3::Indexed<opendnp3::Analog>> staticAnalogs;
+
+    std::vector<opendnp3::Indexed<opendnp3::FrozenAnalog>> eventFrozenAnalogs;
+    std::vector<opendnp3::Indexed<opendnp3::FrozenAnalog>> staticFrozenAnalogs;
 
     std::vector<opendnp3::Indexed<opendnp3::AnalogOutputStatus>> staticSetpointStatii;
 

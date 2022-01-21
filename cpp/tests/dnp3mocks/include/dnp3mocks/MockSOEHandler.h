@@ -73,6 +73,12 @@ public:
         this->RecordAny(info, values, this->analogSOE);
     }
 
+	void Process(const opendnp3::HeaderInfo& info,
+		const opendnp3::ICollection<opendnp3::Indexed<opendnp3::FrozenAnalog>>& values) final
+	{
+		this->RecordAny(info, values, this->frozenAnalogSOE);
+	}
+
     void Process(const opendnp3::HeaderInfo& info,
                  const opendnp3::ICollection<opendnp3::Indexed<opendnp3::Counter>>& values) final
     {
@@ -136,7 +142,8 @@ public:
         binarySOE.clear();
         doubleBinarySOE.clear();
         analogSOE.clear();
-        counterSOE.clear();
+		frozenAnalogSOE.clear();
+		counterSOE.clear();
         frozenCounterSOE.clear();
         binaryOutputStatusSOE.clear();
         analogOutputStatusSOE.clear();
@@ -150,7 +157,8 @@ public:
     std::map<uint16_t, Record<opendnp3::Binary>> binarySOE;
     std::map<uint16_t, Record<opendnp3::DoubleBitBinary>> doubleBinarySOE;
     std::map<uint16_t, Record<opendnp3::Analog>> analogSOE;
-    std::map<uint16_t, Record<opendnp3::Counter>> counterSOE;
+	std::map<uint16_t, Record<opendnp3::FrozenAnalog>> frozenAnalogSOE;
+	std::map<uint16_t, Record<opendnp3::Counter>> counterSOE;
     std::map<uint16_t, Record<opendnp3::FrozenCounter>> frozenCounterSOE;
     std::map<uint16_t, Record<opendnp3::BinaryOutputStatus>> binaryOutputStatusSOE;
     std::map<uint16_t, Record<opendnp3::AnalogOutputStatus>> analogOutputStatusSOE;

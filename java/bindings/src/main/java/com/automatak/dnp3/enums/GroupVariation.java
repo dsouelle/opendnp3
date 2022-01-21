@@ -88,6 +88,15 @@ public enum GroupVariation
   Group30Var4(0x1E04),
   Group30Var5(0x1E05),
   Group30Var6(0x1E06),
+  Group31Var0(0x1F00),
+  Group31Var1(0x1F01),
+  Group31Var2(0x1F02),
+  Group31Var3(0x1F03),
+  Group31Var4(0x1F04),
+  Group31Var5(0x1F05),
+  Group31Var6(0x1F06),
+  Group31Var7(0x1F07),
+  Group31Var8(0x1F08),
   Group32Var0(0x2000),
   Group32Var1(0x2001),
   Group32Var2(0x2002),
@@ -97,6 +106,15 @@ public enum GroupVariation
   Group32Var6(0x2006),
   Group32Var7(0x2007),
   Group32Var8(0x2008),
+  Group33Var0(0x2100),
+  Group33Var1(0x2101),
+  Group33Var2(0x2102),
+  Group33Var3(0x2103),
+  Group33Var4(0x2104),
+  Group33Var5(0x2105),
+  Group33Var6(0x2106),
+  Group33Var7(0x2107),
+  Group33Var8(0x2108),
   Group40Var0(0x2800),
   Group40Var1(0x2801),
   Group40Var2(0x2802),
@@ -272,6 +290,24 @@ public enum GroupVariation
         return Group30Var5;
       case(0x1E06):
         return Group30Var6;
+      case(0x1F00):
+        return Group31Var0;
+      case(0x1F01):
+        return Group31Var1;
+      case(0x1F02):
+        return Group31Var2;
+      case(0x1F03):
+        return Group31Var3;
+      case(0x1F04):
+        return Group31Var4;
+      case(0x1F05):
+        return Group31Var5;
+      case(0x1F06):
+        return Group31Var6;
+      case(0x1F07):
+        return Group31Var7;
+      case(0x1F08):
+        return Group31Var8;
       case(0x2000):
         return Group32Var0;
       case(0x2001):
@@ -290,6 +326,24 @@ public enum GroupVariation
         return Group32Var7;
       case(0x2008):
         return Group32Var8;
+      case(0x2100):
+        return Group33Var0;
+      case(0x2101):
+        return Group33Var1;
+      case(0x2102):
+        return Group33Var2;
+      case(0x2103):
+        return Group33Var3;
+      case(0x2104):
+        return Group33Var4;
+      case(0x2105):
+        return Group33Var5;
+      case(0x2106):
+        return Group33Var6;
+      case(0x2107):
+        return Group33Var7;
+      case(0x2108):
+        return Group33Var8;
       case(0x2800):
         return Group40Var0;
       case(0x2801):

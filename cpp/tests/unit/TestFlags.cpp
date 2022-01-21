@@ -116,6 +116,37 @@ TEST_CASE(SUITE("AnalogQuality"))
     CHECK(flags.value == 0xFF);
 }
 
+TEST_CASE(SUITE("FrozenAnalogQuality"))
+{
+	Flags flags{};
+
+	flags.Set(FrozenAnalogQuality::ONLINE);
+	CHECK(flags.IsSet(FrozenAnalogQuality::ONLINE));
+
+	flags.Set(FrozenAnalogQuality::RESTART);
+	CHECK(flags.IsSet(FrozenAnalogQuality::RESTART));
+
+	flags.Set(FrozenAnalogQuality::COMM_LOST);
+	CHECK(flags.IsSet(FrozenAnalogQuality::COMM_LOST));
+
+	flags.Set(FrozenAnalogQuality::REMOTE_FORCED);
+	CHECK(flags.IsSet(FrozenAnalogQuality::REMOTE_FORCED));
+
+	flags.Set(FrozenAnalogQuality::LOCAL_FORCED);
+	CHECK(flags.IsSet(FrozenAnalogQuality::LOCAL_FORCED));
+
+	flags.Set(FrozenAnalogQuality::OVERRANGE);
+	CHECK(flags.IsSet(FrozenAnalogQuality::OVERRANGE));
+
+	flags.Set(FrozenAnalogQuality::REFERENCE_ERR);
+	CHECK(flags.IsSet(FrozenAnalogQuality::REFERENCE_ERR));
+
+	flags.Set(FrozenAnalogQuality::RESERVED);
+	CHECK(flags.IsSet(FrozenAnalogQuality::RESERVED));
+
+	CHECK(flags.value == 0xFF);
+}
+
 TEST_CASE(SUITE("CounterQuality"))
 {
     Flags flags{};

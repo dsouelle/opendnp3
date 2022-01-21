@@ -33,7 +33,8 @@ public:
     bool Update(const Binary& meas, uint16_t index, EventMode mode = EventMode::Detect) override;
     bool Update(const DoubleBitBinary& meas, uint16_t index, EventMode mode = EventMode::Detect) override;
     bool Update(const Analog& meas, uint16_t index, EventMode mode = EventMode::Detect) override;
-    bool Update(const Counter& meas, uint16_t index, EventMode mode = EventMode::Detect) override;
+	bool FreezeAnalog(uint16_t index, bool clear, EventMode mode = EventMode::Detect) override;
+	bool Update(const Counter& meas, uint16_t index, EventMode mode = EventMode::Detect) override;
     bool FreezeCounter(uint16_t index, bool clear, EventMode mode = EventMode::Detect) override;
     bool Update(const BinaryOutputStatus& meas, uint16_t index, EventMode mode = EventMode::Detect) override;
     bool Update(const AnalogOutputStatus& meas, uint16_t index, EventMode mode = EventMode::Detect) override;

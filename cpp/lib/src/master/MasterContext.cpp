@@ -402,6 +402,28 @@ void MContext::PerformFunction(const std::string& name,
     this->ScheduleAdhocTask(task);
 }
 
+void MContext::ImmediateFreeze(const std::string& name,
+							   FunctionCode func,
+							   const HeaderBuilderT& builder,
+							   TaskConfig config)
+{
+	const auto timeout = Timestamp(this->executor->get_time()) + params.taskStartTimeout;
+	auto task = std::make_shared<EmptyResponseTask>(this->tasks.context, *this->application, name, func, builder,
+		timeout, this->logger, config);
+	this->ScheduleAdhocTask(task);
+}
+
+void MContext::FreezeClear(const std::string& name,
+						   FunctionCode func,
+						   const HeaderBuilderT& builder,
+						   TaskConfig config)
+{
+	const auto timeout = Timestamp(this->executor->get_time()) + params.taskStartTimeout;
+	auto task = std::make_shared<EmptyResponseTask>(this->tasks.context, *this->application, name, func, builder,
+		timeout, this->logger, config);
+	this->ScheduleAdhocTask(task);
+}
+
 bool MContext::Run(const std::shared_ptr<IMasterTask>& task)
 {
     if (this->activeTask || this->tstate != TaskState::IDLE)

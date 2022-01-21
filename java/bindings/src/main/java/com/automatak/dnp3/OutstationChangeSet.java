@@ -56,6 +56,11 @@ public class OutstationChangeSet implements Database, ChangeSet {
     }
 
     @Override
+    public void freezeAnalog(int index, boolean clear) {
+        updates.add((Database db) -> db.freezeAnalog(index, clear, EventMode.Detect));
+    }
+
+    @Override
     public void update(Counter update, int index) {
         updates.add((Database db) -> db.update(update, index, EventMode.Detect));
     }
@@ -88,6 +93,11 @@ public class OutstationChangeSet implements Database, ChangeSet {
     @Override
     public void update(AnalogInput update, int index, EventMode mode) {
         updates.add((Database db) -> db.update(update, index, mode));
+    }
+
+    @Override
+    public void freezeAnalog(int index, boolean clear, EventMode mode) {
+        updates.add((Database db) -> db.freezeAnalog(index, clear, mode));
     }
 
     @Override

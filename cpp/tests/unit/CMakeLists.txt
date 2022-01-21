@@ -50,6 +50,7 @@ set(unittests_src
     ./TestOutstationDiscontiguousIndices.cpp
     ./TestOutstationEventResponses.cpp
     ./TestOutstationFrozenCounters.cpp
+    ./TestOutstationFrozenAnalogs.cpp
     ./TestOutstationStateMachine.cpp
     ./TestOutstationUnsolicitedResponses.cpp
     ./TestShiftableBuffer.cpp

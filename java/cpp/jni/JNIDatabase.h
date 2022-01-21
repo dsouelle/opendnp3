@@ -52,6 +52,8 @@ namespace jni
             public:
 
             // methods
+            void freezeAnalog(JNIEnv* env, JDatabase instance, jint arg0, jboolean arg1, JEventMode arg2);
+            void freezeAnalog(JNIEnv* env, JDatabase instance, jint arg0, jboolean arg1);
             void freezeCounter(JNIEnv* env, JDatabase instance, jint arg0, jboolean arg1, JEventMode arg2);
             void freezeCounter(JNIEnv* env, JDatabase instance, jint arg0, jboolean arg1);
             void update(JNIEnv* env, JDatabase instance, JAnalogInput arg0, jint arg1, JEventMode arg2);
@@ -61,9 +63,9 @@ namespace jni
             void update(JNIEnv* env, JDatabase instance, JCounter arg0, jint arg1, JEventMode arg2);
             void update(JNIEnv* env, JDatabase instance, JBinaryOutputStatus arg0, jint arg1, JEventMode arg2);
             void update(JNIEnv* env, JDatabase instance, JAnalogOutputStatus arg0, jint arg1, JEventMode arg2);
-            void update(JNIEnv* env, JDatabase instance, JBinaryInput arg0, jint arg1);
             void update(JNIEnv* env, JDatabase instance, JDoubleBitBinaryInput arg0, jint arg1);
             void update(JNIEnv* env, JDatabase instance, JAnalogInput arg0, jint arg1);
+            void update(JNIEnv* env, JDatabase instance, JBinaryInput arg0, jint arg1);
             void update(JNIEnv* env, JDatabase instance, JBinaryOutputStatus arg0, jint arg1);
             void update(JNIEnv* env, JDatabase instance, JCounter arg0, jint arg1);
 
@@ -86,6 +88,8 @@ namespace jni
             jmethodID method11 = nullptr;
             jmethodID method12 = nullptr;
             jmethodID method13 = nullptr;
+            jmethodID method14 = nullptr;
+            jmethodID method15 = nullptr;
         };
     }
 }

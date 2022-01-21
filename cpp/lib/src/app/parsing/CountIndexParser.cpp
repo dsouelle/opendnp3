@@ -27,6 +27,7 @@
 #include "gen/objects/Group22.h"
 #include "gen/objects/Group23.h"
 #include "gen/objects/Group32.h"
+#include "gen/objects/Group33.h"
 #include "gen/objects/Group4.h"
 #include "gen/objects/Group41.h"
 #include "gen/objects/Group42.h"
@@ -158,6 +159,23 @@ ParseResult CountIndexParser::ParseCountOfObjects(ser4cpp::rseq_t& buffer,
         return CountIndexParser::From<Group32Var7>(count, numparser).Process(record, buffer, pHandler, pLogger);
     case (GroupVariation::Group32Var8):
         return CountIndexParser::From<Group32Var8>(count, numparser).Process(record, buffer, pHandler, pLogger);
+
+    case (GroupVariation::Group33Var1):
+        return CountIndexParser::From<Group33Var1>(count, numparser).Process(record, buffer, pHandler, pLogger);
+    case (GroupVariation::Group33Var2):
+        return CountIndexParser::From<Group33Var2>(count, numparser).Process(record, buffer, pHandler, pLogger);
+    case (GroupVariation::Group33Var3):
+        return CountIndexParser::From<Group33Var3>(count, numparser).Process(record, buffer, pHandler, pLogger);
+    case (GroupVariation::Group33Var4):
+        return CountIndexParser::From<Group33Var4>(count, numparser).Process(record, buffer, pHandler, pLogger);
+    case (GroupVariation::Group33Var5):
+        return CountIndexParser::From<Group33Var5>(count, numparser).Process(record, buffer, pHandler, pLogger);
+    case (GroupVariation::Group33Var6):
+        return CountIndexParser::From<Group33Var6>(count, numparser).Process(record, buffer, pHandler, pLogger);
+    case (GroupVariation::Group33Var7):
+        return CountIndexParser::From<Group33Var7>(count, numparser).Process(record, buffer, pHandler, pLogger);
+    case (GroupVariation::Group33Var8):
+        return CountIndexParser::From<Group33Var8>(count, numparser).Process(record, buffer, pHandler, pLogger);
 
     case (GroupVariation::Group41Var1):
         return CountIndexParser::From<Group41Var1>(count, numparser).Process(record, buffer, pHandler, pLogger);

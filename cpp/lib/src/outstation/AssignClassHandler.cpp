@@ -50,7 +50,9 @@ IINField AssignClassHandler::ProcessHeader(const AllObjectsHeader& header)
             return this->ProcessAssignAll(AssignClassType::FrozenCounter, clazz);
         case (GroupVariation::Group30Var0):
             return this->ProcessAssignAll(AssignClassType::AnalogInput, clazz);
-        case (GroupVariation::Group40Var0):
+		case (GroupVariation::Group31Var0):
+			return this->ProcessAssignAll(AssignClassType::FrozenAnalog, clazz);
+		case (GroupVariation::Group40Var0):
             return this->ProcessAssignAll(AssignClassType::AnalogOutputStatus, clazz);
         default:
             return IINBit::FUNC_NOT_SUPPORTED;
@@ -81,7 +83,9 @@ IINField AssignClassHandler::ProcessHeader(const RangeHeader& header)
             return ProcessAssignRange(AssignClassType::FrozenCounter, clazz, header.range);
         case (GroupVariation::Group30Var0):
             return ProcessAssignRange(AssignClassType::AnalogInput, clazz, header.range);
-        case (GroupVariation::Group40Var0):
+		case (GroupVariation::Group31Var0):
+			return ProcessAssignRange(AssignClassType::FrozenAnalog, clazz, header.range);
+		case (GroupVariation::Group40Var0):
             return ProcessAssignRange(AssignClassType::AnalogOutputStatus, clazz, header.range);
         default:
             return IINBit::FUNC_NOT_SUPPORTED;

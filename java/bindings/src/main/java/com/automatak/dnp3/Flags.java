@@ -19,13 +19,7 @@
  */
 package com.automatak.dnp3;
 
-import com.automatak.dnp3.enums.BinaryQuality;
-import com.automatak.dnp3.enums.DoubleBitBinaryQuality;
-import com.automatak.dnp3.enums.AnalogQuality;
-import com.automatak.dnp3.enums.CounterQuality;
-import com.automatak.dnp3.enums.FrozenCounterQuality;
-import com.automatak.dnp3.enums.BinaryOutputStatusQuality;
-import com.automatak.dnp3.enums.AnalogOutputStatusQuality;
+import com.automatak.dnp3.enums.*;
 
 public class Flags {
     private byte value;
@@ -54,6 +48,10 @@ public class Flags {
         return (this.value & (byte)flag.toType()) != 0;
     }
 
+    public boolean isSet(FrozenAnalogQuality flag) {
+        return (this.value & (byte)flag.toType()) != 0;
+    }
+
     public boolean isSet(CounterQuality flag) {
         return (this.value & (byte)flag.toType()) != 0;
     }
@@ -78,9 +76,9 @@ public class Flags {
         this.value |= (byte)flag.toType();
     }
 
-    public void set(AnalogQuality flag) {
-        this.value |= (byte)flag.toType();
-    }
+    public void set(AnalogQuality flag) { this.value |= (byte)flag.toType(); }
+
+    public void set(FrozenAnalogQuality flag) { this.value |= (byte)flag.toType(); }
 
     public void set(CounterQuality flag) {
         this.value |= (byte)flag.toType();

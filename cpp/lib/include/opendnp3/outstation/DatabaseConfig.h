@@ -36,7 +36,8 @@ struct DatabaseConfig
     std::map<uint16_t, BinaryConfig> binary_input;
     std::map<uint16_t, DoubleBitBinaryConfig> double_binary;
     std::map<uint16_t, AnalogConfig> analog_input;
-    std::map<uint16_t, CounterConfig> counter;
+	std::map<uint16_t, FrozenAnalogConfig> frozen_analog;
+	std::map<uint16_t, CounterConfig> counter;
     std::map<uint16_t, FrozenCounterConfig> frozen_counter;
     std::map<uint16_t, BOStatusConfig> binary_output_status;
     std::map<uint16_t, AOStatusConfig> analog_output_status;

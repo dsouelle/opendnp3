@@ -83,6 +83,17 @@ struct AnalogSpec : public AnalogInfo
     }
 };
 
+struct FrozenAnalogSpec : public FrozenAnalogInfo
+{
+	typedef FrozenAnalogConfig config_t;
+	typedef DeadbandEventCell<FrozenAnalogSpec> event_cell_t;
+
+	inline static bool IsEvent(const FrozenAnalog& old_value, const FrozenAnalog& new_value, const config_t& config)
+	{
+		return measurements::IsEvent(new_value, old_value, config.deadband);
+	}
+};
+
 struct CounterSpec : public CounterInfo
 {
     typedef CounterConfig config_t;

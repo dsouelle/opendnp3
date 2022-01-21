@@ -234,6 +234,30 @@ void MasterSessionStack::PerformFunction(const std::string& name,
     return executor->post(action);
 }
 
+void MasterSessionStack::ImmediateFreeze(const std::string& name,
+	FunctionCode func,
+	const std::vector<Header>& headers,
+	const TaskConfig& config)
+{
+	auto builder = ConvertToLambda(headers);
+	auto action = [self = shared_from_this(), name, func, builder, config]() -> void {
+		self->context.ImmediateFreeze(name, func, builder, config);
+	};
+	return executor->post(action);
+}
+
+void MasterSessionStack::FreezeClear(const std::string& name,
+	FunctionCode func,
+	const std::vector<Header>& headers,
+	const TaskConfig& config)
+{
+	auto builder = ConvertToLambda(headers);
+	auto action = [self = shared_from_this(), name, func, builder, config]() -> void {
+		self->context.FreezeClear(name, func, builder, config);
+	};
+	return executor->post(action);
+}
+
 /// --- ICommandProcessor ---
 
 void MasterSessionStack::SelectAndOperate(CommandSet&& commands,

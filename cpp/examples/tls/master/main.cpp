@@ -99,8 +99,10 @@ int main(int argc, char* argv[])
         std::cout << "a - performs and ad-hoc range scan" << std::endl;
         std::cout << "i - integrity demand scan" << std::endl;
         std::cout << "e - exception demand scan" << std::endl;
-        std::cout << "d - diable unsolcited" << std::endl;
-        std::cout << "r - cold restart" << std::endl;
+        std::cout << "d - disable unsolcited" << std::endl;
+		std::cout << "if - immediate freeze counter" << std::endl;
+		std::cout << "fc - freeze and clear counter" << std::endl;
+		std::cout << "r - cold restart" << std::endl;
         std::cout << "c - send crob" << std::endl;
 
         char cmd;
@@ -114,7 +116,15 @@ int main(int argc, char* argv[])
             master->PerformFunction("disable unsol", FunctionCode::DISABLE_UNSOLICITED,
                                     {Header::AllObjects(60, 2), Header::AllObjects(60, 3), Header::AllObjects(60, 4)});
             break;
-        case ('r'):
+		case ('if'):
+			master->PerformFunction("immediate freeze", FunctionCode::IMMED_FREEZE,
+									{ Header::AllObjects(20, 0) });
+			break;
+		case ('fc'):
+			master->PerformFunction("freeze clear", FunctionCode::FREEZE_CLEAR,
+									{ Header::AllObjects(20, 0) });
+			break;
+		case ('r'):
         {
             auto print = [](const RestartOperationResult& result) {
                 if (result.summary == TaskCompletion::SUCCESS)

@@ -37,6 +37,7 @@ object FlagsType {
     EnumValue("AnalogInput", 4),
     EnumValue("BinaryOutputStatus", 5),
     EnumValue("AnalogOutputStatus", 6)
+    EnumValue("FrozenAnalogInput", 7),
   )
 
 }

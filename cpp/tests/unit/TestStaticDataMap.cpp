@@ -44,6 +44,11 @@ struct EventReceiver : public IEventReceiver
         ++count;
     }
 
+	void Update(const Event<FrozenAnalogSpec>& evt)
+	{
+		++count;
+	}
+
     void Update(const Event<CounterSpec>& evt)
     {
         ++count;

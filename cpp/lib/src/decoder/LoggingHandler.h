@@ -117,7 +117,9 @@ private:
     virtual IINField ProcessHeader(const RangeHeader& header,
                                    const ICollection<Indexed<FrozenCounter>>& values) override;
     virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<Analog>>& values) override;
-    virtual IINField ProcessHeader(const RangeHeader& header,
+	virtual IINField ProcessHeader(const RangeHeader& header, 
+								   const ICollection<Indexed<FrozenAnalog>>& values) override;
+	virtual IINField ProcessHeader(const RangeHeader& header,
                                    const ICollection<Indexed<AnalogOutputStatus>>& values) override;
     virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<OctetString>>& values) override;
     virtual IINField ProcessHeader(const RangeHeader& header,
@@ -132,7 +134,9 @@ private:
     virtual IINField ProcessHeader(const PrefixHeader& header,
                                    const ICollection<Indexed<FrozenCounter>>& values) override;
     virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<Analog>>& values) override;
-    virtual IINField ProcessHeader(const PrefixHeader& header,
+	virtual IINField ProcessHeader(const PrefixHeader& header, 
+								   const ICollection<Indexed<FrozenAnalog>>& values) override;
+	virtual IINField ProcessHeader(const PrefixHeader& header,
                                    const ICollection<Indexed<AnalogOutputStatus>>& values) override;
     virtual IINField ProcessHeader(const PrefixHeader& header,
                                    const ICollection<Indexed<OctetString>>& values) override;

@@ -169,7 +169,17 @@ public:
                          const HeaderBuilderT& builder,
                          TaskConfig config = TaskConfig::Default());
 
-    /// public state manipulation actions
+	void ImmediateFreeze(const std::string& name,
+		FunctionCode func,
+		const HeaderBuilderT& builder,
+		TaskConfig config = TaskConfig::Default());
+
+	void FreezeClear(const std::string& name,
+		FunctionCode func,
+		const HeaderBuilderT& builder,
+		TaskConfig config = TaskConfig::Default());
+	
+	/// public state manipulation actions
 
     TaskState ResumeActiveTask();
 

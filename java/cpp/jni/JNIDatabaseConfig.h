@@ -58,6 +58,7 @@ namespace jni
             LocalRef<JMap> getboStatus(JNIEnv* env, JDatabaseConfig instance);
             LocalRef<JMap> getcounter(JNIEnv* env, JDatabaseConfig instance);
             LocalRef<JMap> getdoubleBinary(JNIEnv* env, JDatabaseConfig instance);
+            LocalRef<JMap> getfrozenAnalog(JNIEnv* env, JDatabaseConfig instance);
             LocalRef<JMap> getfrozenCounter(JNIEnv* env, JDatabaseConfig instance);
 
             private:
@@ -68,6 +69,7 @@ namespace jni
             jfieldID binaryField = nullptr;
             jfieldID doubleBinaryField = nullptr;
             jfieldID analogField = nullptr;
+            jfieldID frozenAnalogField = nullptr;
             jfieldID counterField = nullptr;
             jfieldID frozenCounterField = nullptr;
             jfieldID boStatusField = nullptr;

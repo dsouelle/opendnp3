@@ -63,6 +63,15 @@ public:
      */
     virtual bool Update(const Analog& meas, uint16_t index, EventMode mode = EventMode::Detect) = 0;
 
+	/**
+	* Freeze an Analog measurement
+	* @param index index of the measurement
+	* @param clear clear the original measurement
+	* @param mode Describes how event generation is handled for this method
+	* @return true if the value exists and it was updated
+	*/
+	virtual bool FreezeAnalog(uint16_t index, bool clear = false, EventMode mode = EventMode::Detect) = 0;
+
     /**
      * Update a Counter measurement
      * @param meas measurement to be processed

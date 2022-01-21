@@ -23,6 +23,7 @@ import com.automatak.dnp3.Flags;
 import com.automatak.dnp3.enums.BinaryQuality;
 import com.automatak.dnp3.enums.DoubleBitBinaryQuality;
 import com.automatak.dnp3.enums.AnalogQuality;
+import com.automatak.dnp3.enums.FrozenAnalogQuality;
 import com.automatak.dnp3.enums.CounterQuality;
 import com.automatak.dnp3.enums.FrozenCounterQuality;
 import com.automatak.dnp3.enums.BinaryOutputStatusQuality;
@@ -121,6 +122,37 @@ public class FlagsTest {
 
         flags.set(AnalogQuality.RESERVED);
         Assert.assertTrue(flags.isSet(AnalogQuality.RESERVED));
+
+        Assert.assertEquals((byte)0xFF, flags.getValue());
+    }
+
+    @Test
+    public void frozenAnalogQuality() {
+        Flags flags = new Flags();
+
+        flags.set(FrozenAnalogQuality.ONLINE);
+        Assert.assertTrue(flags.isSet(FrozenAnalogQuality.ONLINE));
+
+        flags.set(FrozenAnalogQuality.RESTART);
+        Assert.assertTrue(flags.isSet(FrozenAnalogQuality.RESTART));
+
+        flags.set(FrozenAnalogQuality.COMM_LOST);
+        Assert.assertTrue(flags.isSet(FrozenAnalogQuality.COMM_LOST));
+
+        flags.set(FrozenAnalogQuality.REMOTE_FORCED);
+        Assert.assertTrue(flags.isSet(FrozenAnalogQuality.REMOTE_FORCED));
+
+        flags.set(FrozenAnalogQuality.LOCAL_FORCED);
+        Assert.assertTrue(flags.isSet(FrozenAnalogQuality.LOCAL_FORCED));
+
+        flags.set(FrozenAnalogQuality.OVERRANGE);
+        Assert.assertTrue(flags.isSet(FrozenAnalogQuality.OVERRANGE));
+
+        flags.set(FrozenAnalogQuality.REFERENCE_ERR);
+        Assert.assertTrue(flags.isSet(FrozenAnalogQuality.REFERENCE_ERR));
+
+        flags.set(FrozenAnalogQuality.RESERVED);
+        Assert.assertTrue(flags.isSet(FrozenAnalogQuality.RESERVED));
 
         Assert.assertEquals((byte)0xFF, flags.getValue());
     }

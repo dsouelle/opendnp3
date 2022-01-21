@@ -24,13 +24,14 @@ namespace opendnp3
 
 EventBufferConfig EventBufferConfig::AllTypes(uint16_t sizes)
 {
-    return EventBufferConfig(sizes, sizes, sizes, sizes, sizes, sizes, sizes, sizes);
+    return EventBufferConfig(sizes, sizes, sizes, sizes, sizes, sizes, sizes, sizes, sizes);
 }
 
 EventBufferConfig::EventBufferConfig(uint16_t maxBinaryEvents,
                                      uint16_t maxDoubleBinaryEvents,
                                      uint16_t maxAnalogEvents,
-                                     uint16_t maxCounterEvents,
+									 uint16_t maxFrozenAnalogEvents,
+									 uint16_t maxCounterEvents,
                                      uint16_t maxFrozenCounterEvents,
                                      uint16_t maxBinaryOutputStatusEvents,
                                      uint16_t maxAnalogOutputStatusEvents,
@@ -40,7 +41,8 @@ EventBufferConfig::EventBufferConfig(uint16_t maxBinaryEvents,
       maxBinaryEvents(maxBinaryEvents),
       maxDoubleBinaryEvents(maxDoubleBinaryEvents),
       maxAnalogEvents(maxAnalogEvents),
-      maxCounterEvents(maxCounterEvents),
+	  maxFrozenAnalogEvents(maxFrozenAnalogEvents),
+	  maxCounterEvents(maxCounterEvents),
       maxFrozenCounterEvents(maxFrozenCounterEvents),
       maxBinaryOutputStatusEvents(maxBinaryOutputStatusEvents),
       maxAnalogOutputStatusEvents(maxAnalogOutputStatusEvents),
@@ -50,7 +52,7 @@ EventBufferConfig::EventBufferConfig(uint16_t maxBinaryEvents,
 
 uint32_t EventBufferConfig::TotalEvents() const
 {
-    return maxBinaryEvents + maxDoubleBinaryEvents + maxAnalogEvents + maxCounterEvents + maxFrozenCounterEvents
+    return maxBinaryEvents + maxDoubleBinaryEvents + maxAnalogEvents + maxFrozenAnalogEvents + maxCounterEvents + maxFrozenCounterEvents
         + maxBinaryOutputStatusEvents + maxAnalogOutputStatusEvents + maxOctetStringEvents;
 }
 

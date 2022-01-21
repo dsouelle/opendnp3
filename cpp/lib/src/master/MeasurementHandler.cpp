@@ -134,6 +134,11 @@ IINField MeasurementHandler::ProcessHeader(const RangeHeader& header, const ICol
     return this->LoadValues(header, ModeFromType(header.enumeration), values);
 }
 
+IINField MeasurementHandler::ProcessHeader(const RangeHeader& header, const ICollection<Indexed<FrozenAnalog>>& values)
+{
+	return this->LoadValues(header, ModeFromType(header.enumeration), values);
+}
+
 IINField MeasurementHandler::ProcessHeader(const RangeHeader& header,
                                            const ICollection<Indexed<AnalogOutputStatus>>& values)
 {
@@ -192,6 +197,12 @@ IINField MeasurementHandler::ProcessHeader(const PrefixHeader& header,
 IINField MeasurementHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<Analog>>& values)
 {
     return this->LoadValues(header, ModeFromType(header.enumeration), values);
+}
+
+IINField MeasurementHandler::ProcessHeader(const PrefixHeader& header, 
+										   const ICollection<Indexed<FrozenAnalog>>& values)
+{
+	return this->LoadValues(header, ModeFromType(header.enumeration), values);
 }
 
 IINField MeasurementHandler::ProcessHeader(const PrefixHeader& header,

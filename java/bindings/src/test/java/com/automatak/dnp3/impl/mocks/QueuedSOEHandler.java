@@ -95,6 +95,12 @@ public class QueuedSOEHandler implements SOEHandler {
     }
 
     @Override
+    public void processFAI(HeaderInfo info, Iterable<IndexedValue<FrozenAnalog>> values)
+    {
+        this.add(values, v -> new ExpectedValue(v.index, ExpectedValue.Type.FrozenAnalogType));
+    }
+
+    @Override
     public void processC(HeaderInfo info, Iterable<IndexedValue<Counter>> values)
     {
         this.add(values, v -> new ExpectedValue(v.value, v.index));

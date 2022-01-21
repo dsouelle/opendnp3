@@ -37,7 +37,8 @@ object AssignClassType {
     "FrozenCounter",
     "AnalogInput",
     "BinaryOutputStatus",
-    "AnalogOutputStatus"
+    "AnalogOutputStatus",
+    "FrozenAnalogInput"
   ))
 
 }

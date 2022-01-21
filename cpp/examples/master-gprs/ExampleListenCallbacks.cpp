@@ -65,6 +65,11 @@ public:
     {
     }
 
+	void Process(const HeaderInfo& info,
+				 const ICollection<Indexed<FrozenAnalog>>& values) override
+	{
+	}
+
     void Process(const HeaderInfo& info,
                  const ICollection<Indexed<Counter>>& values) override
     {

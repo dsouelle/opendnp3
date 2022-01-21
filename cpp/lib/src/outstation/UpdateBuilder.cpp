@@ -43,6 +43,12 @@ bool UpdateBuilder::Update(const Analog& meas, uint16_t index, EventMode mode)
     return this->AddMeas(meas, index, mode);
 }
 
+bool UpdateBuilder::FreezeAnalog(uint16_t index, bool clear, EventMode mode)
+{
+	this->Add([=](IUpdateHandler& handler) { handler.FreezeAnalog(index, clear, mode); });
+	return true;
+}
+
 bool UpdateBuilder::Update(const Counter& meas, uint16_t index, EventMode mode)
 {
     return this->AddMeas(meas, index, mode);

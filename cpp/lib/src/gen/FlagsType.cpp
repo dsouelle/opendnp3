@@ -55,7 +55,9 @@ FlagsType FlagsTypeSpec::from_type(uint8_t arg)
       return FlagsType::BinaryOutputStatus;
     case(0x6):
       return FlagsType::AnalogOutputStatus;
-    default:
+	case(0x7):
+		return FlagsType::FrozenAnalog;
+	default:
       return FlagsType::BinaryInput;
   }
 }
@@ -72,7 +74,9 @@ char const* FlagsTypeSpec::to_string(FlagsType arg)
       return "FrozenCounter";
     case(FlagsType::AnalogInput):
       return "AnalogInput";
-    case(FlagsType::BinaryOutputStatus):
+	case(FlagsType::FrozenAnalog):
+		return "FrozenAnalog";
+	case(FlagsType::BinaryOutputStatus):
       return "BinaryOutputStatus";
     case(FlagsType::AnalogOutputStatus):
       return "AnalogOutputStatus";
@@ -93,7 +97,9 @@ char const* FlagsTypeSpec::to_human_string(FlagsType arg)
       return "FrozenCounter";
     case(FlagsType::AnalogInput):
       return "AnalogInput";
-    case(FlagsType::BinaryOutputStatus):
+	case(FlagsType::FrozenAnalog):
+		return "FrozenAnalog";
+	case(FlagsType::BinaryOutputStatus):
       return "BinaryOutputStatus";
     case(FlagsType::AnalogOutputStatus):
       return "AnalogOutputStatus";
@@ -108,6 +114,7 @@ FlagsType FlagsTypeSpec::from_string(const std::string& arg)
   if(arg == "Counter") return FlagsType::Counter;
   if(arg == "FrozenCounter") return FlagsType::FrozenCounter;
   if(arg == "AnalogInput") return FlagsType::AnalogInput;
+  if(arg == "FrozenAnalog") return FlagsType::FrozenAnalog;
   if(arg == "BinaryOutputStatus") return FlagsType::BinaryOutputStatus;
   if(arg == "AnalogOutputStatus") return FlagsType::AnalogOutputStatus;
   else return FlagsType::BinaryInput;

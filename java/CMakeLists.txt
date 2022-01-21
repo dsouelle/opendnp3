@@ -138,12 +138,18 @@ set(all_sources
     ./cpp/jni/JNIEventCounterVariation.h
     ./cpp/jni/JNIEventDoubleBinaryVariation.cpp
     ./cpp/jni/JNIEventDoubleBinaryVariation.h
+    ./cpp/jni/JNIEventFrozenAnalogVariation.cpp
+    ./cpp/jni/JNIEventFrozenAnalogVariation.h
     ./cpp/jni/JNIEventFrozenCounterVariation.cpp
     ./cpp/jni/JNIEventFrozenCounterVariation.h
     ./cpp/jni/JNIEventMode.h
     ./cpp/jni/JNIEventMode.cpp
     ./cpp/jni/JNIFlags.cpp
     ./cpp/jni/JNIFlags.h
+    ./cpp/jni/JNIFrozenAnalog.cpp
+    ./cpp/jni/JNIFrozenAnalog.h
+    ./cpp/jni/JNIFrozenAnalogConfig.cpp
+    ./cpp/jni/JNIFrozenAnalogConfig.h
     ./cpp/jni/JNIFrozenCounter.cpp
     ./cpp/jni/JNIFrozenCounter.h
     ./cpp/jni/JNIFrozenCounterConfig.cpp
@@ -236,6 +242,8 @@ set(all_sources
     ./cpp/jni/JNIStaticCounterVariation.h
     ./cpp/jni/JNIStaticDoubleBinaryVariation.cpp
     ./cpp/jni/JNIStaticDoubleBinaryVariation.h
+    ./cpp/jni/JNIStaticFrozenAnalogVariation.cpp
+    ./cpp/jni/JNIStaticFrozenAnalogVariation.h
     ./cpp/jni/JNIStaticFrozenCounterVariation.cpp
     ./cpp/jni/JNIStaticFrozenCounterVariation.h
     ./cpp/jni/JNIStaticTypeBitField.cpp

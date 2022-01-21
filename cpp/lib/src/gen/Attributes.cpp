@@ -57,7 +57,11 @@ bool HasAbsoluteTime(GroupVariation gv)
         return true;
     case(GroupVariation::Group23Var6):
         return true;
-    case(GroupVariation::Group32Var3):
+	case(GroupVariation::Group31Var3):
+		return true;
+	case(GroupVariation::Group31Var4):
+		return true;
+	case(GroupVariation::Group32Var3):
         return true;
     case(GroupVariation::Group32Var4):
         return true;
@@ -65,7 +69,15 @@ bool HasAbsoluteTime(GroupVariation gv)
         return true;
     case(GroupVariation::Group32Var8):
         return true;
-    case(GroupVariation::Group42Var3):
+	case(GroupVariation::Group33Var3):
+		return true;
+	case(GroupVariation::Group33Var4):
+		return true;
+	case(GroupVariation::Group33Var7):
+		return true;
+	case(GroupVariation::Group33Var8):
+		return true;
+	case(GroupVariation::Group42Var3):
         return true;
     case(GroupVariation::Group42Var4):
         return true;
@@ -177,7 +189,23 @@ bool HasFlags(GroupVariation gv)
         return true;
     case(GroupVariation::Group30Var6):
         return true;
-    case(GroupVariation::Group32Var1):
+	case(GroupVariation::Group31Var1):
+		return true;
+	case(GroupVariation::Group31Var2):
+		return true;
+	case(GroupVariation::Group31Var3):
+		return true;
+	case(GroupVariation::Group31Var4):
+		return true;
+	case(GroupVariation::Group31Var5):
+		return true;
+	case(GroupVariation::Group31Var6):
+		return true;
+	case(GroupVariation::Group31Var7):
+		return true;
+	case(GroupVariation::Group31Var8):
+		return true;
+	case(GroupVariation::Group32Var1):
         return true;
     case(GroupVariation::Group32Var2):
         return true;
@@ -193,7 +221,23 @@ bool HasFlags(GroupVariation gv)
         return true;
     case(GroupVariation::Group32Var8):
         return true;
-    case(GroupVariation::Group40Var1):
+	case(GroupVariation::Group33Var1):
+		return true;
+	case(GroupVariation::Group33Var2):
+		return true;
+	case(GroupVariation::Group33Var3):
+		return true;
+	case(GroupVariation::Group33Var4):
+		return true;
+	case(GroupVariation::Group33Var5):
+		return true;
+	case(GroupVariation::Group33Var6):
+		return true;
+	case(GroupVariation::Group33Var7):
+		return true;
+	case(GroupVariation::Group33Var8):
+		return true;
+	case(GroupVariation::Group40Var1):
         return true;
     case(GroupVariation::Group40Var2):
         return true;
@@ -277,7 +321,23 @@ bool IsEvent(GroupVariation gv)
         return true;
     case(GroupVariation::Group32Var8):
         return true;
-    case(GroupVariation::Group42Var1):
+	case(GroupVariation::Group33Var1):
+		return true;
+	case(GroupVariation::Group33Var2):
+		return true;
+	case(GroupVariation::Group33Var3):
+		return true;
+	case(GroupVariation::Group33Var4):
+		return true;
+	case(GroupVariation::Group33Var5):
+		return true;
+	case(GroupVariation::Group33Var6):
+		return true;
+	case(GroupVariation::Group33Var7):
+		return true;
+	case(GroupVariation::Group33Var8):
+		return true;
+	case(GroupVariation::Group42Var1):
         return true;
     case(GroupVariation::Group42Var2):
         return true;

@@ -73,6 +73,30 @@ JNIEXPORT void JNICALL Java_com_automatak_dnp3_impl_MasterImpl_direct_1operate_1
 
 /*
  * Class:     com_automatak_dnp3_impl_MasterImpl
+ * Method:    perform_function_native
+ * Signature: (JLjava/lang/String;Lcom/automatak/dnp3/enums/FunctionCode;Ljava/lang/Iterable;)V
+ */
+JNIEXPORT void JNICALL Java_com_automatak_dnp3_impl_MasterImpl_perform_1function_1native
+  (JNIEnv *, jobject, jlong, jstring, jobject, jobject);
+
+/*
+ * Class:     com_automatak_dnp3_impl_MasterImpl
+ * Method:    immediate_freeze_native
+ * Signature: (JLjava/lang/String;Lcom/automatak/dnp3/enums/FunctionCode;Ljava/lang/Iterable;)V
+ */
+JNIEXPORT void JNICALL Java_com_automatak_dnp3_impl_MasterImpl_immediate_1freeze_1native
+  (JNIEnv *, jobject, jlong, jstring, jobject, jobject);
+
+/*
+ * Class:     com_automatak_dnp3_impl_MasterImpl
+ * Method:    freeze_clear_native
+ * Signature: (JLjava/lang/String;Lcom/automatak/dnp3/enums/FunctionCode;Ljava/lang/Iterable;)V
+ */
+JNIEXPORT void JNICALL Java_com_automatak_dnp3_impl_MasterImpl_freeze_1clear_1native
+  (JNIEnv *, jobject, jlong, jstring, jobject, jobject);
+
+/*
+ * Class:     com_automatak_dnp3_impl_MasterImpl
  * Method:    scan_native
  * Signature: (JLjava/lang/Iterable;Lcom/automatak/dnp3/SOEHandler;)V
  */

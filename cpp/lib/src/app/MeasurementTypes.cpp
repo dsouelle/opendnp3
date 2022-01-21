@@ -109,6 +109,18 @@ Analog::Analog(double value, Flags flags) : TypedMeasurement(value, flags) {}
 
 Analog::Analog(double value, Flags flags, DNPTime time) : TypedMeasurement<double>(value, flags, time) {}
 
+// ------------ Frozen Analog ---------------
+
+FrozenAnalog::FrozenAnalog() : TypedMeasurement(flags::RESTART) {}
+
+FrozenAnalog::FrozenAnalog(double value) : TypedMeasurement(value, flags::ONLINE) {}
+
+FrozenAnalog::FrozenAnalog(double value, Flags flags) : TypedMeasurement(value, flags) {}
+
+FrozenAnalog::FrozenAnalog(double value, Flags flags, DNPTime time) : TypedMeasurement<double>(value, flags, time) 
+{
+}
+
 // ------------ Counter ---------------
 
 Counter::Counter() : TypedMeasurement(0, flags::RESTART) {}

@@ -21,6 +21,7 @@ package com.automatak.dnp3.example;
 
 import com.automatak.dnp3.*;
 import com.automatak.dnp3.enums.CommandStatus;
+import com.automatak.dnp3.enums.FunctionCode;
 import com.automatak.dnp3.enums.OperationType;
 import com.automatak.dnp3.enums.TripCloseCode;
 import com.automatak.dnp3.impl.DNP3ManagerFactory;
@@ -32,7 +33,9 @@ import com.automatak.dnp3.mock.PrintingSOEHandler;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Example master than can be run against the example outstation
@@ -72,12 +75,15 @@ public class MasterDemo {
 
         // You can modify the defaults to change the way the master behaves
         MasterStackConfig config = new MasterStackConfig();
+        config.link.localAddr = 1;
+        config.link.remoteAddr = 1024;
+
 
         // Create a master instance, pass in a simple singleton to print received values to the console
         Master master = channel.addMaster("master", PrintingSOEHandler.getInstance(), DefaultMasterApplication.getInstance(), config);
 
         // do an integrity scan every 2 seconds
-        master.addPeriodicScan(Duration.ofSeconds(2), Header.getIntegrity(), PrintingSOEHandler.getInstance());
+        master.addPeriodicScan(Duration.ofSeconds(30), Header.getIntegrity(), PrintingSOEHandler.getInstance());
 
         master.enable();
 
@@ -109,6 +115,51 @@ public class MasterDemo {
                     break;
                 case("scan"):
                     master.scan(Header.getEventClasses(), PrintingSOEHandler.getInstance());
+                    master.scan(Header.getIntegrity(), PrintingSOEHandler.getInstance());
+                    break;
+                case("fa"):
+                    byte group = 30;
+                    byte variation = 0x00;
+                    System.out.println(":** Sending Freeze Analog command.");
+                    List<Header> headers = new ArrayList<Header>();
+                    Header header = Header.Range16(group, variation, 0, 0);
+                    headers.add(header) ;
+                    master.scan(header, PrintingSOEHandler.getInstance());
+                    master.immediateFreeze("Immediate Freeze", FunctionCode.IMMED_FREEZE, headers);
+                    break;
+                case("ra"):
+                    group = 30;
+                    variation = 0x00;
+                    System.out.println(":** Sending Read Analog Inputs command.");
+                    master.scan(Header.allObjects(group, variation), PrintingSOEHandler.getInstance());
+                    break;
+                case("rfa"):
+                    group = 31;
+                    variation = 0x00;
+                    System.out.println(":** Sending Read Frozen Analog Inputs command.");
+                    master.scan(Header.allObjects(group, variation), PrintingSOEHandler.getInstance());
+                    break;
+                case("fc"):
+                    group = 20;
+                    variation = 0x00;
+                    System.out.println(":** Sending Freeze Counter command.");
+                    headers = new ArrayList<Header>();
+                    header = Header.Range16(group, variation, 0, 0);
+                    headers.add(header) ;
+                    master.scan(header, PrintingSOEHandler.getInstance());
+                    master.immediateFreeze("Immediate Freeze", FunctionCode.IMMED_FREEZE, headers);
+                    break;
+                case("rf"):
+                    group = 20;
+                    variation = 0x00;
+                    System.out.println(":** Sending Read Counters command.");
+                    master.scan(Header.allObjects(group, variation), PrintingSOEHandler.getInstance());
+                    break;
+                case("rfc"):
+                    group = 21;
+                    variation = 0x00;
+                    System.out.println(":** Sending Read Frozen Counters command.");
+                    master.scan(Header.allObjects(group, variation), PrintingSOEHandler.getInstance());
                     break;
                 default:
                     System.out.println("Unknown command: " + line);

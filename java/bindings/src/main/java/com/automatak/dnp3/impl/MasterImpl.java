@@ -20,6 +20,7 @@
 package com.automatak.dnp3.impl;
 
 import com.automatak.dnp3.*;
+import com.automatak.dnp3.enums.FunctionCode;
 
 import java.time.Duration;
 import java.util.Arrays;
@@ -89,6 +90,24 @@ class MasterImpl implements Master {
     public void addPeriodicScan(Duration period, Iterable<Header> headers, SOEHandler soeHandler)
     {
         this.add_periodic_scan_native(this.nativePointer, period, headers, soeHandler);
+    }
+
+    @Override
+    public void performFunction(String name, FunctionCode code, Iterable<Header> headers)
+    {
+        this.perform_function_native(this.nativePointer, name, code, headers);
+    }
+
+    @Override
+    public void immediateFreeze(String name, FunctionCode code, Iterable<Header> headers)
+    {
+        this.immediate_freeze_native(this.nativePointer, name, code, headers);
+    }
+
+    @Override
+    public void freezeClear(String name, FunctionCode code, Iterable<Header> headers)
+    {
+        this.freeze_clear_native(this.nativePointer, name, code, headers);
     }
 
     @Override
@@ -180,6 +199,9 @@ class MasterImpl implements Master {
 
     private native void select_and_operate_native(long nativePointer, long nativeCommandSetPointer, CompletableFuture<CommandTaskResult> future);
     private native void direct_operate_native(long nativePointer, long nativeCommandSetPointer, CompletableFuture<CommandTaskResult> future);
+    private native void perform_function_native(long nativePointer, String name, FunctionCode code, Iterable<Header> headers);
+    private native void immediate_freeze_native(long nativePointer, String name, FunctionCode code, Iterable<Header> headers);
+    private native void freeze_clear_native(long nativePointer, String name, FunctionCode code, Iterable<Header> headers);
 
     private native void scan_native(long nativePointer, Iterable<Header> headers, SOEHandler soeHandler);
     private native void add_periodic_scan_native(long nativePointer, Duration period, Iterable<Header> headers, SOEHandler soeHandler);

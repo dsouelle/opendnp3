@@ -31,32 +31,56 @@ FreezeRequestHandler::FreezeRequestHandler(bool clear, Database& database) : cle
 
 bool FreezeRequestHandler::IsAllowed(uint32_t headerCount, GroupVariation gv, QualifierCode qc)
 {
-    if (gv != GroupVariation::Group20Var0)
-        return false;
+    //if (gv != GroupVariation::Group20Var0 || gv != GroupVariation::Group30Var0)
+     //   return false;
+	//switch (qc)
+	//{
+	//case QualifierCode::ALL_OBJECTS:
+	//case QualifierCode::UINT8_START_STOP:
+	//case QualifierCode::UINT16_START_STOP:
+	//	return true;
+	//default:
+	//	return false;
+	//}
+	if (gv == GroupVariation::Group20Var0 || gv == GroupVariation::Group30Var0) {
+		switch (qc)
+		{
+		case QualifierCode::ALL_OBJECTS:
+		case QualifierCode::UINT8_START_STOP:
+		case QualifierCode::UINT16_START_STOP:
+			return true;
+		default:
+			return false;
+		}
+	}
+	else {
+		return false;
+	}
 
-    switch (qc)
-    {
-    case QualifierCode::ALL_OBJECTS:
-    case QualifierCode::UINT8_START_STOP:
-    case QualifierCode::UINT16_START_STOP:
-        return true;
-    default:
-        return false;
-    }
 }
 
 IINField FreezeRequestHandler::ProcessHeader(const AllObjectsHeader& record)
 {
     this->database.SelectAll(record.enumeration);
-    this->database.FreezeSelectedCounters(clear);
-    return IINField::Empty();
+	if (record.enumeration == GroupVariation::Group20Var0) {
+		this->database.FreezeSelectedCounters(clear);
+	}
+	else if (record.enumeration == GroupVariation::Group30Var0) {
+		this->database.FreezeSelectedAnalogs(clear);
+	}
+	return IINField::Empty();
 }
 
 IINField FreezeRequestHandler::ProcessHeader(const RangeHeader& header)
 {
     this->database.SelectRange(header.enumeration, header.range);
-    this->database.FreezeSelectedCounters(clear);
-    return IINField::Empty();
+	if (header.enumeration == GroupVariation::Group20Var0) {
+		this->database.FreezeSelectedCounters(clear);
+	}
+	else if (header.enumeration == GroupVariation::Group30Var0) {
+		this->database.FreezeSelectedAnalogs(clear);
+	}
+	return IINField::Empty();
 }
 
 } // namespace opendnp3

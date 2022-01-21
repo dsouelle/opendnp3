@@ -49,7 +49,8 @@ public:
     virtual void Process(const HeaderInfo& info, const ICollection<Indexed<Binary>>& values) override;
     virtual void Process(const HeaderInfo& info, const ICollection<Indexed<DoubleBitBinary>>& values) override;
     virtual void Process(const HeaderInfo& info, const ICollection<Indexed<Analog>>& values) override;
-    virtual void Process(const HeaderInfo& info, const ICollection<Indexed<Counter>>& values) override;
+	virtual void Process(const HeaderInfo& info, const ICollection<Indexed<FrozenAnalog>>& values) override;
+	virtual void Process(const HeaderInfo& info, const ICollection<Indexed<Counter>>& values) override;
     virtual void Process(const HeaderInfo& info, const ICollection<Indexed<FrozenCounter>>& values) override;
     virtual void Process(const HeaderInfo& info, const ICollection<Indexed<BinaryOutputStatus>>& values) override;
     virtual void Process(const HeaderInfo& info, const ICollection<Indexed<AnalogOutputStatus>>& values) override;

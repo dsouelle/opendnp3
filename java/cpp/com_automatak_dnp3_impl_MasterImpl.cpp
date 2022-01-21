@@ -19,6 +19,7 @@
  */
 #include "com_automatak_dnp3_impl_MasterImpl.h"
 
+#include "adapters/CString.h"
 #include "adapters/Conversions.h"
 #include "adapters/GlobalRef.h"
 #include "adapters/SOEHandlerAdapter.h"
@@ -208,4 +209,73 @@ JNIEXPORT void JNICALL Java_com_automatak_dnp3_impl_MasterImpl_add_1periodic_1sc
     auto soeAdapter = std::make_shared<SOEHandlerAdapter>(jsoehandler);
 
     (*master)->AddScan(period, headers, soeAdapter);
+}
+
+JNIEXPORT void JNICALL Java_com_automatak_dnp3_impl_MasterImpl_perform_1function_1native(
+	JNIEnv* env, jobject /*unused*/, jlong native, jstring name, jobject funcCode, jobject jheaders)
+{
+	const auto master = (std::shared_ptr<opendnp3::IMaster>*)native;
+
+	std::vector<opendnp3::Header> headers;
+
+	auto process = [&](jni::JHeader jheader) {
+		opendnp3::Header header;
+		if (ConvertJHeader(env, jheader, header))
+		{
+			headers.push_back(header);
+		}
+	};
+
+	JNI::Iterate<jni::JHeader>(env, jni::JIterable(jheaders), process);
+	const auto func = (std::shared_ptr<opendnp3::FunctionCode>*)(funcCode);
+
+	CString id(env, name);
+
+	(*master)->PerformFunction(id.str(), **func, headers);
+}
+
+JNIEXPORT void JNICALL Java_com_automatak_dnp3_impl_MasterImpl_immediate_1freeze_1native(
+	JNIEnv* env, jobject /*unused*/, jlong native, jstring name, jobject funcCode, jobject jheaders)
+{
+	const auto master = (std::shared_ptr<opendnp3::IMaster>*)native;
+
+	std::vector<opendnp3::Header> headers;
+
+	auto process = [&](jni::JHeader jheader) {
+		opendnp3::Header header;
+		if (ConvertJHeader(env, jheader, header))
+		{
+			headers.push_back(header);
+		}
+	};
+
+	JNI::Iterate<jni::JHeader>(env, jni::JIterable(jheaders), process);
+	const auto func = (std::shared_ptr<opendnp3::FunctionCode>*)funcCode;
+
+	CString id(env, name);
+
+	(*master)->PerformFunction(id.str(), opendnp3::FunctionCode::IMMED_FREEZE, headers);
+}
+
+JNIEXPORT void JNICALL Java_com_automatak_dnp3_impl_MasterImpl_freeze_1clear_1native(
+	JNIEnv* env, jobject /*unused*/, jlong native, jstring name, jobject funcCode, jobject jheaders)
+{
+	const auto master = (std::shared_ptr<opendnp3::IMaster>*)native;
+
+	std::vector<opendnp3::Header> headers;
+
+	auto process = [&](jni::JHeader jheader) {
+		opendnp3::Header header;
+		if (ConvertJHeader(env, jheader, header))
+		{
+			headers.push_back(header);
+		}
+	};
+
+	JNI::Iterate<jni::JHeader>(env, jni::JIterable(jheaders), process);
+	const auto func = (std::shared_ptr<opendnp3::FunctionCode>*)funcCode;
+
+	CString id(env, name);
+
+	(*master)->PerformFunction(id.str(), opendnp3::FunctionCode::FREEZE_CLEAR, headers);
 }

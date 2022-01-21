@@ -74,6 +74,12 @@ public:
         this->ProcessAny(values);
     }
 
+	void Process(const opendnp3::HeaderInfo& info,
+				 const opendnp3::ICollection<opendnp3::Indexed<opendnp3::FrozenAnalog>>& values) override
+	{
+		this->ProcessAny(values);
+	}
+
     void Process(const opendnp3::HeaderInfo& info,
                  const opendnp3::ICollection<opendnp3::Indexed<opendnp3::Counter>>& values) override
     {

@@ -56,6 +56,10 @@ struct AnalogConfig : public DeadbandConfig<AnalogInfo>
 {
 };
 
+struct FrozenAnalogConfig : public DeadbandConfig<FrozenAnalogInfo>
+{
+};
+
 struct CounterConfig : public DeadbandConfig<CounterInfo>
 {
 };

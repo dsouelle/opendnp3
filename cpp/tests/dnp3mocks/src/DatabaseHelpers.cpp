@@ -32,38 +32,39 @@ namespace by_count_of
 
     opendnp3::DatabaseConfig binary_input(uint16_t num)
     {
-        return database_by_sizes(num, 0, 0, 0, 0, 0, 0, 0, 0);
+        return database_by_sizes(num, 0, 0, 0, 0, 0, 0, 0, 0, 0);
     }
 
     opendnp3::DatabaseConfig counter(uint16_t num, bool with_frozen)
     {
         auto num_frozen = with_frozen ? num : 0;
-        return database_by_sizes(0, 0, 0, num, num_frozen, 0, 0, 0, 0);
+        return database_by_sizes(0, 0, 0, 0, num, num_frozen, 0, 0, 0, 0);
     }
 
     opendnp3::DatabaseConfig binary_output_status(uint16_t num)
     {
-        return database_by_sizes(0, 0, 0, 0, 0, num, 0, 0, 0);
+        return database_by_sizes(0, 0, 0, 0, 0, 0, num, 0, 0, 0);
     }
 
-    opendnp3::DatabaseConfig analog_input(uint16_t num)
+    opendnp3::DatabaseConfig analog_input(uint16_t num, bool with_frozen)
     {
-        return database_by_sizes(0, 0, num, 0, 0, 0, 0, 0, 0);
+        auto num_frozen = with_frozen ? num : 0;
+        return database_by_sizes(0, 0, num, num_frozen, 0, 0, 0, 0, 0, 0);
     }
 
     opendnp3::DatabaseConfig analog_output_status(uint16_t num)
     {
-        return database_by_sizes(0, 0, 0, 0, 0, 0, num, 0, 0);
+        return database_by_sizes(0, 0, 0, 0, 0, 0, 0, num, 0, 0);
     }
 
     opendnp3::DatabaseConfig time_and_interval(uint16_t num)
     {
-        return database_by_sizes(0, 0, 0, 0, 0, 0, 0, num, 0);
+        return database_by_sizes(0, 0, 0, 0, 0, 0, 0, 0, num, 0);
     }
 
     opendnp3::DatabaseConfig octet_string(uint16_t num)
     {
-        return database_by_sizes(0, 0, 0, 0, 0, 0, 0, 0, num);
+        return database_by_sizes(0, 0, 0, 0, 0, 0, 0, 0, 0, num);
     }
 
 } // namespace by_count_of
@@ -92,6 +93,7 @@ opendnp3::AnalogConfig analog(opendnp3::StaticAnalogVariation variation)
 opendnp3::DatabaseConfig database_by_sizes(uint16_t num_binary,
                                            uint16_t num_double_binary,
                                            uint16_t num_analog,
+                                           uint16_t num_frozen_analog,
                                            uint16_t num_counter,
                                            uint16_t num_frozen_counter,
                                            uint16_t num_binary_output_status,
@@ -112,6 +114,10 @@ opendnp3::DatabaseConfig database_by_sizes(uint16_t num_binary,
     for (uint16_t i = 0; i < num_analog; ++i)
     {
         config.analog_input[i] = {};
+    }
+    for (uint16_t i = 0; i < num_frozen_analog; ++i)
+    {
+        config.frozen_analog[i] = {};
     }
     for (uint16_t i = 0; i < num_counter; ++i)
     {

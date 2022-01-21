@@ -37,10 +37,21 @@ DatabaseConfig ConfigureDatabase()
 {
     DatabaseConfig config(10); // 10 of each type with default settings
 
-    config.analog_input[0].clazz = PointClass::Class2;
+/*	config.counter[0].clazz = PointClass::Class1;
+	config.counter[0].svariation = StaticCounterVariation::Group20Var5;
+	config.counter[0].evariation = EventCounterVariation::Group22Var5;
+	config.frozen_counter[0].clazz = PointClass::Class1;
+	config.frozen_counter[0].svariation = StaticFrozenCounterVariation::Group21Var5;
+	config.frozen_counter[0].evariation = EventFrozenCounterVariation::Group23Var5;
+	
+	config.analog_input[0].clazz = PointClass::Class1;
     config.analog_input[0].svariation = StaticAnalogVariation::Group30Var5;
     config.analog_input[0].evariation = EventAnalogVariation::Group32Var7;
-            
+
+	config.frozen_analog[0].clazz = PointClass::Class1;
+	config.frozen_analog[0].svariation = StaticFrozenAnalogVariation::Group31Var7;
+	config.frozen_analog[0].evariation = EventFrozenAnalogVariation::Group33Var7;
+ */           
     return config;
 }
 
@@ -96,7 +107,7 @@ int main(int argc, char* argv[])
 
     // You can override the default link layer settings here
     // in this example we've changed the default link layer addressing
-    config.link.LocalAddr = 10;
+    config.link.LocalAddr = 1024;
     config.link.RemoteAddr = 1;
     config.link.KeepAliveTimeout = TimeDuration::Max();
 
@@ -116,7 +127,7 @@ int main(int argc, char* argv[])
     while (true)
     {
         std::cout << "Enter one or more measurement changes then press <enter>" << std::endl;
-        std::cout << "c = counter, b = binary, d = doublebit, a = analog, o = octet string, 'quit' = exit" << std::endl;
+        std::cout << "c = counter, b = binary, d = doublebit, a = analog, o = octet string, f = freeze Counter, g = freeze Analog, 'quit' = exit" << std::endl;
         std::cin >> input;
 
         if (input == "quit")
@@ -150,10 +161,15 @@ void AddUpdates(UpdateBuilder& builder, State& state, const std::string& argumen
             builder.FreezeCounter(0, false);
             break;
         }
-        case ('a'):
+		case ('g'):
+		{
+			builder.FreezeAnalog(0, false);
+			break;
+		}
+		case ('a'):
         {
             builder.Update(Analog(state.value), 0);
-            state.value += 1;
+            state.value += 1.5;
             break;
         }
         case ('b'):

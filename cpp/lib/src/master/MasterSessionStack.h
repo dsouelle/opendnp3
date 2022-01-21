@@ -102,6 +102,14 @@ public:
                          FunctionCode func,
                          const std::vector<Header>& headers,
                          const TaskConfig& config) final;
+	void ImmediateFreeze(const std::string& name,
+						FunctionCode func,
+						const std::vector<Header>& headers,
+						const TaskConfig& config) final;
+	void FreezeClear(const std::string& name,
+					FunctionCode func,
+					const std::vector<Header>& headers,
+					const TaskConfig& config) final;
 
     /// --- ICommandProcessor ---
 

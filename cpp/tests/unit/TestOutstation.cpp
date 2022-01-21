@@ -302,7 +302,7 @@ TEST_CASE(SUITE("TypesCanBeOmittedFromClass0ViaConfig"))
     OutstationConfig config;
     config.params.typesAllowedInClass0 = StaticTypeBitField::AllTypes().Except(StaticTypeBitmask::DoubleBinaryInput);
     OutstationTestObject t(config,
-                           configure::database_by_sizes(1, 1, 0, 0, 0, 0, 0, 0, 0)); // 1 binary and 1 double binary
+                           configure::database_by_sizes(1, 1, 0, 0, 0, 0, 0, 0, 0, 0)); // 1 binary and 1 double binary
 
     t.LowerLayerUp();
     t.SendToOutstation("C0 01 3C 01 06"); // Read class 0
@@ -691,7 +691,7 @@ TEST_CASE(SUITE("read g1v2 using qualifer 0x17"))
 {
     OutstationConfig config;
     config.params.allowUnsolicited = false;
-    OutstationTestObject t(config, configure::database_by_sizes(3, 0, 0, 0, 0, 0, 0, 0, 0));
+    OutstationTestObject t(config, configure::database_by_sizes(3, 0, 0, 0, 0, 0, 0, 0, 0, 0));
 
     t.LowerLayerUp();
     t.SendToOutstation("C0 01 01 02 17 02 00 02"); // Read g1v2 indices 0 and 2
@@ -702,7 +702,7 @@ TEST_CASE(SUITE("read g1v2 using qualifer 0x28"))
 {
     OutstationConfig config;
     config.params.allowUnsolicited = false;
-    OutstationTestObject t(config, configure::database_by_sizes(3, 0, 0, 0, 0, 0, 0, 0, 0));
+    OutstationTestObject t(config, configure::database_by_sizes(3, 0, 0, 0, 0, 0, 0, 0, 0, 0));
 
     t.LowerLayerUp();
     t.SendToOutstation("C0 01 01 02 28 02 00 00 00 02 00"); // Read g1v2 indices 0 and 2
