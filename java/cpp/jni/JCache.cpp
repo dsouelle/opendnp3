@@ -103,6 +103,8 @@ namespace jni
     cache::LinkLayerConfig JCache::LinkLayerConfig;
     cache::LinkLayerStatistics JCache::LinkLayerStatistics;
     cache::LinkStatistics JCache::LinkStatistics;
+    cache::LinkStatus JCache::LinkStatus;
+    cache::LinkStatusListener JCache::LinkStatusListener;
     cache::List JCache::List;
     cache::LogEntry JCache::LogEntry;
     cache::LogHandler JCache::LogHandler;
@@ -218,6 +220,8 @@ namespace jni
         && LinkLayerConfig.init(env)
         && LinkLayerStatistics.init(env)
         && LinkStatistics.init(env)
+        && LinkStatus.init(env)
+        && LinkStatusListener.init(env)
         && List.init(env)
         && LogEntry.init(env)
         && LogHandler.init(env)
@@ -335,6 +339,8 @@ namespace jni
         LinkLayerConfig.cleanup(env);
         LinkLayerStatistics.cleanup(env);
         LinkStatistics.cleanup(env);
+        LinkStatus.cleanup(env);
+        LinkStatusListener.cleanup(env);
         List.cleanup(env);
         LogEntry.cleanup(env);
         LogHandler.cleanup(env);

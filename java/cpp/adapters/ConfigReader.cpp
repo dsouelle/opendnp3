@@ -63,7 +63,7 @@ MasterParams ConfigReader::Convert(JNIEnv* env, jni::JMasterConfig jcfg)
 
 LinkConfig ConfigReader::Convert(JNIEnv* env, jni::JLinkLayerConfig jlinkcfg)
 {
-    LinkConfig cfg(true, false);
+    LinkConfig cfg(true);
 
     auto& ref = jni::JCache::LinkLayerConfig;
 
@@ -121,21 +121,21 @@ opendnp3::DatabaseConfig ConfigReader::Convert(JNIEnv* env, jni::JDatabaseConfig
         config.analog_input[get_index(entry)] = Convert(env, get_value(entry).as<jni::JAnalogConfig>());
     });
 
-	JNI::Iterate<jni::JEntry>(env, map.entrySet(env, db.getfrozenAnalog(env, jdb)).as<jni::JIterable>(), [&](jni::JEntry entry) {
-		config.frozen_analog[get_index(entry)] = Convert(env, get_value(entry).as<jni::JFrozenAnalogConfig>());
-	});
+		JNI::Iterate<jni::JEntry>(env, map.entrySet(env, db.getfrozenAnalog(env, jdb)).as<jni::JIterable>(), [&](jni::JEntry entry) {
+			config.frozen_analog[get_index(entry)] = Convert(env, get_value(entry).as<jni::JFrozenAnalogConfig>());
+		});
 
-	JNI::Iterate<jni::JEntry>(env, map.entrySet(env, db.getcounter(env, jdb)).as<jni::JIterable>(), [&](jni::JEntry entry) {
-        config.counter[get_index(entry)] = Convert(env, get_value(entry).as<jni::JCounterConfig>());
-    });
+		JNI::Iterate<jni::JEntry>(env, map.entrySet(env, db.getcounter(env, jdb)).as<jni::JIterable>(), [&](jni::JEntry entry) {
+	        config.counter[get_index(entry)] = Convert(env, get_value(entry).as<jni::JCounterConfig>());
+	    });
     
-	JNI::Iterate<jni::JEntry>(env, map.entrySet(env, db.getfrozenCounter(env, jdb)).as<jni::JIterable>(), [&](jni::JEntry entry) {
-        config.frozen_counter[get_index(entry)] = Convert(env, get_value(entry).as<jni::JFrozenCounterConfig>());
-    });
-    
-	JNI::Iterate<jni::JEntry>(env, map.entrySet(env, db.getboStatus(env, jdb)).as<jni::JIterable>(), [&](jni::JEntry entry) {
-        config.binary_output_status[get_index(entry)] = Convert(env, get_value(entry).as<jni::JBinaryOutputStatusConfig>());
-    });
+		JNI::Iterate<jni::JEntry>(env, map.entrySet(env, db.getfrozenCounter(env, jdb)).as<jni::JIterable>(), [&](jni::JEntry entry) {
+	        config.frozen_counter[get_index(entry)] = Convert(env, get_value(entry).as<jni::JFrozenCounterConfig>());
+	    });
+	    
+		JNI::Iterate<jni::JEntry>(env, map.entrySet(env, db.getboStatus(env, jdb)).as<jni::JIterable>(), [&](jni::JEntry entry) {
+	        config.binary_output_status[get_index(entry)] = Convert(env, get_value(entry).as<jni::JBinaryOutputStatusConfig>());
+	    });
 
     JNI::Iterate<jni::JEntry>(env, map.entrySet(env, db.getaoStatus(env, jdb)).as<jni::JIterable>(), [&](jni::JEntry entry) {
         config.analog_output_status[get_index(entry)] = Convert(env, get_value(entry).as<jni::JAnalogOutputStatusConfig>());
@@ -162,8 +162,8 @@ opendnp3::EventBufferConfig ConfigReader::Convert(JNIEnv* env, jni::JEventBuffer
         static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxBinaryEvents(env, jeventconfig)),
         static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxDoubleBinaryEvents(env, jeventconfig)),
         static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxAnalogEvents(env, jeventconfig)),
-		static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxFrozenAnalogEvents(env, jeventconfig)),
-		static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxCounterEvents(env, jeventconfig)),
+				static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxFrozenAnalogEvents(env, jeventconfig)),
+				static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxCounterEvents(env, jeventconfig)),
         static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxFrozenCounterEvents(env, jeventconfig)),
         static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxBinaryOutputStatusEvents(env, jeventconfig)),
         static_cast<uint16_t>(jni::JCache::EventBufferConfig.getmaxAnalogOutputStatusEvents(env, jeventconfig)));

@@ -55,7 +55,7 @@ int main(int argc, char* argv[])
 
     // Connect via a TCPClient socket to a outstation
     auto channel = manager.AddTLSClient(
-        "tls-client", logLevels, ChannelRetry::Default(), {IPEndpoint("127.0.0.1", 20001)}, "0.0.0.0",
+        "tlsclient", logLevels, ChannelRetry::Default(), {IPEndpoint("127.0.0.1", 20001)}, "0.0.0.0",
         TLSConfig(peerCertificate, localCertificate, privateKey), PrintingChannelListener::Create());
 
     // The master config object for a master. The default are
@@ -100,9 +100,9 @@ int main(int argc, char* argv[])
         std::cout << "i - integrity demand scan" << std::endl;
         std::cout << "e - exception demand scan" << std::endl;
         std::cout << "d - disable unsolcited" << std::endl;
-		std::cout << "if - immediate freeze counter" << std::endl;
-		std::cout << "fc - freeze and clear counter" << std::endl;
-		std::cout << "r - cold restart" << std::endl;
+				std::cout << "if - immediate freeze counter" << std::endl;
+				std::cout << "fc - freeze and clear counter" << std::endl;
+				std::cout << "r - cold restart" << std::endl;
         std::cout << "c - send crob" << std::endl;
 
         char cmd;

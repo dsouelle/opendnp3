@@ -45,9 +45,19 @@ struct LinkConfig
     {
     }
 
+    [[deprecated("Use LinkConfig(bool) instead.")]]
     LinkConfig(bool isMaster, bool useConfirms)
         :
+          IsMaster(isMaster),
+          LocalAddr(isMaster ? 1 : 1024),
+          RemoteAddr(isMaster ? 1024 : 1),
+          Timeout(TimeDuration::Seconds(1)),
+          KeepAliveTimeout(TimeDuration::Minutes(1))
+    {
+    }
 
+    LinkConfig(bool isMaster)
+        :
           IsMaster(isMaster),
           LocalAddr(isMaster ? 1 : 1024),
           RemoteAddr(isMaster ? 1024 : 1),

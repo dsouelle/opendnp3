@@ -1,5 +1,22 @@
-### Next ###
+### 3.1.2 ###
 * :beetle: Fix `PrintingSOEHandler` octet string size not printing properly.
+  See [4372862](https://github.com/dnp3/opendnp3/commit/4372862728851f559a01edcd88bc15ce6ce7f350)
+* :beetle: Fix keep-alive timer not properly calculated. See [#407](https://github.com/dnp3/opendnp3/pull/407).
+* :beetle: Fix `LinkContext` and `MContext` possible lifetime issue.
+  See [#407](https://github.com/dnp3/opendnp3/pull/407).
+* :beetle: Fix UDP reconnect delay not being honoured. Also, initial UDP read errors
+  (due to ICMP packets) do not close the socket immediately. See [#438](https://github.com/dnp3/opendnp3/pull/438).
+* :coffin: Deprecate the `LinkConfig` constructor with an unused `useConfirms` argument.
+  See [#439](https://github.com/dnp3/opendnp3/pull/439).
+* :beetle: In Java, `CommandHeader` builder methods now all return `CommandHeaders`.
+  See [#440](https://github.com/dnp3/opendnp3/pull/440).
+* :beetle: In Java, fix `LinkStatusListener` not getting called. Also added the missing
+  `onUnknownDestinationAddress` and `onUnknownSourceAddress` callbacks. All the callbacks
+  now have an empty default implementation. See [#441](https://github.com/dnp3/opendnp3/pull/441).
+* :beetle: Added extra log when closing a new connection based on `ServerAcceptMode::CloseNew`.
+  See [#442](https://github.com/dnp3/opendnp3/pull/442).
+* :beetle: Fix TLS server not throwing exception when a certificate or key file
+  is not valid. See [#443](https://github.com/dnp3/opendnp3/pull/443).
 
 ### 3.1.1 ###
 * :beetle: Fix static octet string serilazation bug.

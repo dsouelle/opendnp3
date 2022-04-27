@@ -306,9 +306,9 @@ public class OutstationDemo {
         public CommandStatus operate(ControlRelayOutputBlock command, int index, Database arg2, OperateType opType) {
             // TODO Auto-generated method stub
             System.out.println("start operateCROB, OperateType");
-            List<String> nodeName = new ArrayList();
-            List<OutstationChangeSet> myList = new ArrayList();
-            List<Integer> nodeIndex = new ArrayList();
+            ArrayList<String> nodeName = new ArrayList<String>();
+            ArrayList<OutstationChangeSet> myList = new ArrayList<OutstationChangeSet>();
+            ArrayList<Integer> nodeIndex = new ArrayList<Integer>();
             String str = "";
             DNPTime timestamp = new DNPTime(System.currentTimeMillis());
             OutstationChangeSet set = new OutstationChangeSet();
@@ -380,9 +380,9 @@ public class OutstationDemo {
         @Override
         public CommandStatus operate(AnalogOutputInt32 command, int index, Database arg2, OperateType arg3) {
             System.out.println("start operateAOI32");
-            List<String> nodeName = new ArrayList();
-            List<OutstationChangeSet> myList = new ArrayList();
-            List<Integer> nodeIndex = new ArrayList();
+            ArrayList<String> nodeName = new ArrayList<String>();
+            ArrayList<OutstationChangeSet> myList = new ArrayList<OutstationChangeSet>();
+            ArrayList<Integer> nodeIndex = new ArrayList<Integer>();
             String str = "";
             DNPTime timestamp = new DNPTime(System.currentTimeMillis());
             OutstationChangeSet set = new OutstationChangeSet();
@@ -402,9 +402,9 @@ public class OutstationDemo {
         @Override
         public CommandStatus operate(AnalogOutputInt16 command, int index, Database arg2, OperateType arg3) {
             System.out.println("start operateAOI16");
-            List<String> nodeName = new ArrayList();
-            List<OutstationChangeSet> myList = new ArrayList();
-            List<Integer> nodeIndex = new ArrayList();
+            ArrayList<String> nodeName = new ArrayList<String>();
+            ArrayList<OutstationChangeSet> myList = new ArrayList<OutstationChangeSet>();
+            ArrayList<Integer> nodeIndex = new ArrayList<Integer>();
             String str = "";
             DNPTime timestamp = new DNPTime(System.currentTimeMillis());
             OutstationChangeSet set = new OutstationChangeSet();
@@ -424,9 +424,9 @@ public class OutstationDemo {
         @Override
         public CommandStatus operate(AnalogOutputFloat32 command, int index, Database arg2, OperateType arg3) {
             System.out.println("start operateAOF32");
-            List<String> nodeName = new ArrayList();
-            List<OutstationChangeSet> myList = new ArrayList();
-            List<Integer> nodeIndex = new ArrayList();
+            ArrayList<String> nodeName = new ArrayList<String>();
+            ArrayList<OutstationChangeSet> myList = new ArrayList<OutstationChangeSet>();
+            ArrayList<Integer> nodeIndex = new ArrayList<Integer>();
             String str = "";
             DNPTime timestamp = new DNPTime(System.currentTimeMillis());
             OutstationChangeSet set = new OutstationChangeSet();
@@ -447,9 +447,9 @@ public class OutstationDemo {
         @Override
         public CommandStatus operate(AnalogOutputDouble64 command, int index, Database arg2, OperateType arg3) {
             System.out.println("start operateAOD64");
-            List<String> nodeName = new ArrayList();
-            List<OutstationChangeSet> myList = new ArrayList();
-            List<Integer> nodeIndex = new ArrayList();
+            ArrayList<String> nodeName = new ArrayList<String>();
+            ArrayList<OutstationChangeSet> myList = new ArrayList<OutstationChangeSet>();
+            ArrayList<Integer> nodeIndex = new ArrayList<Integer>();
             String str = "";
             DNPTime timestamp = new DNPTime(System.currentTimeMillis());
             OutstationChangeSet set = new OutstationChangeSet();

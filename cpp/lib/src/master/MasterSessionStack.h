@@ -29,6 +29,8 @@
 
 #include <exe4cpp/asio/StrandExecutor.h>
 
+#include <memory>
+
 namespace opendnp3
 {
 
@@ -102,14 +104,14 @@ public:
                          FunctionCode func,
                          const std::vector<Header>& headers,
                          const TaskConfig& config) final;
-	void ImmediateFreeze(const std::string& name,
-						FunctionCode func,
-						const std::vector<Header>& headers,
-						const TaskConfig& config) final;
-	void FreezeClear(const std::string& name,
-					FunctionCode func,
-					const std::vector<Header>& headers,
-					const TaskConfig& config) final;
+		void ImmediateFreeze(const std::string& name,
+												 FunctionCode func,
+												 const std::vector<Header>& headers,
+												 const TaskConfig& config) final;
+		void FreezeClear(const std::string& name,
+										 FunctionCode func,
+										 const std::vector<Header>& headers,
+										 const TaskConfig& config) final;
 
     /// --- ICommandProcessor ---
 
@@ -136,7 +138,7 @@ private:
     std::shared_ptr<LinkSession> session;
 
     TransportStack stack;
-    MContext context;
+    std::shared_ptr<MContext> context;
 };
 
 } // namespace opendnp3
